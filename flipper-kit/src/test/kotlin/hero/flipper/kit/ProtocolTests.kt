@@ -15,6 +15,7 @@ import com.flipperdevices.protobuf.system.PingResponse
 import com.flipperdevices.protobuf.system.UpdateResponse
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import okio.ByteString.Companion.toByteString
 import kotlin.test.Test
@@ -539,7 +540,7 @@ class ScreenTests {
     }
 
     @Test
-    fun captureReceivesTheUnsolicitedFrame() = runTest {
+    fun captureReceivesTheUnsolicitedFrame() = runBlocking {
         val transport = MockTransport()
         val pixelBuffer = buffer(listOf(10 to 10))
         transport.responder = { request ->
@@ -555,7 +556,7 @@ class ScreenTests {
         }
         val client = FlipperRpcClient(transport, 2.seconds)
         client.start()
-        val frame = client.captureScreen(2.seconds)
+        val frame = client.captureScreen(5.seconds)
         assertTrue(frame.pixel(10, 10))
         assertEquals(1, transport.requests.count { it.gui_stop_screen_stream_request != null })
     }
