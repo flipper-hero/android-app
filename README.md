@@ -38,6 +38,11 @@ Debug APKs are written to `app/build/outputs/apk/full/debug/` and
 `app/build/outputs/apk/play/debug/`. They are development builds, not signed
 release artifacts.
 
+Pushing a `vMAJOR.MINOR.PATCH` tag runs the same checks, signs both release
+variants with the stable project key, and publishes a GitHub prerelease with
+the two APKs and SHA-256 checksums. Release signing material lives in GitHub
+Actions secrets, never in this repository.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

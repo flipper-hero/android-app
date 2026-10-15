@@ -13,8 +13,8 @@ android {
         applicationId = "hero.flipper.app"
         minSdk = 31
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = providers.environmentVariable("ANDROID_VERSION_CODE").orNull?.toIntOrNull() ?: 1
+        versionName = providers.environmentVariable("ANDROID_VERSION_NAME").orNull ?: "1.0"
     }
 
     buildFeatures {
@@ -42,6 +42,18 @@ android {
             applicationIdSuffix = ".play"
             buildConfigField("boolean", "FULL_EDITION", "false")
         }
+    }
+
+    val releaseStore = providers.environmentVariable("ANDROID_KEYSTORE_FILE").orNull
+    val releasePassword = providers.environmentVariable("ANDROID_KEYSTORE_PASSWORD").orNull
+    if (releaseStore != null && releasePassword != null) {
+        signingConfigs.create("release") {
+            storeFile = file(releaseStore)
+            storePassword = releasePassword
+            keyAlias = "flipperhero"
+            keyPassword = releasePassword
+        }
+        buildTypes.getByName("release").signingConfig = signingConfigs.getByName("release")
     }
 }
 
