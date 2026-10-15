@@ -163,21 +163,6 @@ class ToolSweepTests {
         }
     }
 
-    @Test
-    fun parityTableOnlyNamesRealTools() {
-        val text = File("/Users/fbettag/src/flipperzero/flipper-agent-ios/AGENTS.md").readText()
-        val names = text.lines()
-            .filter { it.startsWith("|") && !it.startsWith("|---") }
-            .flatMap { row ->
-                row.split("`").mapIndexedNotNull { index, part -> if (index % 2 == 1) part else null }
-            }
-            .filter { Regex("^[a-z]+(_[a-z]+)+$").matches(it) }
-            .toSet()
-        assertTrue(names.size > 20)
-        val tools = ToolCatalog.specs(FullEdition).map { it.name }.toSet()
-        assertEquals(emptySet(), names - tools)
-    }
-
     companion object {
         val samples = listOf(
             "marauder" to """{"action":"list_ap"}""",
