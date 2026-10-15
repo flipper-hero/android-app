@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"تفعيل وضع الـ Engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"تفعيل وضع الـ Engagement..."</string>
+    <string name="k396932526642">"نصوص Bad KB تبدأ دون أن يضغط أحد Run"</string>
+    <string name="k06114a8ade22">"تجميع آخر %%lld قيود تدقيق في تقرير engagement"</string>
+    <string name="k5a0f06c6e948">"اضبط طرف GPIO %%@ على %%@"</string>
+    <string name="ked371761db85">"إنهاء وضع الـ Engagement"</string>
+    <string name="k331ff05d9dc3">"ينهي وضع الـ Engagement؛ يعود الوكيل للسؤال."</string>
+    <string name="k10b781509d0d">"للانخراطات المصرّح بها: يوافق مسبقًا على إجراءات هذه الجلسة حتى يعمل الوكيل دون تنبيه في كل خطوة. المسارات المحجوبة تبقى محجوبة، وكل شيء يُسجَّل، ويتعطيل عند قطع الاتصال أو إعادة تشغيل التطبيق. يمكن للوكيل طلبه في المحادثة، لكن تأكيده لك وحدك."</string>
+    <string name="k0eadefa12b6d">"الأوامر الخام تصل إلى كل ما تكشفه الثابتة، بما في ذلك المسارات التي تحميها الأدوات العادية. نصوص Bad KB التي تُبدأ تكتب في الجهاز الموصل به الـ Flipper."</string>
+    <string name="k3fef64768db0">"أوامر جهاز خام (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"اقرأ مستوى طرف GPIO %%@"</string>
+    <string name="k4612691534be">"اجعل طرف GPIO %%@ مدخلًا"</string>
+    <string name="kc2b6424fe779">"اجعل طرف GPIO %%@ مخرجًا"</string>
+    <string name="kd60c4751fe70">"بدء نصوص Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"ابدأ نص Bad KB %%@ على الـ Flipper الآن"</string>
+    <string name="k9f9d538ba036">"يقود طرف GPIO %%@ على رأس التوسعة"</string>
+    <string name="kecefc54e7273">"ينهي وضع الـ Engagement؛ يعود الوكيل للسؤال"</string>
+    <string name="k7aaa79284851">"يضع %%@ على طرف GPIO %%@"</string>
+    <string name="k13b482620026">"يقرأ طرف GPIO %%@، دون أي تغيير"</string>
+    <string name="k71762ffac238">"يعيد ضبط طرف GPIO %%@ على رأس التوسعة"</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Attiva la modalità engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Attiva la modalità engagement..."</string>
+    <string name="k396932526642">"gli script Bad KB partono senza che nessuno prema Run"</string>
+    <string name="k06114a8ade22">"Riunisci le ultime %%lld voci di audit in un report di engagement"</string>
+    <string name="k5a0f06c6e948">"Porta il pin GPIO %%@ a %%@"</string>
+    <string name="ked371761db85">"Termina la modalità engagement"</string>
+    <string name="k331ff05d9dc3">"Termina la modalità engagement; l\'agente chiede di nuovo."</string>
+    <string name="k10b781509d0d">"Per engagement autorizzati: pre-approva le azioni di questa sessione così che l\'agente lavori senza un prompt per ogni passaggio. I percorsi bloccati restano bloccati, tutto viene registrato e si disattiva alla disconnessione o al riavvio dell\'app. L\'agente può richiederlo in chat, ma solo tu lo confermi."</string>
+    <string name="k0eadefa12b6d">"I comandi grezzi raggiungono tutto ciò che il firmware espone, compresi i percorsi che i normali strumenti proteggono. Gli script Bad KB avviati digitano sulla macchina a cui il Flipper è collegato."</string>
+    <string name="k3fef64768db0">"Comandi grezzi (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Leggi il livello del pin GPIO %%@"</string>
+    <string name="k4612691534be">"Imposta il pin GPIO %%@ come ingresso"</string>
+    <string name="kc2b6424fe779">"Imposta il pin GPIO %%@ come uscita"</string>
+    <string name="kd60c4751fe70">"Avvia script Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Avvia ora lo script Bad KB %%@ sul Flipper"</string>
+    <string name="k9f9d538ba036">"pilota il pin GPIO %%@ del connettore di espansione"</string>
+    <string name="kecefc54e7273">"termina la modalità engagement; l\'agente chiede di nuovo"</string>
+    <string name="k7aaa79284851">"mette %%@ sul pin GPIO %%@"</string>
+    <string name="k13b482620026">"legge il pin GPIO %%@, non cambia nulla"</string>
+    <string name="k71762ffac238">"riconfigura il pin GPIO %%@ del connettore di espansione"</string>
+</resources>

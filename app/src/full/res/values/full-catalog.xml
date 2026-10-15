@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Arm engagement mode (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Arm engagement mode..."</string>
+    <string name="k396932526642">"Bad KB scripts start without anyone pressing Run"</string>
+    <string name="k06114a8ade22">"Compile the last %%lld audit entries into an engagement report"</string>
+    <string name="k5a0f06c6e948">"Drive GPIO pin %%@ %%@"</string>
+    <string name="ked371761db85">"End engagement mode"</string>
+    <string name="k331ff05d9dc3">"Ends engagement mode; the agent asks again."</string>
+    <string name="k10b781509d0d">"For authorized engagements: pre-approves actions for this session so the agent can work without a prompt per step. Blocked paths stay blocked, everything is audited, and it disarms on disconnect or app restart. The agent can request arming in chat, but only you can confirm it."</string>
+    <string name="k0eadefa12b6d">"Raw commands can reach anything the firmware exposes, including paths the normal tools protect. Started Bad KB scripts type into whatever machine the Flipper is plugged into."</string>
+    <string name="k3fef64768db0">"Raw device commands (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Read the level of GPIO pin %%@"</string>
+    <string name="k4612691534be">"Set GPIO pin %%@ to input"</string>
+    <string name="kc2b6424fe779">"Set GPIO pin %%@ to output"</string>
+    <string name="kd60c4751fe70">"Start Bad KB scripts (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Start the Bad KB script %%@ on the Flipper now"</string>
+    <string name="k9f9d538ba036">"drives GPIO pin %%@ from the expansion header"</string>
+    <string name="kecefc54e7273">"ends engagement mode; the agent asks again"</string>
+    <string name="k7aaa79284851">"puts %%@ on GPIO pin %%@"</string>
+    <string name="k13b482620026">"reads GPIO pin %%@, changes nothing"</string>
+    <string name="k71762ffac238">"reconfigures GPIO pin %%@ on the expansion header"</string>
+</resources>

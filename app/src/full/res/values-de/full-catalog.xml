@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Engagement-Modus aktivieren (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Engagement-Modus aktivieren..."</string>
+    <string name="k396932526642">"Bad-KB-Skripte starten, ohne dass jemand Run drückt"</string>
+    <string name="k06114a8ade22">"Die letzten %%lld Audit-Einträge zu einem Engagement-Bericht zusammenfassen"</string>
+    <string name="k5a0f06c6e948">"GPIO-Pin %%@ auf %%@ setzen"</string>
+    <string name="ked371761db85">"Engagement-Modus beenden"</string>
+    <string name="k331ff05d9dc3">"Beendet den Engagement-Modus; der Agent fragt wieder."</string>
+    <string name="k10b781509d0d">"Für autorisierte Engagements: genehmigt Aktionen für diese Sitzung vor, damit der Agent ohne Nachfrage pro Schritt arbeiten kann. Blockierte Pfade bleiben blockiert, alles wird auditiert, und bei Trennung oder App-Neustart wird es beendet. Der Agent kann im Chat darum bitten, aber nur du bestätigst es."</string>
+    <string name="k0eadefa12b6d">"Rohe Befehle erreichen alles, was die Firmware bereitstellt, auch Pfade, die die normalen Werkzeuge schützen. Gestartete Bad-KB-Skripte tippen in den Rechner, an dem der Flipper hängt."</string>
+    <string name="k3fef64768db0">"Rohe Gerätebefehle (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Pegel von GPIO-Pin %%@ lesen"</string>
+    <string name="k4612691534be">"GPIO-Pin %%@ auf Eingang stellen"</string>
+    <string name="kc2b6424fe779">"GPIO-Pin %%@ auf Ausgang stellen"</string>
+    <string name="kd60c4751fe70">"Bad-KB-Skripte starten (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Bad-KB-Skript %%@ jetzt auf dem Flipper starten"</string>
+    <string name="k9f9d538ba036">"schaltet GPIO-Pin %%@ am Erweiterungs-Header"</string>
+    <string name="kecefc54e7273">"beendet den Engagement-Modus; der Agent fragt wieder"</string>
+    <string name="k7aaa79284851">"legt %%@ an GPIO-Pin %%@ an"</string>
+    <string name="k13b482620026">"liest GPIO-Pin %%@, ändert nichts"</string>
+    <string name="k71762ffac238">"konfiguriert GPIO-Pin %%@ am Erweiterungs-Header um"</string>
+</resources>

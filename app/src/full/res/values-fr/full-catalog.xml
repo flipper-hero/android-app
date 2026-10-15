@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Armer le mode engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Armer le mode engagement..."</string>
+    <string name="k396932526642">"les scripts Bad KB démarrent sans que personne n\'appuie sur Run"</string>
+    <string name="k06114a8ade22">"Compiler les %%lld dernières entrées d\'audit en un rapport d\'engagement"</string>
+    <string name="k5a0f06c6e948">"Mettre la broche GPIO %%@ sur %%@"</string>
+    <string name="ked371761db85">"Terminer le mode engagement"</string>
+    <string name="k331ff05d9dc3">"Termine le mode engagement ; l\'agent redemande."</string>
+    <string name="k10b781509d0d">"Pour des engagements autorisés : pré-approuve les actions de cette session afin que l\'agent travaille sans confirmation à chaque étape. Les chemins bloqués restent bloqués, tout est journalisé, et le mode se désarme à la déconnexion ou au redémarrage de l\'app. L\'agent peut le demander dans le chat, mais vous seul le confirmez."</string>
+    <string name="k0eadefa12b6d">"Les commandes brutes atteignent tout ce que le firmware expose, y compris les chemins que les outils normaux protègent. Un script Bad KB démarré tape sur la machine à laquelle le Flipper est branché."</string>
+    <string name="k3fef64768db0">"Commandes brutes (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Lire le niveau de la broche GPIO %%@"</string>
+    <string name="k4612691534be">"Configurer la broche GPIO %%@ en entrée"</string>
+    <string name="kc2b6424fe779">"Configurer la broche GPIO %%@ en sortie"</string>
+    <string name="kd60c4751fe70">"Démarrer les scripts Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Démarrer le script Bad KB %%@ sur le Flipper maintenant"</string>
+    <string name="k9f9d538ba036">"pilote la broche GPIO %%@ du connecteur d\'extension"</string>
+    <string name="kecefc54e7273">"termine le mode engagement ; l\'agent redemande"</string>
+    <string name="k7aaa79284851">"applique %%@ sur la broche GPIO %%@"</string>
+    <string name="k13b482620026">"lit la broche GPIO %%@, ne change rien"</string>
+    <string name="k71762ffac238">"reconfigure la broche GPIO %%@ du connecteur d\'extension"</string>
+</resources>

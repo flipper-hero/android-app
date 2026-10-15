@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Увімкнути режим engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Увімкнути режим engagement..."</string>
+    <string name="k396932526642">"скрипти Bad KB запускаються без натискання Run"</string>
+    <string name="k06114a8ade22">"Зібрати останні %%lld записів журналу у звіт по engagement"</string>
+    <string name="k5a0f06c6e948">"Встановити вивід GPIO %%@ у %%@"</string>
+    <string name="ked371761db85">"Завершити режим engagement"</string>
+    <string name="k331ff05d9dc3">"Завершує режим engagement; агент знову питає."</string>
+    <string name="k10b781509d0d">"Для авторизованих engagement-завдань: заздалегідь схвалює дії цієї сесії, щоб агент працював без запиту на кожному кроці. Заблоковані шляхи залишаються заблокованими, усе пишеться до журналу, а під час від\'єднання чи перезапуску програми режим вимикається. Агент може попросити в чаті, але підтверджуєте лише ви."</string>
+    <string name="k0eadefa12b6d">"Сирі команди сягають усього, що відкриває прошивка, включно зі шляхами, які звичайні інструменти захищають. Запущені скрипти Bad KB набирають текст на машині, до якої під\'єднаний Flipper."</string>
+    <string name="k3fef64768db0">"Сирі команди пристрою (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Зчитати рівень виводу GPIO %%@"</string>
+    <string name="k4612691534be">"Перевести вивід GPIO %%@ у режим входу"</string>
+    <string name="kc2b6424fe779">"Перевести вивід GPIO %%@ у режим виходу"</string>
+    <string name="kd60c4751fe70">"Запускати скрипти Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Запустити скрипт Bad KB %%@ на Flipper зараз"</string>
+    <string name="k9f9d538ba036">"керує виводом GPIO %%@ на роз\'ємі розширення"</string>
+    <string name="kecefc54e7273">"завершує режим engagement; агент знову питає"</string>
+    <string name="k7aaa79284851">"подає %%@ на вивід GPIO %%@"</string>
+    <string name="k13b482620026">"читає вивід GPIO %%@, нічого не змінює"</string>
+    <string name="k71762ffac238">"переналаштовує вивід GPIO %%@ на роз\'ємі розширення"</string>
+</resources>

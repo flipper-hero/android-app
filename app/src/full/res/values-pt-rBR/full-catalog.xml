@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Ativar o modo engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Ativar o modo engagement..."</string>
+    <string name="k396932526642">"scripts do Bad KB iniciam sem que ninguém pressione Run"</string>
+    <string name="k06114a8ade22">"Compilar as últimas %%lld entradas de auditoria em um relatório de engagement"</string>
+    <string name="k5a0f06c6e948">"Colocar o pino GPIO %%@ em %%@"</string>
+    <string name="ked371761db85">"Encerrar o modo engagement"</string>
+    <string name="k331ff05d9dc3">"Encerra o modo engagement; o agente volta a perguntar."</string>
+    <string name="k10b781509d0d">"Para engagements autorizados: pré-aprova as ações desta sessão para que o agente trabalhe sem um aviso por etapa. Caminhos bloqueados continuam bloqueados, tudo é auditado e desarma ao desconectar ou reiniciar o app. O agente pode pedir no chat, mas só você confirma."</string>
+    <string name="k0eadefa12b6d">"Comandos brutos alcançam tudo que o firmware expõe, incluindo caminhos que as ferramentas normais protegem. Scripts do Bad KB iniciados digitam na máquina em que o Flipper estiver ligado."</string>
+    <string name="k3fef64768db0">"Comandos brutos do dispositivo (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Ler o nível do pino GPIO %%@"</string>
+    <string name="k4612691534be">"Definir o pino GPIO %%@ como entrada"</string>
+    <string name="kc2b6424fe779">"Definir o pino GPIO %%@ como saída"</string>
+    <string name="kd60c4751fe70">"Iniciar scripts do Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Iniciar o script do Bad KB %%@ no Flipper agora"</string>
+    <string name="k9f9d538ba036">"controla o pino GPIO %%@ do conector de expansão"</string>
+    <string name="kecefc54e7273">"encerra o modo engagement; o agente volta a perguntar"</string>
+    <string name="k7aaa79284851">"aplica %%@ no pino GPIO %%@"</string>
+    <string name="k13b482620026">"lê o pino GPIO %%@, não muda nada"</string>
+    <string name="k71762ffac238">"reconfigura o pino GPIO %%@ do conector de expansão"</string>
+</resources>

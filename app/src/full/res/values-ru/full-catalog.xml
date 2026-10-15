@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Включить режим engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Включить режим engagement..."</string>
+    <string name="k396932526642">"скрипты Bad KB запускаются без нажатия Run"</string>
+    <string name="k06114a8ade22">"Собрать последние %%lld записей журнала в отчёт по engagement"</string>
+    <string name="k5a0f06c6e948">"Установить вывод GPIO %%@ в %%@"</string>
+    <string name="ked371761db85">"Завершить режим engagement"</string>
+    <string name="k331ff05d9dc3">"Завершает режим engagement; агент снова спрашивает."</string>
+    <string name="k10b781509d0d">"Для авторизованных engagement-задач: заранее одобряет действия этой сессии, чтобы агент работал без запроса на каждом шаге. Заблокированные пути остаются заблокированными, всё пишется в журнал, а при отключении или перезапуске приложения режим выключается. Агент может попросить включить его в чате, но подтверждаете только вы."</string>
+    <string name="k0eadefa12b6d">"Сырые команды достают всё, что открывает прошивка, включая пути, которые обычные инструменты защищают. Запущенные скрипты Bad KB печатают на той машине, к которой подключён Flipper."</string>
+    <string name="k3fef64768db0">"Сырые команды устройства (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Считать уровень вывода GPIO %%@"</string>
+    <string name="k4612691534be">"Перевести вывод GPIO %%@ в режим входа"</string>
+    <string name="kc2b6424fe779">"Перевести вывод GPIO %%@ в режим выхода"</string>
+    <string name="kd60c4751fe70">"Запускать скрипты Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Запустить скрипт Bad KB %%@ на Flipper сейчас"</string>
+    <string name="k9f9d538ba036">"управляет выводом GPIO %%@ на разъёме расширения"</string>
+    <string name="kecefc54e7273">"завершает режим engagement; агент снова спрашивает"</string>
+    <string name="k7aaa79284851">"подаёт %%@ на вывод GPIO %%@"</string>
+    <string name="k13b482620026">"читает вывод GPIO %%@, ничего не меняет"</string>
+    <string name="k71762ffac238">"перенастраивает вывод GPIO %%@ на разъёме расширения"</string>
+</resources>

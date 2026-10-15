@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"エンゲージメントモードを有効化（%%@）%%@"</string>
+    <string name="kbfddfe24d657">"エンゲージメントモードを有効に..."</string>
+    <string name="k396932526642">"Bad KB スクリプトは誰も Run を押さずに開始します"</string>
+    <string name="k06114a8ade22">"直近 %%lld 件の監査記録をエンゲージメントレポートにまとめます"</string>
+    <string name="k5a0f06c6e948">"GPIO ピン %%@ を %%@ にします"</string>
+    <string name="ked371761db85">"エンゲージメントモードを終了します"</string>
+    <string name="k331ff05d9dc3">"エンゲージメントモードを終了し、エージェントは再び確認します。"</string>
+    <string name="k10b781509d0d">"許可されたエンゲージメント用：このセッションの操作を事前に承認し、エージェントが一歩ごとに確認せず作業できるようにします。ブロックされたパスはブロックされたまま、すべてが監査され、接続切断やアプリ再起動で解除されます。エージェントはチャットで有効化を求められますが、確認するのはあなただけです。"</string>
+    <string name="k0eadefa12b6d">"生のコマンドは、通常のツールが保護するパスを含め、ファームウェアが公開しているすべてに届きます。開始した Bad KB スクリプトは、Flipper が接続されたマシンに入力します。"</string>
+    <string name="k3fef64768db0">"生のデバイスコマンド（rpc_raw）"</string>
+    <string name="k1455ff1dcd07">"GPIO ピン %%@ のレベルを読み取ります"</string>
+    <string name="k4612691534be">"GPIO ピン %%@ を入力に設定します"</string>
+    <string name="kc2b6424fe779">"GPIO ピン %%@ を出力に設定します"</string>
+    <string name="kd60c4751fe70">"Bad KB スクリプトを開始（badusb_execute）"</string>
+    <string name="k6823e38a98a3">"Flipper で Bad KB スクリプト %%@ を今すぐ開始します"</string>
+    <string name="k9f9d538ba036">"拡張ヘッダーの GPIO ピン %%@ を駆動します"</string>
+    <string name="kecefc54e7273">"エンゲージメントモードを終了し、エージェントは再び確認します"</string>
+    <string name="k7aaa79284851">"GPIO ピン %%@ に %%@ を出力します"</string>
+    <string name="k13b482620026">"GPIO ピン %%@ を読み取ります。変更はしません"</string>
+    <string name="k71762ffac238">"拡張ヘッダーの GPIO ピン %%@ を再設定します"</string>
+</resources>

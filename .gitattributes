@@ -1,0 +1,2 @@
+gradlew.bat text eol=crlf
+flipper-proto/src/main/proto/*.proto whitespace=-blank-at-eof

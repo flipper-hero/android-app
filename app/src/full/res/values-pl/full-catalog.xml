@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"Uzbrój tryb engagement (%%@)%%@"</string>
+    <string name="kbfddfe24d657">"Aktywuj tryb engagement..."</string>
+    <string name="k396932526642">"skrypty Bad KB startują bez naciskania Run"</string>
+    <string name="k06114a8ade22">"Zbierz ostatnie %%lld wpisów audytu w raport z engagementu"</string>
+    <string name="k5a0f06c6e948">"Ustaw pin GPIO %%@ na %%@"</string>
+    <string name="ked371761db85">"Zakończ tryb engagement"</string>
+    <string name="k331ff05d9dc3">"Kończy tryb engagement; agent znów pyta."</string>
+    <string name="k10b781509d0d">"Do autoryzowanych engagementów: z góry zatwierdza działania tej sesji, aby agent pracował bez pytania o każdy krok. Zablokowane ścieżki pozostają zablokowane, wszystko jest audytowane, a rozłączenie lub restart aplikacji go rozbraja. Agent może o to poprosić na czacie, ale tylko ty to potwierdzasz."</string>
+    <string name="k0eadefa12b6d">"Surowe polecenia sięgają wszystkiego, co udostępnia firmware, także ścieżek chronionych przez zwykłe narzędzia. Uruchomione skrypty Bad KB wpisują tekst na komputer, do którego podpięty jest Flipper."</string>
+    <string name="k3fef64768db0">"Surowe polecenia urządzenia (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Odczytaj poziom pinu GPIO %%@"</string>
+    <string name="k4612691534be">"Ustaw pin GPIO %%@ jako wejście"</string>
+    <string name="kc2b6424fe779">"Ustaw pin GPIO %%@ jako wyjście"</string>
+    <string name="kd60c4751fe70">"Uruchamiaj skrypty Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Uruchom teraz skrypt Bad KB %%@ na Flipperze"</string>
+    <string name="k9f9d538ba036">"steruje pinem GPIO %%@ na złączu rozszerzeń"</string>
+    <string name="kecefc54e7273">"kończy tryb engagement; agent znów pyta"</string>
+    <string name="k7aaa79284851">"podaje %%@ na pin GPIO %%@"</string>
+    <string name="k13b482620026">"odczytuje pin GPIO %%@, nic nie zmienia"</string>
+    <string name="k71762ffac238">"przekonfigurowuje pin GPIO %%@ na złączu rozszerzeń"</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="k41b4f6a3e61e">"启用 Engagement 模式（%%@）%%@"</string>
+    <string name="kbfddfe24d657">"启用 Engagement 模式..."</string>
+    <string name="k396932526642">"Bad KB 脚本在无人按 Run 的情况下启动"</string>
+    <string name="k06114a8ade22">"将最近 %%lld 条审计条目汇总为 engagement 报告"</string>
+    <string name="k5a0f06c6e948">"将 GPIO 引脚 %%@ 置为 %%@"</string>
+    <string name="ked371761db85">"结束 Engagement 模式"</string>
+    <string name="k331ff05d9dc3">"结束 Engagement 模式；智能体将重新询问。"</string>
+    <string name="k10b781509d0d">"用于已授权的测试任务：预先批准本次会话的操作，让智能体逐步工作而无需逐项确认。被屏蔽的路径仍然屏蔽，所有操作都会审计，断开连接或重启应用即解除。智能体可以在对话中请求启用，但只有你能确认。"</string>
+    <string name="k0eadefa12b6d">"原始命令可以访问固件暴露的一切，包括普通工具所保护的路径。已启动的 Bad KB 脚本会向 Flipper 所连接的电脑输入按键。"</string>
+    <string name="k3fef64768db0">"原始设备命令（rpc_raw）"</string>
+    <string name="k1455ff1dcd07">"读取 GPIO 引脚 %%@ 的电平"</string>
+    <string name="k4612691534be">"将 GPIO 引脚 %%@ 设为输入"</string>
+    <string name="kc2b6424fe779">"将 GPIO 引脚 %%@ 设为输出"</string>
+    <string name="kd60c4751fe70">"启动 Bad KB 脚本（badusb_execute）"</string>
+    <string name="k6823e38a98a3">"立即在 Flipper 上启动 Bad KB 脚本 %%@"</string>
+    <string name="k9f9d538ba036">"驱动扩展排针上的 GPIO 引脚 %%@"</string>
+    <string name="kecefc54e7273">"结束 Engagement 模式；智能体将重新询问"</string>
+    <string name="k7aaa79284851">"将 %%@ 施加到 GPIO 引脚 %%@"</string>
+    <string name="k13b482620026">"读取 GPIO 引脚 %%@，不做任何更改"</string>
+    <string name="k71762ffac238">"重新配置扩展排针上的 GPIO 引脚 %%@"</string>
+</resources>
