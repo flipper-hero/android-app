@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="500" viewBox="0 0 1024 500">
+<rect width="1024" height="500" fill="#0A0A0B"/>
+<path d="M0 499H1024" stroke="#FF8200" stroke-width="8"/>
+<image x="32" y="87" width="326" height="326" xlink:href="../../app/src/main/res/drawable-nodpi/flipperhero_logo.png"/>
+<g font-family="Arial,sans-serif">
+<text x="390" y="186" fill="#FF8200" font-size="16" font-weight="700" letter-spacing="4">FOR FLIPPER ZERO</text>
+<text x="386" y="263" fill="#FAF8F2" font-size="70" font-weight="700" letter-spacing="-2">FlipperHero</text>
+<text x="390" y="313" fill="#B8B6B0" font-size="25">Your Flipper. Your AI assistant.</text>
+<text x="390" y="368" fill="#FAF8F2" font-size="19">Bluetooth · Remote · Files · Agent</text>
+</g></svg>

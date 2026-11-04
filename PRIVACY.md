@@ -62,6 +62,16 @@ can read reports or update their review status. Reports expire after 90 days and
 by the backend cleanup job. We use reports to review offensive or harmful content and improve
 safeguards. Contact franz@bett.ag about privacy requests concerning a report.
 
+## Request data deletion
+
+FlipperHero has no app account to delete. To request deletion of a content report, email
+[franz@bett.ag](mailto:franz@bett.ag) with “FlipperHero data deletion” in the subject and the
+approximate submission date and enough of the reported excerpt to identify it. Do not send
+API keys or other secrets. We may ask for clarification before deleting the matching report.
+Anonymous analytics cannot always be associated with an individual; tell us the approximate
+time and platform if your request concerns analytics. Requests concerning AI conversations
+stored by your chosen provider must also be made to that provider under its privacy policy.
+
 ## Device features and permissions
 
 - Bluetooth permission discovers and connects to your Flipper Zero. Scan results are not used
