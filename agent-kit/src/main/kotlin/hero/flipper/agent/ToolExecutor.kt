@@ -124,6 +124,8 @@ class ToolExecutor(
             val images = pendingImages.toList()
             pendingImages.clear()
             ToolResult.ok(output, images)
+        } catch (error: kotlinx.coroutines.CancellationException) {
+            throw error
         } catch (error: Exception) {
             audit.record(
                 AuditRecord(

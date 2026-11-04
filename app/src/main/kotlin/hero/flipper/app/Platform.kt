@@ -117,6 +117,8 @@ class ReadAloud(context: Context) {
         tts.stop()
         speaking = false
     }
+
+    fun shutdown() { tts.shutdown() }
 }
 
 class VoiceInput(context: Context) {
@@ -145,4 +147,6 @@ class VoiceInput(context: Context) {
     fun stop() {
         recognizer.stopListening()
     }
+
+    fun destroy() { recognizer.destroy() }
 }

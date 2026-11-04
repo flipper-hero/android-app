@@ -19,9 +19,10 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: android-actions/setup-android@v4
-      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew :flipper-kit:test :agent-kit-full:test testFullDebugUnitTest testPlayDebugUnitTest assembleFullDebug assemblePlayDebug --no-daemon
+      - run: ./gradlew :flipper-kit:test :agent-kit-full:test testFullDebugUnitTest testPlayDebugUnitTest assembleFullDebug assemblePlayDebug lintPlayRelease bundlePlayRelease --no-daemon
+      - run: bash scripts/verify-play.sh app/build/outputs/apk/play/debug/app-play-debug.apk
 
   release:
     if: startsWith(github.ref, 'refs/tags/v')
@@ -36,7 +37,7 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: android-actions/setup-android@v4
-      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
       - uses: gradle/actions/setup-gradle@v4
       - name: Derive Android version from tag
         id: version
@@ -70,29 +71,32 @@ jobs:
           test -n "$ANDROID_KEYSTORE_PASSWORD"
           printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/flipperhero-release.p12"
           chmod 600 "$RUNNER_TEMP/flipperhero-release.p12"
-      - name: Build signed release APKs
+      - name: Build signed APKs and Play app bundle
         env:
           ANDROID_VERSION_CODE: ${{ steps.version.outputs.code }}
           ANDROID_VERSION_NAME: ${{ steps.version.outputs.name }}
           ANDROID_KEYSTORE_FILE: ${{ runner.temp }}/flipperhero-release.p12
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-        run: ./gradlew assembleFullRelease assemblePlayRelease --no-daemon
+        run: ./gradlew assembleFullRelease assemblePlayRelease bundlePlayRelease --no-daemon
       - name: Verify and name APKs
         shell: bash
         run: |
           mkdir dist
           cp app/build/outputs/apk/full/release/app-full-release.apk "dist/FlipperHero-${GITHUB_REF_NAME}-full.apk"
           cp app/build/outputs/apk/play/release/app-play-release.apk "dist/FlipperHero-${GITHUB_REF_NAME}-play.apk"
+          cp app/build/outputs/bundle/playRelease/app-play-release.aab "dist/FlipperHero-${GITHUB_REF_NAME}-play.aab"
           for apk in dist/*.apk; do
             "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose "$apk"
           done
+          bash scripts/verify-play.sh "dist/FlipperHero-${GITHUB_REF_NAME}-play.aab"
+          jarsigner -verify "dist/FlipperHero-${GITHUB_REF_NAME}-play.aab"
           cd dist
-          sha256sum ./*.apk > SHA256SUMS
+          sha256sum ./*.apk ./*.aab > SHA256SUMS
       - name: Publish preview release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/*.apk dist/SHA256SUMS \
+          gh release create "$GITHUB_REF_NAME" dist/*.apk dist/*.aab dist/SHA256SUMS \
             --verify-tag --title "FlipperHero Android $GITHUB_REF_NAME" \
             --notes 'Android preview. Bluetooth and device operations still require testing on an Android phone.' \
             --prerelease

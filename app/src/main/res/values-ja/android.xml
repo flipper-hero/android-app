@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"マイク"</string>
+    <string name="camera">"カメラ"</string>
+    <string name="send">"送信"</string>
+    <string name="remove">"削除"</string>
+    <string name="back">"戻る"</string>
+    <string name="search_models">"モデルを検索"</string>
+    <string name="shortcuts">"ショートカット"</string>
+    <string name="flipper_screen">"Flipper の画面"</string>
+    <string name="permission_denied">"権限が拒否されました。Android の設定で有効にできます。"</string>
+    <string name="ai_data_disclosure">"API キーはこのスマートフォンの暗号化ストレージに保存されます。メッセージ、写真、エージェントが読み取ったファイルの内容は、選択した AI サービスとそのモデルプロバイダーに直接送信されます。"</string>
+</resources>

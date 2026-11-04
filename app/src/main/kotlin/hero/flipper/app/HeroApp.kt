@@ -8,6 +8,7 @@ class HeroApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        hero.flipper.agent.AgentLocalization.resolve = { key, arguments -> Catalog.text(this, key, *arguments.toTypedArray()) }
         model = HeroModel(this)
         runCatching { HeroShortcuts.publish(this) }
     }

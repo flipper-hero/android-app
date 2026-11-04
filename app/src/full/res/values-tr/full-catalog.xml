@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"Engagement modunu etkinleştir (%%@)%%@"</string>
-    <string name="kbfddfe24d657">"Engagement modunu etkinleştir..."</string>
-    <string name="k396932526642">"Bad KB betikleri kimse Run\'a basmadan başlıyor"</string>
-    <string name="k06114a8ade22">"Son %%lld denetim kaydını bir engagement raporunda topla"</string>
-    <string name="k5a0f06c6e948">"GPIO %%@ pinini %%@ yap"</string>
-    <string name="ked371761db85">"Engagement modunu bitir"</string>
-    <string name="k331ff05d9dc3">"Engagement modunu bitirir; ajan yeniden sorar."</string>
-    <string name="k10b781509d0d">"Yetkili engagement\'lar için: bu oturumun işlemlerini önceden onaylar, böylece ajan her adımda sormadan çalışır. Engellenen yollar engelli kalır, her şey denetlenir ve bağlantı kesilince ya da uygulama yeniden başlayınca kapanır. Ajan sohbette isteyebilir ama onaylayan yalnızca sensin."</string>
-    <string name="k0eadefa12b6d">"Ham komutlar, normal araçların koruduğu yollar dahil, aygıt yazılımının açtığı her şeye ulaşır. Başlatılan Bad KB betikleri, Flipper\'in takılı olduğu bilgisayara yazar."</string>
-    <string name="k3fef64768db0">"Ham cihaz komutları (rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"GPIO %%@ pininin seviyesini oku"</string>
-    <string name="k4612691534be">"GPIO %%@ pinini giriş yap"</string>
-    <string name="kc2b6424fe779">"GPIO %%@ pinini çıkış yap"</string>
-    <string name="kd60c4751fe70">"Bad KB betiklerini başlat (badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Bad KB betiğini (%%@) Flipper\'de şimdi başlat"</string>
-    <string name="k9f9d538ba036">"genişleme başlığındaki GPIO %%@ pinini sürüyor"</string>
-    <string name="kecefc54e7273">"engagement modunu bitirir; ajan yeniden sorar"</string>
-    <string name="k7aaa79284851">"GPIO %%@ pinine %%@ uyguluyor"</string>
-    <string name="k13b482620026">"GPIO %%@ pinini okuyor, hiçbir şeyi değiştirmiyor"</string>
-    <string name="k71762ffac238">"genişleme başlığındaki GPIO %%@ pinini yeniden yapılandırıyor"</string>
+    <string name="k16431a95976e" formatted="false">"Başka bir Marauder işlemi sürüyor"</string>
+    <string name="k41b4f6a3e61e">"Engagement modunu etkinleştir (%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"Engagement modunu etkinleştir..."</string>
+    <string name="k396932526642" formatted="false">"Bad KB betikleri kimse Run'a basmadan başlıyor"</string>
+    <string name="kca09c54bff74" formatted="false">"Yetenekler"</string>
+    <string name="k06114a8ade22">"Son %1$s denetim kaydını bir engagement raporunda topla"</string>
+    <string name="k4db432feeef9" formatted="false">"Engagement modunu kapat"</string>
+    <string name="k5a0f06c6e948">"GPIO %1$s pinini %2$s yap"</string>
+    <string name="ked371761db85" formatted="false">"Engagement modunu bitir"</string>
+    <string name="k331ff05d9dc3" formatted="false">"Engagement modunu bitirir; ajan yeniden sorar."</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement etkin"</string>
+    <string name="kf68d25d8f480" formatted="false">"Engagement modu"</string>
+    <string name="k9cf579277ea7" formatted="false">"Engagement modu kapalı."</string>
+    <string name="k0ddb74423644" formatted="false">"Raporu dışa aktar"</string>
+    <string name="k10b781509d0d" formatted="false">"Yetkili engagement'lar için: bu oturumun işlemlerini önceden onaylar, böylece ajan her adımda sormadan çalışır. Engellenen yollar engelli kalır, her şey denetlenir ve bağlantı kesilince ya da uygulama yeniden başlayınca kapanır. Ajan sohbette isteyebilir ama onaylayan yalnızca sensin."</string>
+    <string name="k427e61efef36" formatted="false">"Etkinleştirmek için basılı tut"</string>
+    <string name="k44999b07787e" formatted="false">"Geçersiz Marauder parametreleri"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder seçilen hedefi kabul etmedi"</string>
+    <string name="k0eadefa12b6d" formatted="false">"Ham komutlar, normal araçların koruduğu yollar dahil, aygıt yazılımının açtığı her şeye ulaşır. Başlatılan Bad KB betikleri, Flipper'in takılı olduğu bilgisayara yazar."</string>
+    <string name="k3fef64768db0" formatted="false">"Ham cihaz komutları (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"GPIO %1$s pininin seviyesini oku"</string>
+    <string name="k1e9aad06e6b7">"Marauder %1$s işlemini çalıştır"</string>
+    <string name="kf82fad3f3930" formatted="false">"İşlemleri sormadan yürüt"</string>
+    <string name="k68b9e08b8b86" formatted="false">"Kapsam notu, ör. müşteri veya konum"</string>
+    <string name="kfa8f03871d20">"Ham cihaz komutunu gönder: %1$s"</string>
+    <string name="k4612691534be">"GPIO %1$s pinini giriş yap"</string>
+    <string name="kc2b6424fe779">"GPIO %1$s pinini çıkış yap"</string>
+    <string name="kd60c4751fe70" formatted="false">"Bad KB betiklerini başlat (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Bad KB betiğini (%1$s) Flipper'de şimdi başlat"</string>
+    <string name="k9f9d538ba036">"genişleme başlığındaki GPIO %1$s pinini sürüyor"</string>
+    <string name="kecefc54e7273" formatted="false">"engagement modunu bitirir; ajan yeniden sorar"</string>
+    <string name="k7aaa79284851">"GPIO %1$s pinine %2$s uyguluyor"</string>
+    <string name="kb1c74918feaa" formatted="false">"ham cihaz komutları aygıt yazılımının açtığı her şeye ulaşabilir"</string>
+    <string name="k13b482620026">"GPIO %1$s pinini okuyor, hiçbir şeyi değiştirmiyor"</string>
+    <string name="k71762ffac238">"genişleme başlığındaki GPIO %1$s pinini yeniden yapılandırıyor"</string>
+    <string name="k924c166ef159" formatted="false">"normal araç kontrollerini atlayan ham bir cihaz komutu gönderiyor"</string>
 </resources>

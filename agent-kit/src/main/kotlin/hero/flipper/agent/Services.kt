@@ -93,6 +93,17 @@ enum class AIProvider(val wire: String, val displayName: String, val baseURL: St
     Minimax("minimax", "MiniMax", "https://api.minimax.io/v1", "MiniMax-M3"),
     ;
 
+    val documentationURL: String get() = when (this) {
+        OpenRouter -> "https://openrouter.ai/docs"
+        Ai2342 -> "https://2342.ai/en/messages-responses-api-proxy"
+        Blackbit -> "https://docs.blackbit.sh"
+        OrcaRouter -> "https://docs.orcarouter.ai/introduction"
+        Zai -> "https://docs.z.ai/guides/overview/quick-start"
+        Kimi -> "https://platform.moonshot.ai/docs/guide/start-using-kimi-api"
+        Qwen -> "https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope"
+        Minimax -> "https://platform.minimax.io/docs/api-reference/text-openai-api"
+    }
+
     fun validatedBaseURL(address: String): String {
         val trimmed = address.trim()
         val uri = try { URI(trimmed) } catch (_: Exception) { throw ProviderError.InvalidEndpoint() }
@@ -122,12 +133,12 @@ enum class AIProvider(val wire: String, val displayName: String, val baseURL: St
 }
 
 sealed class ProviderError(message: String) : Exception(message) {
-    class InvalidEndpoint : ProviderError("Use an HTTPS API URL from this provider.")
-    class MissingKey : ProviderError("Add an API key in Settings first.")
-    class MissingModel : ProviderError("Choose a model first.")
-    class EmptyReply : ProviderError("The model did not reply. Try another model.")
-    class ModelsUnavailable : ProviderError("No model list is available. Enter a model ID from the provider documentation.")
-    class Status(code: Int) : ProviderError("API request failed (HTTP $code). Check your key, model and account credit.")
+    class InvalidEndpoint : ProviderError(L("Use an HTTPS API URL from this provider."))
+    class MissingKey : ProviderError(L("Add an API key in Settings first."))
+    class MissingModel : ProviderError(L("Choose a model first."))
+    class EmptyReply : ProviderError(L("The model did not reply. Try another model."))
+    class ModelsUnavailable : ProviderError(L("No model list is available. Enter a model ID from the provider documentation."))
+    class Status(code: Int) : ProviderError(L("API request failed (HTTP %lld). Check your key, model and account credit.", code))
 }
 
 data class AIModel(val id: String, val name: String)
@@ -142,6 +153,8 @@ data class ChatMessage(
     val toolCalls: List<ToolCall> = emptyList(),
     val toolCallID: String? = null,
     val images: List<ByteArray> = emptyList(),
+    val reasoning: Map<String, Any> = emptyMap(),
+    val isAutomaticAttachment: Boolean = false,
 )
 
 interface LlmClient {
@@ -187,6 +200,11 @@ class ChatCompletionsClient(
                 item.put("tool_calls", calls)
             }
             if (message.toolCallID != null) item.put("tool_call_id", message.toolCallID)
+            if (message.role == ChatRole.assistant) {
+                for ((key, value) in message.reasoning) {
+                    if (key in reasoningKeys) item.put(key, value)
+                }
+            }
             wire.put(item)
         }
         val body = JSONObject().put("model", model).put("messages", wire)
@@ -214,6 +232,8 @@ class ChatCompletionsClient(
     }
 
     companion object {
+        private val reasoningKeys = setOf("reasoning_content", "reasoning_details", "reasoning")
+
         fun parseResponse(data: ByteArray): ChatMessage {
             val root = try { JSONObject(data.decodeToString()) } catch (_: Exception) {
                 throw LLMError.Malformed("not JSON")
@@ -234,7 +254,9 @@ class ChatCompletionsClient(
                 }
             }
             val content = if (message.isNull("content")) null else message.optString("content", null)
-            return ChatMessage(ChatRole.assistant, content, calls)
+            val reasoning = reasoningKeys.filter { message.has(it) && !message.isNull(it) }
+                .associateWith { message.get(it) }
+            return ChatMessage(ChatRole.assistant, content, calls, reasoning = reasoning)
         }
     }
 }
@@ -265,6 +287,8 @@ class UrlHttp : HttpClient {
             connection.connectTimeout = 20_000
             connection.readTimeout = 60_000
             connection.requestMethod = if (body == null) "GET" else "POST"
+            // A redirect must never forward a customer's provider key to another endpoint.
+            if (headers.keys.any { it.equals("Authorization", ignoreCase = true) }) connection.instanceFollowRedirects = false
             headers.forEach { (key, value) -> connection.setRequestProperty(key, value) }
             if (body != null) {
                 connection.doOutput = true
@@ -286,9 +310,12 @@ class CompletingClient(
     private val model: String,
     private val provider: AIProvider,
     private val baseURL: String = provider.baseURL,
+    private val connectionTest: Boolean = false,
 ) : LlmClient {
     override suspend fun complete(messages: List<ChatMessage>, tools: List<ToolSpec>): ChatMessage {
         val wire = ChatCompletionsClient(apiKey, model, provider)
+        if (model.isBlank()) throw ProviderError.MissingModel()
+        wire.connectionTest = connectionTest
         val url = provider.validatedBaseURL(baseURL).trimEnd('/') + "/chat/completions"
         val response = http.request(
             url,

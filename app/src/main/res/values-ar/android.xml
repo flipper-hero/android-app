@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"الميكروفون"</string>
+    <string name="camera">"الكاميرا"</string>
+    <string name="send">"إرسال"</string>
+    <string name="remove">"إزالة"</string>
+    <string name="back">"رجوع"</string>
+    <string name="search_models">"البحث عن النماذج"</string>
+    <string name="shortcuts">"الاختصارات"</string>
+    <string name="flipper_screen">"شاشة Flipper"</string>
+    <string name="permission_denied">"تم رفض الإذن. يمكنك تفعيله في إعدادات Android."</string>
+    <string name="ai_data_disclosure">"تبقى مفاتيح API في مساحة التخزين المشفرة على هذا الهاتف. تُرسل رسائلك وصورك ومحتويات الملفات التي يقرأها المساعد مباشرةً إلى خدمة الذكاء الاصطناعي التي تختارها ومزوّد النماذج الخاص بها."</string>
+</resources>

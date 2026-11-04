@@ -15,7 +15,7 @@ object FlipperSerial {
 
     fun isFlipperAdvertisement(serviceUuids: List<String>, name: String): Boolean {
         val ids = serviceUuids.map { it.lowercase() }
-        if (ids.any { short -> advertised.any { short.endsWith(it) || short == it } }) return true
+        if (ids.any { id -> advertised.any { id == it || id == "0000$it-0000-1000-8000-00805f9b34fb" } }) return true
         return name.startsWith("Flipper")
     }
 

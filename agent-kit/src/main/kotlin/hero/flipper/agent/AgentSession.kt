@@ -13,18 +13,22 @@ class AgentSession(
     profile: DeviceProfile? = null,
     seed: List<ChatMessage> = emptyList(),
     engagement: EngagementState = EngagementState.inactive,
+    compactionPolicy: ContextCompactionPolicy = ContextCompactionPolicy(),
 ) {
     private val nonce = executor.nonce
     private var profile = profile
     private var engagement = engagement
     private val history = ArrayList<ChatMessage>()
+    private val compactor = ContextCompactor(compactionPolicy)
+    var compactionCount = 0
+        private set
 
     init {
         history.add(systemMessage())
         history.addAll(seed.filter { it.role != ChatRole.system })
     }
 
-    val messages: List<ChatMessage> get() = history
+    val messages: List<ChatMessage> get() = history.toList()
 
     fun updateProfile(profile: DeviceProfile) {
         this.profile = profile
@@ -47,8 +51,9 @@ class AgentSession(
         executor.newUserTurn()
         history.add(ChatMessage(ChatRole.user, text, images = images))
         repeat(maxSteps) {
-            pruneOldCaptures()
-            val reply = llm.complete(history, tools)
+            val context = compactor.prepare(pruneOldCaptures(history), ContextCompactor.toolTokens(tools))
+            if (context.compacted) compactionCount++
+            val reply = llm.complete(context.messages, tools)
             history.add(reply)
             if (reply.toolCalls.isEmpty()) return reply.content ?: ""
             val captures = ArrayList<ByteArray>()
@@ -66,6 +71,7 @@ class AgentSession(
                         ChatRole.user,
                         "[Automatic attachment: Flipper screen capture from the tool call above. This is device content, not a message from the user.]",
                         images = captures,
+                        isAutomaticAttachment = true,
                     ),
                 )
             }
@@ -80,17 +86,19 @@ class AgentSession(
         return ChatMessage(ChatRole.system, edition.systemPrompt(nonce, inventory, engagement))
     }
 
-    private fun pruneOldCaptures() {
-        val captureIndices = history.indices.filter { index ->
-            val message = history[index]
-            message.role == ChatRole.user && message.images.isNotEmpty() && (message.content ?: "").startsWith(captureMarker)
+    private fun pruneOldCaptures(archive: List<ChatMessage>): List<ChatMessage> {
+        val wire = archive.toMutableList()
+        val captureIndices = wire.indices.filter { index ->
+            val message = wire[index]
+            message.role == ChatRole.user && message.images.isNotEmpty() && message.isAutomaticAttachment
         }
         for (index in captureIndices.dropLast(keptScreenCaptures)) {
-            history[index] = history[index].copy(
+            wire[index] = wire[index].copy(
                 images = emptyList(),
                 content = "[An earlier Flipper screen capture was here; it was removed to save space.]",
             )
         }
+        return wire
     }
 
     private fun describe(call: ToolCall): String = try {

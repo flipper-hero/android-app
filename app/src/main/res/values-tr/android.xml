@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"Mikrofon"</string>
+    <string name="camera">"Kamera"</string>
+    <string name="send">"Gönder"</string>
+    <string name="remove">"Kaldır"</string>
+    <string name="back">"Geri"</string>
+    <string name="search_models">"Model ara"</string>
+    <string name="shortcuts">"Kısayollar"</string>
+    <string name="flipper_screen">"Flipper ekranı"</string>
+    <string name="permission_denied">"İzin reddedildi. Android ayarlarından etkinleştirebilirsiniz."</string>
+    <string name="ai_data_disclosure">"API anahtarları bu telefonun şifreli depolamasında kalır. Mesajlarınız, fotoğraflarınız ve aracının okuduğu dosya içerikleri doğrudan seçtiğiniz yapay zekâ hizmetine ve model sağlayıcısına gönderilir."</string>
+</resources>

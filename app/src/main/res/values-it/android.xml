@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"Microfono"</string>
+    <string name="camera">"Fotocamera"</string>
+    <string name="send">"Invia"</string>
+    <string name="remove">"Rimuovi"</string>
+    <string name="back">"Indietro"</string>
+    <string name="search_models">"Cerca modelli"</string>
+    <string name="shortcuts">"Scorciatoie"</string>
+    <string name="flipper_screen">"Schermo del Flipper"</string>
+    <string name="permission_denied">"Autorizzazione negata. Puoi attivarla nelle impostazioni Android."</string>
+    <string name="ai_data_disclosure">"Le chiavi API restano nella memoria crittografata di questo telefono. Messaggi, foto e contenuti dei file letti dall’agente vengono inviati direttamente al servizio IA scelto e al suo fornitore di modelli."</string>
+</resources>

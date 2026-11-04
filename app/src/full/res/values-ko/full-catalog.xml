@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"Engagement 모드 활성화(%%@)%%@"</string>
-    <string name="kbfddfe24d657">"Engagement 모드 활성화..."</string>
-    <string name="k396932526642">"아무도 Run을 누르지 않아도 Bad KB 스크립트가 시작됩니다"</string>
-    <string name="k06114a8ade22">"최근 %%lld개의 감사 항목을 engagement 보고서로 정리합니다"</string>
-    <string name="k5a0f06c6e948">"GPIO 핀 %%@를 %%@로 설정합니다"</string>
-    <string name="ked371761db85">"Engagement 모드를 종료합니다"</string>
-    <string name="k331ff05d9dc3">"Engagement 모드를 종료합니다; 에이전트가 다시 묻습니다."</string>
-    <string name="k10b781509d0d">"허가된 engagement용: 이 세션의 작업을 미리 승인하여 에이전트가 단계마다 묻지 않고 작업할 수 있게 합니다. 차단된 경로는 차단된 상태로 유지되고, 모든 작업은 감사되며, 연결이 끊기거나 앱이 재시작하면 해제됩니다. 에이전트가 채팅에서 요청할 수 있지만 확인하는 것은 사용자뿐입니다."</string>
-    <string name="k0eadefa12b6d">"원시 명령은 일반 도구가 보호하는 경로를 포함해 펌웨어가 노출하는 모든 것에 닿습니다. 시작된 Bad KB 스크립트는 Flipper가 연결된 컴퓨터에 입력합니다."</string>
-    <string name="k3fef64768db0">"원시 장치 명령(rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"GPIO 핀 %%@의 레벨을 읽습니다"</string>
-    <string name="k4612691534be">"GPIO 핀 %%@를 입력으로 설정합니다"</string>
-    <string name="kc2b6424fe779">"GPIO 핀 %%@를 출력으로 설정합니다"</string>
-    <string name="kd60c4751fe70">"Bad KB 스크립트 시작(badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Flipper에서 Bad KB 스크립트 %%@를 지금 시작합니다"</string>
-    <string name="k9f9d538ba036">"확장 헤더의 GPIO 핀 %%@를 구동합니다"</string>
-    <string name="kecefc54e7273">"Engagement 모드를 종료합니다; 에이전트가 다시 묻습니다"</string>
-    <string name="k7aaa79284851">"GPIO 핀 %%@에 %%@를 출력합니다"</string>
-    <string name="k13b482620026">"GPIO 핀 %%@를 읽습니다. 변경은 없습니다"</string>
-    <string name="k71762ffac238">"확장 헤더의 GPIO 핀 %%@를 재구성합니다"</string>
+    <string name="k16431a95976e" formatted="false">"다른 Marauder 작업이 실행 중입니다"</string>
+    <string name="k41b4f6a3e61e">"Engagement 모드 활성화(%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"Engagement 모드 활성화..."</string>
+    <string name="k396932526642" formatted="false">"아무도 Run을 누르지 않아도 Bad KB 스크립트가 시작됩니다"</string>
+    <string name="kca09c54bff74" formatted="false">"기능"</string>
+    <string name="k06114a8ade22">"최근 %1$s개의 감사 항목을 engagement 보고서로 정리합니다"</string>
+    <string name="k4db432feeef9" formatted="false">"Engagement 모드 해제"</string>
+    <string name="k5a0f06c6e948">"GPIO 핀 %1$s를 %2$s로 설정합니다"</string>
+    <string name="ked371761db85" formatted="false">"Engagement 모드를 종료합니다"</string>
+    <string name="k331ff05d9dc3" formatted="false">"Engagement 모드를 종료합니다; 에이전트가 다시 묻습니다."</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement 진행 중"</string>
+    <string name="kf68d25d8f480" formatted="false">"Engagement 모드"</string>
+    <string name="k9cf579277ea7" formatted="false">"Engagement 모드가 꺼져 있습니다."</string>
+    <string name="k0ddb74423644" formatted="false">"보고서 내보내기"</string>
+    <string name="k10b781509d0d" formatted="false">"허가된 engagement용: 이 세션의 작업을 미리 승인하여 에이전트가 단계마다 묻지 않고 작업할 수 있게 합니다. 차단된 경로는 차단된 상태로 유지되고, 모든 작업은 감사되며, 연결이 끊기거나 앱이 재시작하면 해제됩니다. 에이전트가 채팅에서 요청할 수 있지만 확인하는 것은 사용자뿐입니다."</string>
+    <string name="k427e61efef36" formatted="false">"길게 눌러 활성화"</string>
+    <string name="k44999b07787e" formatted="false">"잘못된 Marauder 매개변수"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder가 선택한 대상을 수락하지 않았습니다"</string>
+    <string name="k0eadefa12b6d" formatted="false">"원시 명령은 일반 도구가 보호하는 경로를 포함해 펌웨어가 노출하는 모든 것에 닿습니다. 시작된 Bad KB 스크립트는 Flipper가 연결된 컴퓨터에 입력합니다."</string>
+    <string name="k3fef64768db0" formatted="false">"원시 장치 명령(rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"GPIO 핀 %1$s의 레벨을 읽습니다"</string>
+    <string name="k1e9aad06e6b7">"Marauder 작업 %1$s 실행"</string>
+    <string name="kf82fad3f3930" formatted="false">"묻지 않고 작업 실행"</string>
+    <string name="k68b9e08b8b86" formatted="false">"범위 메모, 예: 고객명이나 장소"</string>
+    <string name="kfa8f03871d20">"원시 장치 명령 %1$s를 보냅니다"</string>
+    <string name="k4612691534be">"GPIO 핀 %1$s를 입력으로 설정합니다"</string>
+    <string name="kc2b6424fe779">"GPIO 핀 %1$s를 출력으로 설정합니다"</string>
+    <string name="kd60c4751fe70" formatted="false">"Bad KB 스크립트 시작(badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Flipper에서 Bad KB 스크립트 %1$s를 지금 시작합니다"</string>
+    <string name="k9f9d538ba036">"확장 헤더의 GPIO 핀 %1$s를 구동합니다"</string>
+    <string name="kecefc54e7273" formatted="false">"Engagement 모드를 종료합니다; 에이전트가 다시 묻습니다"</string>
+    <string name="k7aaa79284851">"GPIO 핀 %1$s에 %2$s를 출력합니다"</string>
+    <string name="kb1c74918feaa" formatted="false">"원시 장치 명령은 펌웨어가 노출하는 모든 것에 닿을 수 있습니다"</string>
+    <string name="k13b482620026">"GPIO 핀 %1$s를 읽습니다. 변경은 없습니다"</string>
+    <string name="k71762ffac238">"확장 헤더의 GPIO 핀 %1$s를 재구성합니다"</string>
+    <string name="k924c166ef159" formatted="false">"일반 도구 검사를 우회하는 원시 장치 명령을 보냅니다"</string>
 </resources>

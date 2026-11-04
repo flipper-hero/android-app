@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"麦克风"</string>
+    <string name="camera">"相机"</string>
+    <string name="send">"发送"</string>
+    <string name="remove">"移除"</string>
+    <string name="back">"返回"</string>
+    <string name="search_models">"搜索模型"</string>
+    <string name="shortcuts">"快捷方式"</string>
+    <string name="flipper_screen">"Flipper 屏幕"</string>
+    <string name="permission_denied">"权限被拒绝。你可以在 Android 设置中启用。"</string>
+    <string name="ai_data_disclosure">"API 密钥保留在此手机的加密存储中。你的消息、照片以及代理读取的文件内容会直接发送至你选择的 AI 服务及其模型提供商。"</string>
+</resources>

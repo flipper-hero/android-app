@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"Ativar o modo engagement (%%@)%%@"</string>
-    <string name="kbfddfe24d657">"Ativar o modo engagement..."</string>
-    <string name="k396932526642">"scripts do Bad KB iniciam sem que ninguém pressione Run"</string>
-    <string name="k06114a8ade22">"Compilar as últimas %%lld entradas de auditoria em um relatório de engagement"</string>
-    <string name="k5a0f06c6e948">"Colocar o pino GPIO %%@ em %%@"</string>
-    <string name="ked371761db85">"Encerrar o modo engagement"</string>
-    <string name="k331ff05d9dc3">"Encerra o modo engagement; o agente volta a perguntar."</string>
-    <string name="k10b781509d0d">"Para engagements autorizados: pré-aprova as ações desta sessão para que o agente trabalhe sem um aviso por etapa. Caminhos bloqueados continuam bloqueados, tudo é auditado e desarma ao desconectar ou reiniciar o app. O agente pode pedir no chat, mas só você confirma."</string>
-    <string name="k0eadefa12b6d">"Comandos brutos alcançam tudo que o firmware expõe, incluindo caminhos que as ferramentas normais protegem. Scripts do Bad KB iniciados digitam na máquina em que o Flipper estiver ligado."</string>
-    <string name="k3fef64768db0">"Comandos brutos do dispositivo (rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"Ler o nível do pino GPIO %%@"</string>
-    <string name="k4612691534be">"Definir o pino GPIO %%@ como entrada"</string>
-    <string name="kc2b6424fe779">"Definir o pino GPIO %%@ como saída"</string>
-    <string name="kd60c4751fe70">"Iniciar scripts do Bad KB (badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Iniciar o script do Bad KB %%@ no Flipper agora"</string>
-    <string name="k9f9d538ba036">"controla o pino GPIO %%@ do conector de expansão"</string>
-    <string name="kecefc54e7273">"encerra o modo engagement; o agente volta a perguntar"</string>
-    <string name="k7aaa79284851">"aplica %%@ no pino GPIO %%@"</string>
-    <string name="k13b482620026">"lê o pino GPIO %%@, não muda nada"</string>
-    <string name="k71762ffac238">"reconfigura o pino GPIO %%@ do conector de expansão"</string>
+    <string name="k16431a95976e" formatted="false">"Outra operação do Marauder já está em andamento"</string>
+    <string name="k41b4f6a3e61e">"Ativar o modo engagement (%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"Ativar o modo engagement..."</string>
+    <string name="k396932526642" formatted="false">"scripts do Bad KB iniciam sem que ninguém pressione Run"</string>
+    <string name="kca09c54bff74" formatted="false">"Capacidades"</string>
+    <string name="k06114a8ade22">"Compilar as últimas %1$s entradas de auditoria em um relatório de engagement"</string>
+    <string name="k4db432feeef9" formatted="false">"Desarmar o modo engagement"</string>
+    <string name="k5a0f06c6e948">"Colocar o pino GPIO %1$s em %2$s"</string>
+    <string name="ked371761db85" formatted="false">"Encerrar o modo engagement"</string>
+    <string name="k331ff05d9dc3" formatted="false">"Encerra o modo engagement; o agente volta a perguntar."</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement ativo"</string>
+    <string name="kf68d25d8f480" formatted="false">"Modo engagement"</string>
+    <string name="k9cf579277ea7" formatted="false">"O modo engagement está desativado."</string>
+    <string name="k0ddb74423644" formatted="false">"Exportar relatório"</string>
+    <string name="k10b781509d0d" formatted="false">"Para engagements autorizados: pré-aprova as ações desta sessão para que o agente trabalhe sem um aviso por etapa. Caminhos bloqueados continuam bloqueados, tudo é auditado e desarma ao desconectar ou reiniciar o app. O agente pode pedir no chat, mas só você confirma."</string>
+    <string name="k427e61efef36" formatted="false">"Segure para ativar"</string>
+    <string name="k44999b07787e" formatted="false">"Parâmetros do Marauder inválidos"</string>
+    <string name="kfd09524ab782" formatted="false">"O Marauder não aceitou o alvo selecionado"</string>
+    <string name="k0eadefa12b6d" formatted="false">"Comandos brutos alcançam tudo que o firmware expõe, incluindo caminhos que as ferramentas normais protegem. Scripts do Bad KB iniciados digitam na máquina em que o Flipper estiver ligado."</string>
+    <string name="k3fef64768db0" formatted="false">"Comandos brutos do dispositivo (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Ler o nível do pino GPIO %1$s"</string>
+    <string name="k1e9aad06e6b7">"Executar a operação Marauder %1$s"</string>
+    <string name="kf82fad3f3930" formatted="false">"Executar ações sem avisos"</string>
+    <string name="k68b9e08b8b86" formatted="false">"Nota de escopo, ex. cliente ou local"</string>
+    <string name="kfa8f03871d20">"Enviar o comando bruto %1$s"</string>
+    <string name="k4612691534be">"Definir o pino GPIO %1$s como entrada"</string>
+    <string name="kc2b6424fe779">"Definir o pino GPIO %1$s como saída"</string>
+    <string name="kd60c4751fe70" formatted="false">"Iniciar scripts do Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Iniciar o script do Bad KB %1$s no Flipper agora"</string>
+    <string name="k9f9d538ba036">"controla o pino GPIO %1$s do conector de expansão"</string>
+    <string name="kecefc54e7273" formatted="false">"encerra o modo engagement; o agente volta a perguntar"</string>
+    <string name="k7aaa79284851">"aplica %1$s no pino GPIO %2$s"</string>
+    <string name="kb1c74918feaa" formatted="false">"comandos brutos podem alcançar tudo que o firmware expõe"</string>
+    <string name="k13b482620026">"lê o pino GPIO %1$s, não muda nada"</string>
+    <string name="k71762ffac238">"reconfigura o pino GPIO %1$s do conector de expansão"</string>
+    <string name="k924c166ef159" formatted="false">"envia um comando bruto que ignora as verificações normais das ferramentas"</string>
 </resources>

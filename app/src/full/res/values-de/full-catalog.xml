@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"Engagement-Modus aktivieren (%%@)%%@"</string>
-    <string name="kbfddfe24d657">"Engagement-Modus aktivieren..."</string>
-    <string name="k396932526642">"Bad-KB-Skripte starten, ohne dass jemand Run drückt"</string>
-    <string name="k06114a8ade22">"Die letzten %%lld Audit-Einträge zu einem Engagement-Bericht zusammenfassen"</string>
-    <string name="k5a0f06c6e948">"GPIO-Pin %%@ auf %%@ setzen"</string>
-    <string name="ked371761db85">"Engagement-Modus beenden"</string>
-    <string name="k331ff05d9dc3">"Beendet den Engagement-Modus; der Agent fragt wieder."</string>
-    <string name="k10b781509d0d">"Für autorisierte Engagements: genehmigt Aktionen für diese Sitzung vor, damit der Agent ohne Nachfrage pro Schritt arbeiten kann. Blockierte Pfade bleiben blockiert, alles wird auditiert, und bei Trennung oder App-Neustart wird es beendet. Der Agent kann im Chat darum bitten, aber nur du bestätigst es."</string>
-    <string name="k0eadefa12b6d">"Rohe Befehle erreichen alles, was die Firmware bereitstellt, auch Pfade, die die normalen Werkzeuge schützen. Gestartete Bad-KB-Skripte tippen in den Rechner, an dem der Flipper hängt."</string>
-    <string name="k3fef64768db0">"Rohe Gerätebefehle (rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"Pegel von GPIO-Pin %%@ lesen"</string>
-    <string name="k4612691534be">"GPIO-Pin %%@ auf Eingang stellen"</string>
-    <string name="kc2b6424fe779">"GPIO-Pin %%@ auf Ausgang stellen"</string>
-    <string name="kd60c4751fe70">"Bad-KB-Skripte starten (badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Bad-KB-Skript %%@ jetzt auf dem Flipper starten"</string>
-    <string name="k9f9d538ba036">"schaltet GPIO-Pin %%@ am Erweiterungs-Header"</string>
-    <string name="kecefc54e7273">"beendet den Engagement-Modus; der Agent fragt wieder"</string>
-    <string name="k7aaa79284851">"legt %%@ an GPIO-Pin %%@ an"</string>
-    <string name="k13b482620026">"liest GPIO-Pin %%@, ändert nichts"</string>
-    <string name="k71762ffac238">"konfiguriert GPIO-Pin %%@ am Erweiterungs-Header um"</string>
+    <string name="k16431a95976e" formatted="false">"Eine andere Marauder-Aktion läuft bereits"</string>
+    <string name="k41b4f6a3e61e">"Engagement-Modus aktivieren (%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"Engagement-Modus aktivieren..."</string>
+    <string name="k396932526642" formatted="false">"Bad-KB-Skripte starten, ohne dass jemand Run drückt"</string>
+    <string name="kca09c54bff74" formatted="false">"Fähigkeiten"</string>
+    <string name="k06114a8ade22">"Die letzten %1$s Audit-Einträge zu einem Engagement-Bericht zusammenfassen"</string>
+    <string name="k4db432feeef9" formatted="false">"Engagement-Modus beenden"</string>
+    <string name="k5a0f06c6e948">"GPIO-Pin %1$s auf %2$s setzen"</string>
+    <string name="ked371761db85" formatted="false">"Engagement-Modus beenden"</string>
+    <string name="k331ff05d9dc3" formatted="false">"Beendet den Engagement-Modus; der Agent fragt wieder."</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement aktiv"</string>
+    <string name="kf68d25d8f480" formatted="false">"Engagement-Modus"</string>
+    <string name="k9cf579277ea7" formatted="false">"Der Engagement-Modus ist aus."</string>
+    <string name="k0ddb74423644" formatted="false">"Bericht exportieren"</string>
+    <string name="k10b781509d0d" formatted="false">"Für autorisierte Engagements: genehmigt Aktionen für diese Sitzung vor, damit der Agent ohne Nachfrage pro Schritt arbeiten kann. Blockierte Pfade bleiben blockiert, alles wird auditiert, und bei Trennung oder App-Neustart wird es beendet. Der Agent kann im Chat darum bitten, aber nur du bestätigst es."</string>
+    <string name="k427e61efef36" formatted="false">"Zum Aktivieren gedrückt halten"</string>
+    <string name="k44999b07787e" formatted="false">"Ungültige Marauder-Parameter"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder hat das ausgewählte Ziel nicht akzeptiert"</string>
+    <string name="k0eadefa12b6d" formatted="false">"Rohe Befehle erreichen alles, was die Firmware bereitstellt, auch Pfade, die die normalen Werkzeuge schützen. Gestartete Bad-KB-Skripte tippen in den Rechner, an dem der Flipper hängt."</string>
+    <string name="k3fef64768db0" formatted="false">"Rohe Gerätebefehle (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Pegel von GPIO-Pin %1$s lesen"</string>
+    <string name="k1e9aad06e6b7">"Marauder-Aktion %1$s ausführen"</string>
+    <string name="kf82fad3f3930" formatted="false">"Aktionen ohne Nachfragen ausführen"</string>
+    <string name="k68b9e08b8b86" formatted="false">"Rahmenvermerk, z. B. Kunde oder Ort"</string>
+    <string name="kfa8f03871d20">"Rohen Gerätebefehl %1$s senden"</string>
+    <string name="k4612691534be">"GPIO-Pin %1$s auf Eingang stellen"</string>
+    <string name="kc2b6424fe779">"GPIO-Pin %1$s auf Ausgang stellen"</string>
+    <string name="kd60c4751fe70" formatted="false">"Bad-KB-Skripte starten (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Bad-KB-Skript %1$s jetzt auf dem Flipper starten"</string>
+    <string name="k9f9d538ba036">"schaltet GPIO-Pin %1$s am Erweiterungs-Header"</string>
+    <string name="kecefc54e7273" formatted="false">"beendet den Engagement-Modus; der Agent fragt wieder"</string>
+    <string name="k7aaa79284851">"legt %1$s an GPIO-Pin %2$s an"</string>
+    <string name="kb1c74918feaa" formatted="false">"rohe Gerätebefehle erreichen alles, was die Firmware bereitstellt"</string>
+    <string name="k13b482620026">"liest GPIO-Pin %1$s, ändert nichts"</string>
+    <string name="k71762ffac238">"konfiguriert GPIO-Pin %1$s am Erweiterungs-Header um"</string>
+    <string name="k924c166ef159" formatted="false">"sendet einen rohen Gerätebefehl, der die normalen Werkzeugprüfungen umgeht"</string>
 </resources>

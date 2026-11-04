@@ -96,6 +96,13 @@ class FramingTests {
 
 class FlowControlTests {
     @Test
+    fun renamedFlippersAreDiscoveredByTheirExpandedAndroidServiceUUID() {
+        assertTrue(FlipperSerial.isFlipperAdvertisement(listOf("00003082-0000-1000-8000-00805F9B34FB"), "Dolphin"))
+        assertTrue(FlipperSerial.isFlipperAdvertisement(listOf("3081"), "Dolphin"))
+        assertFalse(FlipperSerial.isFlipperAdvertisement(listOf("ffff3082"), "Other device"))
+        assertFalse(FlipperSerial.isFlipperAdvertisement(emptyList(), "Headphones"))
+    }
+    @Test
     fun creditsAreBigEndian() {
         assertEquals(256, FlowControl.decodeCredits(byteArrayOf(0x00, 0x00, 0x01, 0x00)))
         assertEquals(65536, FlowControl.decodeCredits(byteArrayOf(0x00, 0x01, 0x00, 0x00)))
@@ -145,6 +152,34 @@ class GuardTests {
 }
 
 class RpcClientTests {
+    @Test
+    fun cancellingAMultipartCallStopsTheSenderBeforeItsNextPacket() = runBlocking {
+        val entered = kotlinx.coroutines.CompletableDeferred<Unit>()
+        val release = kotlinx.coroutines.CompletableDeferred<Unit>()
+        val stopped = kotlinx.coroutines.CompletableDeferred<Unit>()
+        val packets = java.util.concurrent.atomic.AtomicInteger()
+        val transport = object : FlipperTransport {
+            override val incoming = kotlinx.coroutines.flow.emptyFlow<ByteArray>()
+            override suspend fun send(data: ByteArray) {
+                packets.incrementAndGet()
+                entered.complete(Unit)
+                try { release.await() } finally { stopped.complete(Unit) }
+            }
+            override suspend fun close() = Unit
+        }
+        val client = FlipperRpcClient(transport)
+        val operation = launch {
+            client.call(listOf(Main(system_ping_request = PingRequest()), Main(system_ping_request = PingRequest())))
+        }
+        try {
+            kotlinx.coroutines.withTimeout(5000) { entered.await() }
+            operation.cancel()
+            operation.join()
+            kotlinx.coroutines.withTimeout(5000) { stopped.await() }
+            release.complete(Unit)
+            assertEquals(1, packets.get())
+        } finally { client.stop() }
+    }
     @Test
     fun ping() = runTest {
         val (client, _) = makeClient { request ->

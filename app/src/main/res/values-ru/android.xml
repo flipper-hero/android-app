@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"Микрофон"</string>
+    <string name="camera">"Камера"</string>
+    <string name="send">"Отправить"</string>
+    <string name="remove">"Убрать"</string>
+    <string name="back">"Назад"</string>
+    <string name="search_models">"Поиск моделей"</string>
+    <string name="shortcuts">"Ярлыки"</string>
+    <string name="flipper_screen">"Экран Flipper"</string>
+    <string name="permission_denied">"В разрешении отказано. Его можно включить в настройках Android."</string>
+    <string name="ai_data_disclosure">"Ключи API хранятся в зашифрованном хранилище этого телефона. Ваши сообщения, фотографии и содержимое файлов, прочитанных агентом, отправляются напрямую выбранному ИИ-сервису и его поставщику моделей."</string>
+</resources>

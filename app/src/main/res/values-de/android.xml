@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"Mikrofon"</string>
+    <string name="camera">"Kamera"</string>
+    <string name="send">"Senden"</string>
+    <string name="remove">"Entfernen"</string>
+    <string name="back">"Zurück"</string>
+    <string name="search_models">"Modelle suchen"</string>
+    <string name="shortcuts">"Kurzbefehle"</string>
+    <string name="flipper_screen">"Flipper-Bildschirm"</string>
+    <string name="permission_denied">"Berechtigung verweigert. Du kannst sie in den Android-Einstellungen aktivieren."</string>
+    <string name="ai_data_disclosure">"API-Schlüssel bleiben im verschlüsselten Speicher dieses Telefons. Deine Nachrichten, Fotos und vom Agenten gelesenen Dateiinhalte werden direkt an deinen ausgewählten KI-Dienst und dessen Modellanbieter gesendet."</string>
+</resources>

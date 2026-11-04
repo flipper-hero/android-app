@@ -4,9 +4,9 @@ import android.content.Context
 
 /** English catalog key to the Android string copied from the iOS xcstrings. */
 object Catalog {
-    fun text(context: Context, english: String): String {
-        val id = ids[english] ?: return english
-        return context.getString(id)
+    fun text(context: Context, english: String, vararg arguments: Any): String {
+        val id = ids[english] ?: return hero.flipper.agent.englishText(english, arguments.toList())
+        return if (arguments.isEmpty()) context.getString(id) else context.getString(id, *arguments)
     }
 
     private val ids: Map<String, Int> = mapOf(
@@ -59,7 +59,6 @@ object Catalog {
         "Cancelled the update to %@. Nothing was installed." to R.string.k20158d2b8ae0,
         "Cancelled." to R.string.kd3e4142ff75c,
         "Cancels a firmware update before it is installed." to R.string.k0e9a5ab702c8,
-        "Capabilities" to R.string.kca09c54bff74,
         "Card or Key" to R.string.k0b86e0a76167,
         "Card or key" to R.string.k269653be917b,
         "Check how the firmware update is going" to R.string.kb19abe5af41b,
@@ -91,7 +90,6 @@ object Catalog {
         "Deny" to R.string.k53577bb5df0e,
         "Device" to R.string.ka5a74a6df092,
         "Disarm" to R.string.kf26d27b073d8,
-        "Disarm Engagement Mode" to R.string.k4db432feeef9,
         "Disconnect" to R.string.ked28e0686e12,
         "Done" to R.string.ke9b450d14bc2,
         "Download %@ to %@" to R.string.k6c91cfd317c9,
@@ -104,7 +102,6 @@ object Catalog {
         "ENGAGED" to R.string.k3f4a9dce4691,
         "Empty" to R.string.k3159fe421b32,
         "Emulate" to R.string.kda63cee7d97e,
-        "Emulate \${card}" to R.string.k6b99aeb63160,
         "Emulate Card or Key" to R.string.k5da6de39a992,
         "Emulate the 125 kHz tag %@" to R.string.ke2b33932431a,
         "Emulate the NFC card %@" to R.string.k8b2db656f891,
@@ -114,10 +111,6 @@ object Catalog {
         "Emulating %@. Stop it from the Lock Screen or say “Stop Flipper App”." to R.string.k6f5c1727674c,
         "Enable YOLO" to R.string.kd8a670ae1909,
         "Enable YOLO mode?" to R.string.k9b224e06b394,
-        "Engagement active" to R.string.k5a63bb5966d4,
-        "Engagement mode" to R.string.kf68d25d8f480,
-        "Engagement mode is off." to R.string.k9cf579277ea7,
-        "Export report" to R.string.k0ddb74423644,
         "Feature-rich fork with asset packs and extra apps" to R.string.ke5922f38f29b,
         "File is %u bytes. Only files up to 32 KB are shown here." to R.string.kb2f1b3d3adb7,
         "Files" to R.string.k6ce6c512ea43,
@@ -140,7 +133,6 @@ object Catalog {
         "High-risk actions (deleting, transmitting, emulating, anything that can run code) always ask unless YOLO mode is on. After the agent has read content from the Flipper, every change asks again, even with this switch on." to R.string.k9a178caa3846,
         "Hold to allow" to R.string.k6d4093011238,
         "Hold to approve" to R.string.k4a0b7be3ed95,
-        "Hold to arm" to R.string.k427e61efef36,
         "How full are the battery and the SD card?" to R.string.k1cf4564d5f7c,
         "Infrared button" to R.string.kdc6cd6dbc744,
         "Install %@" to R.string.k27266ce2ed6e,
@@ -217,21 +209,17 @@ object Catalog {
         "Restart the Flipper" to R.string.k68af8d8921be,
         "Restart the Flipper?" to R.string.ked8d1407ce20,
         "Restarting the Flipper into the updater" to R.string.k1164f42e30d6,
-        "Run actions without prompts" to R.string.kf82fad3f3930,
         "SD card" to R.string.k6a202a218810,
         "Save" to R.string.kefc007a393f6,
         "Saving sends a short test message. Provider charges may apply. Each provider keeps its own key and model." to R.string.k325a4bde9138,
         "Scope" to R.string.k4651a34e4df9,
-        "Scope note, e.g. client name or location" to R.string.k68b9e08b8b86,
         "Search GitHub for \"%@\"" to R.string.k90a536924bd8,
         "Search GitHub for \"%@\" (.%@ files)" to R.string.k5405ffa83b4a,
         "Search the Flipper app catalog for \"%@\"" to R.string.k46b7b93ab3b9,
         "Searching for Flippers..." to R.string.kbc8c0f5c6d1e,
-        "Send \${signal} \${button}" to R.string.kdf3c372f8713,
         "Send Signal" to R.string.k7a22288e02e6,
         "Send infrared button '%@' from %@" to R.string.k6f7fb6a5d6bc,
         "Send the infrared remote %@" to R.string.kfc33ea12add2,
-        "Send the raw device command %@" to R.string.kfa8f03871d20,
         "Sends a request to the FlipperHero agent and returns its answer." to R.string.kf34fc304f9a0,
         "Sends a saved Sub-GHz signal or infrared command once." to R.string.k910756a6ba31,
         "Sent %@." to R.string.kd580b344ab1d,
@@ -291,6 +279,7 @@ object Catalog {
         "The package is unexpectedly large" to R.string.k56a476f3cf3a,
         "The update package has an unexpected layout: %@" to R.string.kbca921244760,
         "The update package has no update.fuf manifest" to R.string.kc938e036e016,
+        "This conversation exceeds the context budget. Start a new conversation or increase the context budget. The full transcript has been kept." to R.string.k5f171370336d,
         "This device does not expose the Flipper serial service" to R.string.kf883222bc53f,
         "This request came right after the agent read files from your Flipper. Text planted in a file could have caused it. If you did not ask for this, deny." to R.string.k92c93c63c02a,
         "Too late to cancel: the Flipper's updater already has the new firmware and installs it on its own." to R.string.kd195d8686d93,
@@ -328,6 +317,7 @@ object Catalog {
         "beeps and blinks so you can find the device" to R.string.kf390ac80b78b,
         "blocked" to R.string.kdf88b84d816d,
         "cancelled" to R.string.k8761d26fb8d6,
+        "captures nearby Wi-Fi traffic" to R.string.k61ae562911ce,
         "changes a harmless app preference" to R.string.k09887792e4a0,
         "changes the device name and its Bluetooth identity" to R.string.k3b66c864ce05,
         "changes which model provider receives your conversation and file contents" to R.string.ka89a72078947,
@@ -361,7 +351,6 @@ object Catalog {
         "presses buttons in whatever app is open, which can start transmissions or delete data" to R.string.kff25e359de13,
         "protected path" to R.string.k50fb1c6c778e,
         "protected path (internal storage)" to R.string.ke8dac8f83ca9,
-        "raw device commands can reach anything the firmware exposes" to R.string.kb1c74918feaa,
         "read-only" to R.string.k1d8d39a6e91a,
         "reading key or secret files is not allowed" to R.string.ke33e151db4b8,
         "reads the device inventory" to R.string.k44cfa4860be8,
@@ -373,8 +362,8 @@ object Catalog {
         "searches the internet, changes nothing" to R.string.k07efdc2f050f,
         "searching" to R.string.kde94f8210cfd,
         "sends a paid test message to your model provider" to R.string.ke3b101a417d6,
-        "sends a raw device command that bypasses the normal tool checks" to R.string.k924c166ef159,
         "sends an infrared command" to R.string.k1fee08181fd7,
+        "starts a Wi-Fi scan" to R.string.ke61114d7b856,
         "starts an app on the device" to R.string.kecb311891109,
         "stops an update before anything is installed" to R.string.k451655f6fe2f,
         "takes a screenshot of the Flipper" to R.string.kb033ae77d7bc,
@@ -387,5 +376,5 @@ object Catalog {
         "writes a file" to R.string.kaca797116a98,
         "writes a file downloaded from the internet" to R.string.k65b75b159d1a,
         "writes a generated file" to R.string.k21b3baa6e32b,
-    )
+    ) + editionStringIds
 }

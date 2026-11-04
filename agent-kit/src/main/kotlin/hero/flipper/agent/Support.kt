@@ -10,8 +10,6 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
-fun L(text: String): String = text
-
 enum class RiskLevel { Low, Medium, High, Blocked }
 
 data class RiskAssessment(val level: RiskLevel, val reasons: List<String>)

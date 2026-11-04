@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"माइक्रोफ़ोन"</string>
+    <string name="camera">"कैमरा"</string>
+    <string name="send">"भेजें"</string>
+    <string name="remove">"हटाएँ"</string>
+    <string name="back">"वापस"</string>
+    <string name="search_models">"मॉडल खोजें"</string>
+    <string name="shortcuts">"शॉर्टकट"</string>
+    <string name="flipper_screen">"Flipper स्क्रीन"</string>
+    <string name="permission_denied">"अनुमति नहीं मिली। आप इसे Android सेटिंग में चालू कर सकते हैं।"</string>
+    <string name="ai_data_disclosure">"API कुंजियाँ इस फ़ोन के एन्क्रिप्टेड स्टोरेज में रहती हैं। आपके संदेश, फ़ोटो और एजेंट द्वारा पढ़ी गई फ़ाइलों की सामग्री सीधे आपकी चुनी हुई AI सेवा और उसके मॉडल प्रदाता को भेजी जाती है।"</string>
+</resources>

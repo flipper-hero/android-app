@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"Uzbrój tryb engagement (%%@)%%@"</string>
-    <string name="kbfddfe24d657">"Aktywuj tryb engagement..."</string>
-    <string name="k396932526642">"skrypty Bad KB startują bez naciskania Run"</string>
-    <string name="k06114a8ade22">"Zbierz ostatnie %%lld wpisów audytu w raport z engagementu"</string>
-    <string name="k5a0f06c6e948">"Ustaw pin GPIO %%@ na %%@"</string>
-    <string name="ked371761db85">"Zakończ tryb engagement"</string>
-    <string name="k331ff05d9dc3">"Kończy tryb engagement; agent znów pyta."</string>
-    <string name="k10b781509d0d">"Do autoryzowanych engagementów: z góry zatwierdza działania tej sesji, aby agent pracował bez pytania o każdy krok. Zablokowane ścieżki pozostają zablokowane, wszystko jest audytowane, a rozłączenie lub restart aplikacji go rozbraja. Agent może o to poprosić na czacie, ale tylko ty to potwierdzasz."</string>
-    <string name="k0eadefa12b6d">"Surowe polecenia sięgają wszystkiego, co udostępnia firmware, także ścieżek chronionych przez zwykłe narzędzia. Uruchomione skrypty Bad KB wpisują tekst na komputer, do którego podpięty jest Flipper."</string>
-    <string name="k3fef64768db0">"Surowe polecenia urządzenia (rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"Odczytaj poziom pinu GPIO %%@"</string>
-    <string name="k4612691534be">"Ustaw pin GPIO %%@ jako wejście"</string>
-    <string name="kc2b6424fe779">"Ustaw pin GPIO %%@ jako wyjście"</string>
-    <string name="kd60c4751fe70">"Uruchamiaj skrypty Bad KB (badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Uruchom teraz skrypt Bad KB %%@ na Flipperze"</string>
-    <string name="k9f9d538ba036">"steruje pinem GPIO %%@ na złączu rozszerzeń"</string>
-    <string name="kecefc54e7273">"kończy tryb engagement; agent znów pyta"</string>
-    <string name="k7aaa79284851">"podaje %%@ na pin GPIO %%@"</string>
-    <string name="k13b482620026">"odczytuje pin GPIO %%@, nic nie zmienia"</string>
-    <string name="k71762ffac238">"przekonfigurowuje pin GPIO %%@ na złączu rozszerzeń"</string>
+    <string name="k16431a95976e" formatted="false">"Inna operacja Maraudera już trwa"</string>
+    <string name="k41b4f6a3e61e">"Uzbrój tryb engagement (%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"Aktywuj tryb engagement..."</string>
+    <string name="k396932526642" formatted="false">"skrypty Bad KB startują bez naciskania Run"</string>
+    <string name="kca09c54bff74" formatted="false">"Możliwości"</string>
+    <string name="k06114a8ade22">"Zbierz ostatnie %1$s wpisów audytu w raport z engagementu"</string>
+    <string name="k4db432feeef9" formatted="false">"Rozbrój tryb engagement"</string>
+    <string name="k5a0f06c6e948">"Ustaw pin GPIO %1$s na %2$s"</string>
+    <string name="ked371761db85" formatted="false">"Zakończ tryb engagement"</string>
+    <string name="k331ff05d9dc3" formatted="false">"Kończy tryb engagement; agent znów pyta."</string>
+    <string name="k5a63bb5966d4" formatted="false">"Tryb engagement aktywny"</string>
+    <string name="kf68d25d8f480" formatted="false">"Tryb engagement"</string>
+    <string name="k9cf579277ea7" formatted="false">"Tryb engagement jest wyłączony."</string>
+    <string name="k0ddb74423644" formatted="false">"Eksportuj raport"</string>
+    <string name="k10b781509d0d" formatted="false">"Do autoryzowanych engagementów: z góry zatwierdza działania tej sesji, aby agent pracował bez pytania o każdy krok. Zablokowane ścieżki pozostają zablokowane, wszystko jest audytowane, a rozłączenie lub restart aplikacji go rozbraja. Agent może o to poprosić na czacie, ale tylko ty to potwierdzasz."</string>
+    <string name="k427e61efef36" formatted="false">"Przytrzymaj, aby uzbroić"</string>
+    <string name="k44999b07787e" formatted="false">"Nieprawidłowe parametry Maraudera"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder nie zaakceptował wybranego celu"</string>
+    <string name="k0eadefa12b6d" formatted="false">"Surowe polecenia sięgają wszystkiego, co udostępnia firmware, także ścieżek chronionych przez zwykłe narzędzia. Uruchomione skrypty Bad KB wpisują tekst na komputer, do którego podpięty jest Flipper."</string>
+    <string name="k3fef64768db0" formatted="false">"Surowe polecenia urządzenia (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Odczytaj poziom pinu GPIO %1$s"</string>
+    <string name="k1e9aad06e6b7">"Wykonaj operację Marauder %1$s"</string>
+    <string name="kf82fad3f3930" formatted="false">"Wykonuj działania bez pytań"</string>
+    <string name="k68b9e08b8b86" formatted="false">"Notatka o zakresie, np. klient lub miejsce"</string>
+    <string name="kfa8f03871d20">"Wyślij surowe polecenie urządzenia %1$s"</string>
+    <string name="k4612691534be">"Ustaw pin GPIO %1$s jako wejście"</string>
+    <string name="kc2b6424fe779">"Ustaw pin GPIO %1$s jako wyjście"</string>
+    <string name="kd60c4751fe70" formatted="false">"Uruchamiaj skrypty Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Uruchom teraz skrypt Bad KB %1$s na Flipperze"</string>
+    <string name="k9f9d538ba036">"steruje pinem GPIO %1$s na złączu rozszerzeń"</string>
+    <string name="kecefc54e7273" formatted="false">"kończy tryb engagement; agent znów pyta"</string>
+    <string name="k7aaa79284851">"podaje %1$s na pin GPIO %2$s"</string>
+    <string name="kb1c74918feaa" formatted="false">"surowe polecenia urządzenia mogą sięgnąć wszystkiego, co udostępnia firmware"</string>
+    <string name="k13b482620026">"odczytuje pin GPIO %1$s, nic nie zmienia"</string>
+    <string name="k71762ffac238">"przekonfigurowuje pin GPIO %1$s na złączu rozszerzeń"</string>
+    <string name="k924c166ef159" formatted="false">"wysyła surowe polecenie urządzenia z pominięciem zwykłych kontroli narzędzi"</string>
 </resources>

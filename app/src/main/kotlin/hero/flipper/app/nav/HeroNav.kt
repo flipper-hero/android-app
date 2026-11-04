@@ -11,7 +11,7 @@ enum class HeroSection(val title: String) {
 
 enum class FilesRoute { List, Preview }
 
-enum class ConfirmKind { Restart, Firmware, Yolo }
+enum class ConfirmKind { Restart, Firmware }
 
 /**
  * Navigation policy the Compose shell starts from.

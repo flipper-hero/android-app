@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="microphone">"Microphone"</string>
+    <string name="camera">"Camera"</string>
+    <string name="send">"Send"</string>
+    <string name="remove">"Remove"</string>
+    <string name="back">"Back"</string>
+    <string name="search_models">"Search models"</string>
+    <string name="shortcuts">"Shortcuts"</string>
+    <string name="flipper_screen">"Flipper screen"</string>
+    <string name="permission_denied">"Permission denied. You can enable it in Android Settings."</string>
+    <string name="ai_data_disclosure">"API keys stay in encrypted storage on this phone. Your messages, photos and file contents read by the agent are sent directly to your selected AI service and its model provider."</string>
+</resources>

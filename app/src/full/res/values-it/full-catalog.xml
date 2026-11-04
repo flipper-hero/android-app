@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"Attiva la modalità engagement (%%@)%%@"</string>
-    <string name="kbfddfe24d657">"Attiva la modalità engagement..."</string>
-    <string name="k396932526642">"gli script Bad KB partono senza che nessuno prema Run"</string>
-    <string name="k06114a8ade22">"Riunisci le ultime %%lld voci di audit in un report di engagement"</string>
-    <string name="k5a0f06c6e948">"Porta il pin GPIO %%@ a %%@"</string>
-    <string name="ked371761db85">"Termina la modalità engagement"</string>
-    <string name="k331ff05d9dc3">"Termina la modalità engagement; l\'agente chiede di nuovo."</string>
-    <string name="k10b781509d0d">"Per engagement autorizzati: pre-approva le azioni di questa sessione così che l\'agente lavori senza un prompt per ogni passaggio. I percorsi bloccati restano bloccati, tutto viene registrato e si disattiva alla disconnessione o al riavvio dell\'app. L\'agente può richiederlo in chat, ma solo tu lo confermi."</string>
-    <string name="k0eadefa12b6d">"I comandi grezzi raggiungono tutto ciò che il firmware espone, compresi i percorsi che i normali strumenti proteggono. Gli script Bad KB avviati digitano sulla macchina a cui il Flipper è collegato."</string>
-    <string name="k3fef64768db0">"Comandi grezzi (rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"Leggi il livello del pin GPIO %%@"</string>
-    <string name="k4612691534be">"Imposta il pin GPIO %%@ come ingresso"</string>
-    <string name="kc2b6424fe779">"Imposta il pin GPIO %%@ come uscita"</string>
-    <string name="kd60c4751fe70">"Avvia script Bad KB (badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Avvia ora lo script Bad KB %%@ sul Flipper"</string>
-    <string name="k9f9d538ba036">"pilota il pin GPIO %%@ del connettore di espansione"</string>
-    <string name="kecefc54e7273">"termina la modalità engagement; l\'agente chiede di nuovo"</string>
-    <string name="k7aaa79284851">"mette %%@ sul pin GPIO %%@"</string>
-    <string name="k13b482620026">"legge il pin GPIO %%@, non cambia nulla"</string>
-    <string name="k71762ffac238">"riconfigura il pin GPIO %%@ del connettore di espansione"</string>
+    <string name="k16431a95976e" formatted="false">"È già in corso un’altra operazione Marauder"</string>
+    <string name="k41b4f6a3e61e">"Attiva la modalità engagement (%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"Attiva la modalità engagement..."</string>
+    <string name="k396932526642" formatted="false">"gli script Bad KB partono senza che nessuno prema Run"</string>
+    <string name="kca09c54bff74" formatted="false">"Capacità"</string>
+    <string name="k06114a8ade22">"Riunisci le ultime %1$s voci di audit in un report di engagement"</string>
+    <string name="k4db432feeef9" formatted="false">"Disattiva la modalità engagement"</string>
+    <string name="k5a0f06c6e948">"Porta il pin GPIO %1$s a %2$s"</string>
+    <string name="ked371761db85" formatted="false">"Termina la modalità engagement"</string>
+    <string name="k331ff05d9dc3" formatted="false">"Termina la modalità engagement; l'agente chiede di nuovo."</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement attivo"</string>
+    <string name="kf68d25d8f480" formatted="false">"Modalità engagement"</string>
+    <string name="k9cf579277ea7" formatted="false">"La modalità engagement è disattivata."</string>
+    <string name="k0ddb74423644" formatted="false">"Esporta report"</string>
+    <string name="k10b781509d0d" formatted="false">"Per engagement autorizzati: pre-approva le azioni di questa sessione così che l'agente lavori senza un prompt per ogni passaggio. I percorsi bloccati restano bloccati, tutto viene registrato e si disattiva alla disconnessione o al riavvio dell'app. L'agente può richiederlo in chat, ma solo tu lo confermi."</string>
+    <string name="k427e61efef36" formatted="false">"Tieni premuto per attivare"</string>
+    <string name="k44999b07787e" formatted="false">"Parametri Marauder non validi"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder non ha accettato il bersaglio selezionato"</string>
+    <string name="k0eadefa12b6d" formatted="false">"I comandi grezzi raggiungono tutto ciò che il firmware espone, compresi i percorsi che i normali strumenti proteggono. Gli script Bad KB avviati digitano sulla macchina a cui il Flipper è collegato."</string>
+    <string name="k3fef64768db0" formatted="false">"Comandi grezzi (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"Leggi il livello del pin GPIO %1$s"</string>
+    <string name="k1e9aad06e6b7">"Esegui l’operazione Marauder %1$s"</string>
+    <string name="kf82fad3f3930" formatted="false">"Esegui le azioni senza prompt"</string>
+    <string name="k68b9e08b8b86" formatted="false">"Nota di perimetro, es. cliente o luogo"</string>
+    <string name="kfa8f03871d20">"Invia il comando grezzo %1$s"</string>
+    <string name="k4612691534be">"Imposta il pin GPIO %1$s come ingresso"</string>
+    <string name="kc2b6424fe779">"Imposta il pin GPIO %1$s come uscita"</string>
+    <string name="kd60c4751fe70" formatted="false">"Avvia script Bad KB (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Avvia ora lo script Bad KB %1$s sul Flipper"</string>
+    <string name="k9f9d538ba036">"pilota il pin GPIO %1$s del connettore di espansione"</string>
+    <string name="kecefc54e7273" formatted="false">"termina la modalità engagement; l'agente chiede di nuovo"</string>
+    <string name="k7aaa79284851">"mette %1$s sul pin GPIO %2$s"</string>
+    <string name="kb1c74918feaa" formatted="false">"i comandi grezzi possono raggiungere tutto ciò che il firmware espone"</string>
+    <string name="k13b482620026">"legge il pin GPIO %1$s, non cambia nulla"</string>
+    <string name="k71762ffac238">"riconfigura il pin GPIO %1$s del connettore di espansione"</string>
+    <string name="k924c166ef159" formatted="false">"invia un comando grezzo che aggira i normali controlli degli strumenti"</string>
 </resources>

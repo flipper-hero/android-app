@@ -9,6 +9,43 @@ import kotlinx.coroutines.test.runTest
 
 class ParityPersistenceTests {
     @Test
+    fun providerCredentialsAreNotForwardedThroughRedirects() = runTest {
+        val forwarded = java.util.concurrent.atomic.AtomicBoolean(false)
+        val server = com.sun.net.httpserver.HttpServer.create(java.net.InetSocketAddress("127.0.0.1", 0), 0)
+        server.createContext("/redirect") { request ->
+            request.responseHeaders.add("Location", "/destination")
+            request.sendResponseHeaders(302, -1)
+            request.close()
+        }
+        server.createContext("/destination") { request ->
+            forwarded.set(true)
+            request.sendResponseHeaders(200, -1)
+            request.close()
+        }
+        server.start()
+        try {
+            val response = UrlHttp().request("http://127.0.0.1:${server.address.port}/redirect", mapOf("Authorization" to "Bearer test-key"))
+            assertEquals(302, response.status)
+            assertEquals(false, forwarded.get())
+        } finally { server.stop(0) }
+    }
+
+    @Test
+    fun connectionTestsUseProviderSpecificBoundedRequests() = runTest {
+        var sent = org.json.JSONObject()
+        val http = object : HttpClient {
+            override suspend fun request(url: String, headers: Map<String, String>, body: ByteArray?): HttpResponse {
+                sent = org.json.JSONObject(body!!.decodeToString())
+                return HttpResponse(200, """{"choices":[{"message":{"content":"ok"}}]}""".encodeToByteArray())
+            }
+        }
+        CompletingClient(http, "test", "MiniMax-M3", AIProvider.Minimax, connectionTest = true)
+            .complete(listOf(ChatMessage(ChatRole.user, "Reply with the word ok.")), emptyList())
+        assertEquals(1024, sent.getInt("max_tokens"))
+        assertEquals("disabled", sent.getJSONObject("thinking").getString("type"))
+        assertEquals(1, sent.getJSONArray("messages").length())
+    }
+    @Test
     fun auditSurvivesReopeningAndKeepsOrder() = runTest {
         val file = Files.createTempFile("flipper-audit", ".jsonl").toFile()
         try {

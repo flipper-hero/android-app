@@ -120,7 +120,7 @@ class FlipperRpcClient(
                 delay(limit)
                 finish(id, Result.failure(FlipperError.Timeout()))
             }
-            scope.launch {
+            val sender = scope.launch {
                 try {
                     stamped.forEachIndexed { index, message ->
                         if (!state.withLock { pending.containsKey(id) }) return@launch
@@ -135,6 +135,10 @@ class FlipperRpcClient(
                 deferred.await()
             } finally {
                 timer.cancel()
+                sender.cancel()
+                kotlinx.coroutines.withContext(kotlinx.coroutines.NonCancellable) {
+                    state.withLock { pending.remove(id) }
+                }
             }
         } finally {
             gate.unlock()

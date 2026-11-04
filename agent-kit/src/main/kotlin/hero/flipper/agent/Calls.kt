@@ -15,174 +15,174 @@ sealed interface CoreCall : AgentCall
 
 data class ListDirectory(val path: String) : CoreCall {
     override val toolName = "list_directory"
-    override val summary = "List $path"
+    override val summary = L("List %@", path)
 }
 data class ReadFile(val path: String) : CoreCall {
     override val toolName = "read_file"
-    override val summary = "Read $path"
+    override val summary = L("Read %@", path)
 }
 data object GetDeviceInfo : CoreCall {
     override val toolName = "get_device_info"
-    override val summary = "Read device info"
+    override val summary = L("Read device info")
 }
 data object GetPowerInfo : CoreCall {
     override val toolName = "get_power_info"
-    override val summary = "Read battery info"
+    override val summary = L("Read battery info")
 }
 data class GetStorageInfo(val path: String) : CoreCall {
     override val toolName = "get_storage_info"
-    override val summary = "Read storage info for $path"
+    override val summary = L("Read storage info for %@", path)
 }
 data class CreateDirectory(val path: String) : CoreCall {
     override val toolName = "create_directory"
-    override val summary = "Create folder $path"
+    override val summary = L("Create folder %@", path)
 }
 data class WriteFile(val path: String, val content: String) : CoreCall {
     override val toolName = "write_file"
-    override val summary = "Write ${content.encodeToByteArray().size} bytes to $path"
+    override val summary = L("Write %lld bytes to %@", content.encodeToByteArray().size, path)
 }
 data class RenamePath(val from: String, val to: String) : CoreCall {
     override val toolName = "rename"
-    override val summary = "Move $from to $to"
+    override val summary = L("Move %@ to %@", from, to)
 }
 data class LaunchApp(val name: String, val args: String) : CoreCall {
     override val toolName = "launch_app"
-    override val summary = if (args.isEmpty()) "Launch app $name" else "Launch app $name with argument $args"
+    override val summary = if (args.isEmpty()) L("Launch app %@", name) else L("Launch app %@ with argument %@", name, args)
 }
 data class DeletePath(val path: String, val recursive: Boolean) : CoreCall {
     override val toolName = "delete"
-    override val summary = if (recursive) "Delete $path and everything inside" else "Delete $path"
+    override val summary = if (recursive) L("Delete %@ and everything inside", path) else L("Delete %@", path)
 }
 data class TransmitSubGhz(val path: String) : CoreCall {
     override val toolName = "transmit_subghz"
-    override val summary = "Transmit the radio signal $path"
+    override val summary = L("Transmit the radio signal %@", path)
 }
 data class TransmitInfrared(val path: String, val button: String) : CoreCall {
     override val toolName = "transmit_infrared"
-    override val summary = if (button.isEmpty()) "Send the infrared remote $path" else "Send infrared button '$button' from $path"
+    override val summary = if (button.isEmpty()) L("Send the infrared remote %@", path) else L("Send infrared button '%@' from %@", button, path)
 }
 data class EmulateNfc(val path: String) : CoreCall {
     override val toolName = "emulate_nfc"
-    override val summary = "Emulate the NFC card $path"
+    override val summary = L("Emulate the NFC card %@", path)
 }
 data class EmulateRfid(val path: String) : CoreCall {
     override val toolName = "emulate_rfid"
-    override val summary = "Emulate the 125 kHz tag $path"
+    override val summary = L("Emulate the 125 kHz tag %@", path)
 }
 data class EmulateIButton(val path: String) : CoreCall {
     override val toolName = "emulate_ibutton"
-    override val summary = "Emulate the iButton key $path"
+    override val summary = L("Emulate the iButton key %@", path)
 }
 data class LoadBadKeyboardScript(val path: String) : CoreCall {
     override val toolName = "load_badusb_script"
-    override val summary = "Open Bad KB with the script $path loaded (not started)"
+    override val summary = L("Open Bad KB with the script %@ loaded (not started)", path)
 }
 data object StopApp : CoreCall {
     override val toolName = "stop_app"
-    override val summary = "Close the app running on the Flipper"
+    override val summary = L("Close the app running on the Flipper")
 }
 data object AlertDevice : CoreCall {
     override val toolName = "alert_device"
-    override val summary = "Make the Flipper beep and blink"
+    override val summary = L("Make the Flipper beep and blink")
 }
 data class ForgePayload(val kind: PayloadKind, val description: String, val path: String) : CoreCall {
     override val toolName = "forge_payload"
-    override val summary = "Generate a ${kind.wire} file from \"$description\" and write it to $path"
+    override val summary = L("Generate a %@ file from \"%@\" and write it to %@", kind.wire, description, path)
 }
 data class SearchFapHub(val query: String) : CoreCall {
     override val toolName = "search_faphub"
-    override val summary = "Search the Flipper app catalog for \"$query\""
+    override val summary = L("Search the Flipper app catalog for \"%@\"", query)
 }
 data class InstallFapHubApp(val query: String) : CoreCall {
     override val toolName = "install_faphub_app"
-    override val summary = "Download and install the app \"$query\" from the official catalog"
+    override val summary = L("Download and install the app \"%@\" from the official catalog", query)
 }
 data class SearchGitHub(val query: String, val fileExtension: String) : CoreCall {
     override val toolName = "github_search"
-    override val summary = if (fileExtension.isEmpty()) "Search GitHub for \"$query\"" else "Search GitHub for \"$query\" (.$fileExtension files)"
+    override val summary = if (fileExtension.isEmpty()) L("Search GitHub for \"%@\"", query) else L("Search GitHub for \"%@\" (.%@ files)", query, fileExtension)
 }
 data class DownloadResource(val url: String, val path: String) : CoreCall {
     override val toolName = "download_resource"
-    override val summary = "Download $url to $path"
+    override val summary = L("Download %@ to %@", url, path)
 }
 data object RefreshDeviceKnowledge : CoreCall {
     override val toolName = "refresh_device_knowledge"
-    override val summary = "Re-read what is installed and saved on the Flipper"
+    override val summary = L("Re-read what is installed and saved on the Flipper")
 }
 data class SetDeviceName(val name: String) : CoreCall {
     override val toolName = "set_device_name"
-    override val summary = "Rename the Flipper to \"$name\" (applies after a restart)"
+    override val summary = L("Rename the Flipper to \"%@\" (applies after a restart)", name)
 }
 data object CheckFirmware : CoreCall {
     override val toolName = "check_firmware"
-    override val summary = "Check the firmware for updates"
+    override val summary = L("Check the firmware for updates")
 }
 data object RestartDevice : CoreCall {
     override val toolName = "restart_device"
-    override val summary = "Restart the Flipper"
+    override val summary = L("Restart the Flipper")
 }
 data class GetAuditLog(val limit: Int) : CoreCall {
     override val toolName = "get_audit_log"
-    override val summary = "Show the last $limit actions from the audit log"
+    override val summary = L("Show the last %lld actions from the audit log", limit)
 }
 data object GetAppSettings : CoreCall {
     override val toolName = "get_app_settings"
-    override val summary = "Read the app settings"
+    override val summary = L("Read the app settings")
 }
 data class SetReadAloud(val enabled: Boolean) : CoreCall {
     override val toolName = "set_read_aloud"
-    override val summary = if (enabled) "Read replies aloud" else "Stop reading replies aloud"
+    override val summary = if (enabled) L("Read replies aloud") else L("Stop reading replies aloud")
 }
 data class SetAutoConnect(val enabled: Boolean) : CoreCall {
     override val toolName = "set_auto_connect"
-    override val summary = if (enabled) "Connect to the last Flipper on launch" else "Stop connecting automatically on launch"
+    override val summary = if (enabled) L("Connect to the last Flipper on launch") else L("Stop connecting automatically on launch")
 }
 data class SetYoloMode(val enabled: Boolean) : CoreCall {
     override val toolName = "set_yolo_mode"
-    override val summary = if (enabled) "Turn on YOLO mode: changes, deletes and transmissions run without asking" else "Turn off YOLO mode"
+    override val summary = if (enabled) L("Turn on YOLO mode: changes, deletes and transmissions run without asking") else L("Turn off YOLO mode")
     override val requiresExplicitConsent = enabled
 }
 data class SetYoloAsksAfterReading(val enabled: Boolean) : CoreCall {
     override val toolName = "set_yolo_asks_after_reading"
-    override val summary = if (enabled) "Ask again after reading Flipper content, even in YOLO mode" else "Stop asking after reading Flipper content in YOLO mode"
+    override val summary = if (enabled) L("Ask again after reading Flipper content, even in YOLO mode") else L("Stop asking after reading Flipper content in YOLO mode")
     override val requiresExplicitConsent = !enabled
 }
 data class SetAutoApproveMedium(val enabled: Boolean) : CoreCall {
     override val toolName = "set_auto_approve_medium"
-    override val summary = if (enabled) "Skip prompts for medium-risk actions" else "Ask again for medium-risk actions"
+    override val summary = if (enabled) L("Skip prompts for medium-risk actions") else L("Ask again for medium-risk actions")
     override val requiresExplicitConsent = enabled
 }
 data class SetModel(val model: String) : CoreCall {
     override val toolName = "set_model"
-    override val summary = "Switch the model to $model"
+    override val summary = L("Switch the model to %@", model)
 }
 data class SetProvider(val provider: AIProvider, val baseURL: String?) : CoreCall {
     override val toolName = "set_ai_provider"
-    override val summary = "Switch the AI provider to ${provider.displayName}"
+    override val summary = L("Switch the AI provider to %@", provider.displayName)
 }
 data object ListModels : CoreCall {
     override val toolName = "list_models"
-    override val summary = "Choose model"
+    override val summary = L("Choose model")
 }
 data object TestConnection : CoreCall {
     override val toolName = "test_model_connection"
-    override val summary = "Test connection"
+    override val summary = L("Test connection")
 }
 data object LookAtScreen : CoreCall {
     override val toolName = "look_at_screen"
-    override val summary = "Look at the Flipper's screen"
+    override val summary = L("Look at the Flipper's screen")
 }
 data object InstallFirmwareUpdate : CoreCall {
     override val toolName = "install_firmware_update"
-    override val summary = "Download and install the newest firmware release on the Flipper"
+    override val summary = L("Download and install the newest firmware release on the Flipper")
 }
 data object FirmwareUpdateStatus : CoreCall {
     override val toolName = "firmware_update_status"
-    override val summary = "Check how the firmware update is going"
+    override val summary = L("Check how the firmware update is going")
 }
 data object CancelFirmwareUpdate : CoreCall {
     override val toolName = "cancel_firmware_update"
-    override val summary = "Cancel the running firmware update"
+    override val summary = L("Cancel the running firmware update")
 }
 data class PressButtons(val keys: List<ButtonStep>, val lookAfter: Boolean) : CoreCall {
     override val toolName = "press_buttons"
@@ -204,7 +204,7 @@ data class ButtonStep(val key: FlipperKey, val long: Boolean = false) {
 
 private fun pressSummary(keys: List<ButtonStep>): String {
     val list = keys.joinToString(", ") { if (it.long) "long ${it.key.wire}" else it.key.wire }
-    return "Press $list on the Flipper"
+    return L("Press %@ on the Flipper", list)
 }
 
 enum class PayloadKind(val wire: String, val fileExtension: String) {
@@ -226,12 +226,25 @@ class ToolSpec(val name: String, val description: String, val parameters: JSONOb
 object ToolCatalog {
     const val maxWriteBytes = 32 * 1024
 
-    fun specs(edition: AgentEdition): List<ToolSpec> = coreSpecs + edition.extraSpecs
+    fun specs(edition: AgentEdition): List<ToolSpec> = coreSpecs + forgeSpec(edition) + edition.extraSpecs
+
+    private fun forgeSpec(edition: AgentEdition): ToolSpec {
+        val types = PayloadKind.entries.filter { it != PayloadKind.Badusb || edition.forgeBadUsb }.map { it.wire }
+        val result = spec("forge_payload", "Generate a Flipper file (${types.joinToString(", ")}) from a description and write it to the Flipper. The full generated content is shown for approval before anything is written.",
+            mapOf("type" to ("string" to "One of: ${types.joinToString(", ")}"),
+                "description" to ("string" to "What the file should do, in plain language"),
+                "path" to ("string" to "Absolute target path on the SD card")),
+            listOf("type", "description", "path"))
+        result.parameters.getJSONObject("properties").getJSONObject("type").put("enum", JSONArray(types))
+        return result
+    }
 
     private fun objectSpec(props: Map<String, Pair<String, String>>, required: List<String>): JSONObject {
         val properties = JSONObject()
         for ((key, typeDoc) in props) {
-            properties.put(key, JSONObject().put("type", typeDoc.first).put("description", typeDoc.second))
+            val property = JSONObject().put("type", typeDoc.first).put("description", typeDoc.second)
+            if (typeDoc.first == "array") property.put("items", JSONObject().put("type", "string"))
+            properties.put(key, property)
         }
         return JSONObject()
             .put("type", "object")
@@ -262,16 +275,6 @@ object ToolCatalog {
         spec("load_badusb_script", "Open Bad KB with a script loaded. It is NOT started; the user still presses Run on the Flipper itself.", mapOf("path" to ("string" to "Absolute path to a .txt script")), listOf("path")),
         spec("stop_app", "Close whatever app is currently running on the Flipper, which also stops emulation."),
         spec("alert_device", "Make the Flipper beep, blink and vibrate so the user can find it."),
-        spec(
-            "forge_payload",
-            "Generate a Flipper file from a description and write it to the Flipper. The full generated content is shown to the user for approval before anything is written.",
-            mapOf(
-                "type" to ("string" to "One of: badusb, subghz, infrared, nfc, rfid, ibutton"),
-                "description" to ("string" to "What the file should do, in plain language"),
-                "path" to ("string" to "Absolute target path, e.g. /ext/badusb/demo.txt"),
-            ),
-            listOf("type", "description", "path"),
-        ),
         spec("search_faphub", "Search the official Flipper app catalog. Only returns apps built for the firmware the connected device is running.", mapOf("query" to ("string" to "What to search for")), listOf("query")),
         spec("install_faphub_app", "Download an app from the official catalog and install it on the Flipper. Installs executable code, so it always needs user approval.", mapOf("query" to ("string" to "App name or alias, as returned by search_faphub")), listOf("query")),
         spec("github_search", "Search GitHub for Flipper-compatible files, for example .sub or .ir remotes. Returns repository, path and a raw URL.", mapOf("query" to ("string" to "Search terms"), "extension" to ("string" to "Restrict to a file extension, e.g. ir or sub")), listOf("query")),
@@ -309,97 +312,97 @@ object RiskAssessor {
 
     fun assess(call: AgentCall, edition: AgentEdition): RiskAssessment {
         if (call is CoreCall) return assessCore(call)
-        return edition.risk(call) ?: RiskAssessment(RiskLevel.Blocked, listOf("invalid path"))
+        return edition.risk(call) ?: RiskAssessment(RiskLevel.Blocked, listOf(L("invalid path")))
     }
 
     private fun assessCore(call: CoreCall): RiskAssessment = when (call) {
-        GetDeviceInfo, GetPowerInfo -> low("read-only")
+        GetDeviceInfo, GetPowerInfo -> low(L("read-only"))
         is GetStorageInfo -> pathRead(call.path)
         is ListDirectory -> pathRead(call.path)
         is ReadFile -> {
             val read = pathRead(call.path)
             if (read.level != RiskLevel.Blocked && FlipperGuardsExt.sensitive(call.path)) {
-                RiskAssessment(RiskLevel.Blocked, listOf("reading key or secret files is not allowed"))
+                RiskAssessment(RiskLevel.Blocked, listOf(L("reading key or secret files is not allowed")))
             } else read
         }
-        is CreateDirectory -> pathWrite(call.path, "creates a folder")
-        is WriteFile -> pathWrite(call.path, "writes a file")
-        is RenamePath -> combine(pathWrite(call.from, "moves a file"), pathWrite(call.to, "moves a file"))
+        is CreateDirectory -> pathWrite(call.path, L("creates a folder"))
+        is WriteFile -> pathWrite(call.path, L("writes a file"))
+        is RenamePath -> combine(pathWrite(call.from, L("moves a file")), pathWrite(call.to, L("moves a file")))
         is LaunchApp -> if (call.args.isNotEmpty()) {
-            RiskAssessment(RiskLevel.High, listOf("app '${call.name}' receives an argument (it may run or transmit a file)"))
+            RiskAssessment(RiskLevel.High, listOf(L("app '%@' receives an argument (it may run or transmit a file)", call.name)))
         } else {
-            RiskAssessment(RiskLevel.Medium, listOf("starts an app on the device"))
+            RiskAssessment(RiskLevel.Medium, listOf(L("starts an app on the device")))
         }
-        is TransmitSubGhz -> physical(call.path, "transmits a radio signal")
-        is TransmitInfrared -> physical(call.path, "sends an infrared command")
-        is EmulateNfc -> physical(call.path, "emulates this card to any nearby reader")
-        is EmulateRfid -> physical(call.path, "emulates this 125 kHz tag to any nearby reader")
-        is EmulateIButton -> physical(call.path, "emulates this iButton key")
-        is LoadBadKeyboardScript -> physical(call.path, "loads a keystroke-injection script (you still start it on the Flipper)")
-        StopApp -> low("closes the app running on the Flipper")
-        InstallFirmwareUpdate -> RiskAssessment(RiskLevel.High, listOf("replaces the firmware; takes 15 to 25 minutes and the Flipper restarts"))
-        FirmwareUpdateStatus -> low("read-only")
-        CancelFirmwareUpdate -> low("stops an update before anything is installed")
-        LookAtScreen -> low("takes a screenshot of the Flipper")
-        is PressButtons -> RiskAssessment(RiskLevel.High, listOf("presses buttons in whatever app is open, which can start transmissions or delete data"))
-        CheckFirmware, is GetAuditLog, GetAppSettings, ListModels -> low("read-only")
-        is SetReadAloud, is SetAutoConnect -> low("changes a harmless app preference")
-        RestartDevice -> RiskAssessment(RiskLevel.Medium, listOf("restarts the Flipper; whatever runs on it stops and the connection drops briefly"))
-        is SetModel, is SetProvider -> RiskAssessment(RiskLevel.Medium, listOf("changes which model provider receives your conversation and file contents"))
-        TestConnection -> RiskAssessment(RiskLevel.Medium, listOf("sends a paid test message to your model provider"))
-        is SetYoloMode -> if (call.enabled) RiskAssessment(RiskLevel.High, listOf("the agent could then change, delete and transmit without asking you")) else low("makes the agent ask again")
-        is SetAutoApproveMedium -> if (call.enabled) RiskAssessment(RiskLevel.High, listOf("medium-risk changes would no longer ask you")) else low("makes the agent ask again")
-        is SetYoloAsksAfterReading -> if (call.enabled) low("makes the agent ask again after reading device content") else RiskAssessment(RiskLevel.High, listOf("removes the protection against instructions planted in files on the Flipper"))
-        is SetDeviceName -> RiskAssessment(RiskLevel.Medium, listOf("changes the device name and its Bluetooth identity"))
-        RefreshDeviceKnowledge -> low("reads the device inventory")
-        is SearchFapHub, is SearchGitHub -> low("searches the internet, changes nothing")
-        is InstallFapHubApp -> RiskAssessment(RiskLevel.High, listOf("installs an app '${call.query}' that can run code on the device"))
-        is DownloadResource -> pathWrite(call.path, "writes a file downloaded from the internet")
-        is ForgePayload -> pathWrite(call.path, "writes a generated file")
-        AlertDevice -> low("beeps and blinks so you can find the device")
+        is TransmitSubGhz -> physical(call.path, L("transmits a radio signal"))
+        is TransmitInfrared -> physical(call.path, L("sends an infrared command"))
+        is EmulateNfc -> physical(call.path, L("emulates this card to any nearby reader"))
+        is EmulateRfid -> physical(call.path, L("emulates this 125 kHz tag to any nearby reader"))
+        is EmulateIButton -> physical(call.path, L("emulates this iButton key"))
+        is LoadBadKeyboardScript -> physical(call.path, L("loads a keystroke-injection script (you still start it on the Flipper)"))
+        StopApp -> low(L("closes the app running on the Flipper"))
+        InstallFirmwareUpdate -> RiskAssessment(RiskLevel.High, listOf(L("replaces the firmware; takes 15 to 25 minutes and the Flipper restarts")))
+        FirmwareUpdateStatus -> low(L("read-only"))
+        CancelFirmwareUpdate -> low(L("stops an update before anything is installed"))
+        LookAtScreen -> low(L("takes a screenshot of the Flipper"))
+        is PressButtons -> RiskAssessment(RiskLevel.High, listOf(L("presses buttons in whatever app is open, which can start transmissions or delete data")))
+        CheckFirmware, is GetAuditLog, GetAppSettings, ListModels -> low(L("read-only"))
+        is SetReadAloud, is SetAutoConnect -> low(L("changes a harmless app preference"))
+        RestartDevice -> RiskAssessment(RiskLevel.Medium, listOf(L("restarts the Flipper; whatever runs on it stops and the connection drops briefly")))
+        is SetModel, is SetProvider -> RiskAssessment(RiskLevel.Medium, listOf(L("changes which model provider receives your conversation and file contents")))
+        TestConnection -> RiskAssessment(RiskLevel.Medium, listOf(L("sends a paid test message to your model provider")))
+        is SetYoloMode -> if (call.enabled) RiskAssessment(RiskLevel.High, listOf(L("the agent could then change, delete and transmit without asking you"))) else low(L("makes the agent ask again"))
+        is SetAutoApproveMedium -> if (call.enabled) RiskAssessment(RiskLevel.High, listOf(L("medium-risk changes would no longer ask you"))) else low(L("makes the agent ask again"))
+        is SetYoloAsksAfterReading -> if (call.enabled) low(L("makes the agent ask again after reading device content")) else RiskAssessment(RiskLevel.High, listOf(L("removes the protection against instructions planted in files on the Flipper")))
+        is SetDeviceName -> RiskAssessment(RiskLevel.Medium, listOf(L("changes the device name and its Bluetooth identity")))
+        RefreshDeviceKnowledge -> low(L("reads the device inventory"))
+        is SearchFapHub, is SearchGitHub -> low(L("searches the internet, changes nothing"))
+        is InstallFapHubApp -> RiskAssessment(RiskLevel.High, listOf(L("installs an app '%@' that can run code on the device", call.query)))
+        is DownloadResource -> pathWrite(call.path, L("writes a file downloaded from the internet"))
+        is ForgePayload -> pathWrite(call.path, L("writes a generated file"))
+        AlertDevice -> low(L("beeps and blinks so you can find the device"))
         is DeletePath -> {
             val normalized = normalizedOrNull(call.path)
             val depth = normalized?.split('/')?.count { it.isNotEmpty() } ?: 0
             when {
                 normalized == null -> invalid()
-                hero.flipper.kit.FlipperGuards.blockedRoot(normalized) -> RiskAssessment(RiskLevel.Blocked, listOf("protected path"))
-                call.recursive && depth <= 2 -> RiskAssessment(RiskLevel.Blocked, listOf("refusing recursive delete of a top-level folder"))
-                else -> RiskAssessment(RiskLevel.High, listOf(if (call.recursive) "deletes a folder and its contents" else "deletes data"))
+                hero.flipper.kit.FlipperGuards.blockedRoot(normalized) -> RiskAssessment(RiskLevel.Blocked, listOf(L("protected path")))
+                call.recursive && depth <= 2 -> RiskAssessment(RiskLevel.Blocked, listOf(L("refusing recursive delete of a top-level folder")))
+                else -> RiskAssessment(RiskLevel.High, listOf(if (call.recursive) L("deletes a folder and its contents") else L("deletes data")))
             }
         }
     }
 
     private fun low(why: String) = RiskAssessment(RiskLevel.Low, listOf(why))
-    private fun invalid() = RiskAssessment(RiskLevel.Blocked, listOf("invalid path"))
+    private fun invalid() = RiskAssessment(RiskLevel.Blocked, listOf(L("invalid path")))
 
     private fun pathRead(path: String): RiskAssessment {
         val normalized = normalizedOrNull(path) ?: return invalid()
-        if (hero.flipper.kit.FlipperGuards.blockedRoot(normalized)) return RiskAssessment(RiskLevel.Blocked, listOf("protected path (internal storage)"))
-        return low("read-only")
+        if (hero.flipper.kit.FlipperGuards.blockedRoot(normalized)) return RiskAssessment(RiskLevel.Blocked, listOf(L("protected path (internal storage)")))
+        return low(L("read-only"))
     }
 
     private fun pathWrite(path: String, why: String): RiskAssessment {
         val normalized = normalizedOrNull(path) ?: return invalid()
-        if (hero.flipper.kit.FlipperGuards.blockedRoot(normalized)) return RiskAssessment(RiskLevel.Blocked, listOf("protected path (internal storage)"))
+        if (hero.flipper.kit.FlipperGuards.blockedRoot(normalized)) return RiskAssessment(RiskLevel.Blocked, listOf(L("protected path (internal storage)")))
         var level = RiskLevel.Medium
         val reasons = mutableListOf(why)
         val ext = normalized.substringAfterLast('.', "").lowercase()
         val underExecutable = executableRoots.any { normalized == it || normalized.startsWith("$it/") }
         if (underExecutable || ext in executableExtensions) {
             level = RiskLevel.High
-            reasons.add("target can execute code or reconfigure the device")
+            reasons.add(L("target can execute code or reconfigure the device"))
         }
         val comps = normalized.split('/').filter { it.isNotEmpty() }
         if (comps.size == 2 && comps[1].startsWith(".")) {
             level = RiskLevel.High
-            reasons.add("hidden configuration file at the SD card root")
+            reasons.add(L("hidden configuration file at the SD card root"))
         }
         return RiskAssessment(level, reasons)
     }
 
     private fun physical(path: String, why: String): RiskAssessment {
         val normalized = normalizedOrNull(path) ?: return invalid()
-        if (hero.flipper.kit.FlipperGuards.blockedRoot(normalized)) return RiskAssessment(RiskLevel.Blocked, listOf("protected path (internal storage)"))
+        if (hero.flipper.kit.FlipperGuards.blockedRoot(normalized)) return RiskAssessment(RiskLevel.Blocked, listOf(L("protected path (internal storage)")))
         return RiskAssessment(RiskLevel.High, listOf(why))
     }
 

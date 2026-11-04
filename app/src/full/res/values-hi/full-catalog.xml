@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"एंगेजमेंट मोड चालू करें (%%@)%%@"</string>
-    <string name="kbfddfe24d657">"एंगेजमेंट मोड चालू करें..."</string>
-    <string name="k396932526642">"Bad KB स्क्रिप्ट बिना किसी के Run दबाए शुरू होती हैं"</string>
-    <string name="k06114a8ade22">"अंतिम %%lld ऑडिट प्रविष्टियों को एंगेजमेंट रिपोर्ट में संकलित करें"</string>
-    <string name="k5a0f06c6e948">"GPIO पिन %%@ को %%@ करें"</string>
-    <string name="ked371761db85">"एंगेजमेंट मोड समाप्त करें"</string>
-    <string name="k331ff05d9dc3">"एंगेजमेंट मोड समाप्त करता है; एजेंट फिर पूछेगा।"</string>
-    <string name="k10b781509d0d">"अधिकृत एंगेजमेंट के लिए: इस सेशन की क्रियाओं को पहले से स्वीकृत करता है ताकि एजेंट हर चरण में पूछे बिना काम कर सके। ब्लॉक किए गए पथ ब्लॉक रहते हैं, सब कुछ ऑडिट होता है, और डिस्कनेक्ट या ऐप रीस्टार्ट पर यह बंद हो जाता है। एजेंट चैट में आग्रह कर सकता है, पर पुष्टि केवल आप करते हैं।"</string>
-    <string name="k0eadefa12b6d">"कच्चे कमांड फर्मवेयर की दी हुई हर चीज़ तक पहुँचते हैं, जिनमें सामान्य टूल जो पथ सुरक्षित रखते हैं वे भी शामिल हैं। चलाई गई Bad KB स्क्रिप्ट उस मशीन में टाइप करती है जिसमें Flipper लगा है।"</string>
-    <string name="k3fef64768db0">"कच्चे डिवाइस कमांड (rpc_raw)"</string>
-    <string name="k1455ff1dcd07">"GPIO पिन %%@ का स्तर पढ़ें"</string>
-    <string name="k4612691534be">"GPIO पिन %%@ को इनपुट बनाएँ"</string>
-    <string name="kc2b6424fe779">"GPIO पिन %%@ को आउटपुट बनाएँ"</string>
-    <string name="kd60c4751fe70">"Bad KB स्क्रिप्ट चलाएँ (badusb_execute)"</string>
-    <string name="k6823e38a98a3">"Flipper पर Bad KB स्क्रिप्ट %%@ अभी चलाएँ"</string>
-    <string name="k9f9d538ba036">"एक्सपेंशन हेडर पर GPIO पिन %%@ को चलाता है"</string>
-    <string name="kecefc54e7273">"एंगेजमेंट मोड समाप्त करता है; एजेंट फिर पूछेगा"</string>
-    <string name="k7aaa79284851">"GPIO पिन %%@ पर %%@ लगाता है"</string>
-    <string name="k13b482620026">"GPIO पिन %%@ पढ़ता है, कुछ नहीं बदलता"</string>
-    <string name="k71762ffac238">"एक्सपेंशन हेडर पर GPIO पिन %%@ को फिर से कॉन्फ़िगर करता है"</string>
+    <string name="k16431a95976e" formatted="false">"एक अन्य Marauder ऑपरेशन चल रहा है"</string>
+    <string name="k41b4f6a3e61e">"एंगेजमेंट मोड चालू करें (%1$s)%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"एंगेजमेंट मोड चालू करें..."</string>
+    <string name="k396932526642" formatted="false">"Bad KB स्क्रिप्ट बिना किसी के Run दबाए शुरू होती हैं"</string>
+    <string name="kca09c54bff74" formatted="false">"क्षमताएँ"</string>
+    <string name="k06114a8ade22">"अंतिम %1$s ऑडिट प्रविष्टियों को एंगेजमेंट रिपोर्ट में संकलित करें"</string>
+    <string name="k4db432feeef9" formatted="false">"एंगेजमेंट मोड बंद करें"</string>
+    <string name="k5a0f06c6e948">"GPIO पिन %1$s को %2$s करें"</string>
+    <string name="ked371761db85" formatted="false">"एंगेजमेंट मोड समाप्त करें"</string>
+    <string name="k331ff05d9dc3" formatted="false">"एंगेजमेंट मोड समाप्त करता है; एजेंट फिर पूछेगा।"</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement सक्रिय"</string>
+    <string name="kf68d25d8f480" formatted="false">"एंगेजमेंट मोड"</string>
+    <string name="k9cf579277ea7" formatted="false">"एंगेजमेंट मोड बंद है।"</string>
+    <string name="k0ddb74423644" formatted="false">"रिपोर्ट निर्यात करें"</string>
+    <string name="k10b781509d0d" formatted="false">"अधिकृत एंगेजमेंट के लिए: इस सेशन की क्रियाओं को पहले से स्वीकृत करता है ताकि एजेंट हर चरण में पूछे बिना काम कर सके। ब्लॉक किए गए पथ ब्लॉक रहते हैं, सब कुछ ऑडिट होता है, और डिस्कनेक्ट या ऐप रीस्टार्ट पर यह बंद हो जाता है। एजेंट चैट में आग्रह कर सकता है, पर पुष्टि केवल आप करते हैं।"</string>
+    <string name="k427e61efef36" formatted="false">"चालू करने के लिए दबाए रखें"</string>
+    <string name="k44999b07787e" formatted="false">"अमान्य Marauder पैरामीटर"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder ने चुने गए लक्ष्य को स्वीकार नहीं किया"</string>
+    <string name="k0eadefa12b6d" formatted="false">"कच्चे कमांड फर्मवेयर की दी हुई हर चीज़ तक पहुँचते हैं, जिनमें सामान्य टूल जो पथ सुरक्षित रखते हैं वे भी शामिल हैं। चलाई गई Bad KB स्क्रिप्ट उस मशीन में टाइप करती है जिसमें Flipper लगा है।"</string>
+    <string name="k3fef64768db0" formatted="false">"कच्चे डिवाइस कमांड (rpc_raw)"</string>
+    <string name="k1455ff1dcd07">"GPIO पिन %1$s का स्तर पढ़ें"</string>
+    <string name="k1e9aad06e6b7">"Marauder ऑपरेशन %1$s चलाएँ"</string>
+    <string name="kf82fad3f3930" formatted="false">"कार्य बिना पूछे चलाएँ"</string>
+    <string name="k68b9e08b8b86" formatted="false">"दायरा नोट, जैसे ग्राहक या स्थान"</string>
+    <string name="kfa8f03871d20">"कच्चा डिवाइस कमांड %1$s भेजें"</string>
+    <string name="k4612691534be">"GPIO पिन %1$s को इनपुट बनाएँ"</string>
+    <string name="kc2b6424fe779">"GPIO पिन %1$s को आउटपुट बनाएँ"</string>
+    <string name="kd60c4751fe70" formatted="false">"Bad KB स्क्रिप्ट चलाएँ (badusb_execute)"</string>
+    <string name="k6823e38a98a3">"Flipper पर Bad KB स्क्रिप्ट %1$s अभी चलाएँ"</string>
+    <string name="k9f9d538ba036">"एक्सपेंशन हेडर पर GPIO पिन %1$s को चलाता है"</string>
+    <string name="kecefc54e7273" formatted="false">"एंगेजमेंट मोड समाप्त करता है; एजेंट फिर पूछेगा"</string>
+    <string name="k7aaa79284851">"GPIO पिन %1$s पर %2$s लगाता है"</string>
+    <string name="kb1c74918feaa" formatted="false">"कच्चे डिवाइस कमांड फर्मवेयर की दी हुई हर चीज़ तक पहुँच सकते हैं"</string>
+    <string name="k13b482620026">"GPIO पिन %1$s पढ़ता है, कुछ नहीं बदलता"</string>
+    <string name="k71762ffac238">"एक्सपेंशन हेडर पर GPIO पिन %1$s को फिर से कॉन्फ़िगर करता है"</string>
+    <string name="k924c166ef159" formatted="false">"सामान्य टूल जाँचों को छोड़कर एक कच्चा डिवाइस कमांड भेजता है"</string>
 </resources>

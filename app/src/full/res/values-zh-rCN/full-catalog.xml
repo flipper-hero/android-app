@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="k41b4f6a3e61e">"启用 Engagement 模式（%%@）%%@"</string>
-    <string name="kbfddfe24d657">"启用 Engagement 模式..."</string>
-    <string name="k396932526642">"Bad KB 脚本在无人按 Run 的情况下启动"</string>
-    <string name="k06114a8ade22">"将最近 %%lld 条审计条目汇总为 engagement 报告"</string>
-    <string name="k5a0f06c6e948">"将 GPIO 引脚 %%@ 置为 %%@"</string>
-    <string name="ked371761db85">"结束 Engagement 模式"</string>
-    <string name="k331ff05d9dc3">"结束 Engagement 模式；智能体将重新询问。"</string>
-    <string name="k10b781509d0d">"用于已授权的测试任务：预先批准本次会话的操作，让智能体逐步工作而无需逐项确认。被屏蔽的路径仍然屏蔽，所有操作都会审计，断开连接或重启应用即解除。智能体可以在对话中请求启用，但只有你能确认。"</string>
-    <string name="k0eadefa12b6d">"原始命令可以访问固件暴露的一切，包括普通工具所保护的路径。已启动的 Bad KB 脚本会向 Flipper 所连接的电脑输入按键。"</string>
-    <string name="k3fef64768db0">"原始设备命令（rpc_raw）"</string>
-    <string name="k1455ff1dcd07">"读取 GPIO 引脚 %%@ 的电平"</string>
-    <string name="k4612691534be">"将 GPIO 引脚 %%@ 设为输入"</string>
-    <string name="kc2b6424fe779">"将 GPIO 引脚 %%@ 设为输出"</string>
-    <string name="kd60c4751fe70">"启动 Bad KB 脚本（badusb_execute）"</string>
-    <string name="k6823e38a98a3">"立即在 Flipper 上启动 Bad KB 脚本 %%@"</string>
-    <string name="k9f9d538ba036">"驱动扩展排针上的 GPIO 引脚 %%@"</string>
-    <string name="kecefc54e7273">"结束 Engagement 模式；智能体将重新询问"</string>
-    <string name="k7aaa79284851">"将 %%@ 施加到 GPIO 引脚 %%@"</string>
-    <string name="k13b482620026">"读取 GPIO 引脚 %%@，不做任何更改"</string>
-    <string name="k71762ffac238">"重新配置扩展排针上的 GPIO 引脚 %%@"</string>
+    <string name="k16431a95976e" formatted="false">"另一个 Marauder 操作正在运行"</string>
+    <string name="k41b4f6a3e61e">"启用 Engagement 模式（%1$s）%2$s"</string>
+    <string name="kbfddfe24d657" formatted="false">"启用 Engagement 模式..."</string>
+    <string name="k396932526642" formatted="false">"Bad KB 脚本在无人按 Run 的情况下启动"</string>
+    <string name="kca09c54bff74" formatted="false">"能力"</string>
+    <string name="k06114a8ade22">"将最近 %1$s 条审计条目汇总为 engagement 报告"</string>
+    <string name="k4db432feeef9" formatted="false">"解除 Engagement 模式"</string>
+    <string name="k5a0f06c6e948">"将 GPIO 引脚 %1$s 置为 %2$s"</string>
+    <string name="ked371761db85" formatted="false">"结束 Engagement 模式"</string>
+    <string name="k331ff05d9dc3" formatted="false">"结束 Engagement 模式；智能体将重新询问。"</string>
+    <string name="k5a63bb5966d4" formatted="false">"Engagement 进行中"</string>
+    <string name="kf68d25d8f480" formatted="false">"Engagement 模式"</string>
+    <string name="k9cf579277ea7" formatted="false">"Engagement 模式已关闭。"</string>
+    <string name="k0ddb74423644" formatted="false">"导出报告"</string>
+    <string name="k10b781509d0d" formatted="false">"用于已授权的测试任务：预先批准本次会话的操作，让智能体逐步工作而无需逐项确认。被屏蔽的路径仍然屏蔽，所有操作都会审计，断开连接或重启应用即解除。智能体可以在对话中请求启用，但只有你能确认。"</string>
+    <string name="k427e61efef36" formatted="false">"长按以启用"</string>
+    <string name="k44999b07787e" formatted="false">"Marauder 参数无效"</string>
+    <string name="kfd09524ab782" formatted="false">"Marauder 未接受所选目标"</string>
+    <string name="k0eadefa12b6d" formatted="false">"原始命令可以访问固件暴露的一切，包括普通工具所保护的路径。已启动的 Bad KB 脚本会向 Flipper 所连接的电脑输入按键。"</string>
+    <string name="k3fef64768db0" formatted="false">"原始设备命令（rpc_raw）"</string>
+    <string name="k1455ff1dcd07">"读取 GPIO 引脚 %1$s 的电平"</string>
+    <string name="k1e9aad06e6b7">"运行 Marauder 操作 %1$s"</string>
+    <string name="kf82fad3f3930" formatted="false">"不经提示执行操作"</string>
+    <string name="k68b9e08b8b86" formatted="false">"范围备注，如客户或地点"</string>
+    <string name="kfa8f03871d20">"发送原始设备命令 %1$s"</string>
+    <string name="k4612691534be">"将 GPIO 引脚 %1$s 设为输入"</string>
+    <string name="kc2b6424fe779">"将 GPIO 引脚 %1$s 设为输出"</string>
+    <string name="kd60c4751fe70" formatted="false">"启动 Bad KB 脚本（badusb_execute）"</string>
+    <string name="k6823e38a98a3">"立即在 Flipper 上启动 Bad KB 脚本 %1$s"</string>
+    <string name="k9f9d538ba036">"驱动扩展排针上的 GPIO 引脚 %1$s"</string>
+    <string name="kecefc54e7273" formatted="false">"结束 Engagement 模式；智能体将重新询问"</string>
+    <string name="k7aaa79284851">"将 %1$s 施加到 GPIO 引脚 %2$s"</string>
+    <string name="kb1c74918feaa" formatted="false">"原始设备命令可以访问固件暴露的一切"</string>
+    <string name="k13b482620026">"读取 GPIO 引脚 %1$s，不做任何更改"</string>
+    <string name="k71762ffac238">"重新配置扩展排针上的 GPIO 引脚 %1$s"</string>
+    <string name="k924c166ef159" formatted="false">"发送绕过常规工具检查的原始设备命令"</string>
 </resources>

@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothGattCallback
 import android.bluetooth.BluetoothGattCharacteristic
 import android.bluetooth.BluetoothGattDescriptor
 import android.bluetooth.BluetoothProfile
+import android.bluetooth.BluetoothStatusCodes
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.content.Context
@@ -18,7 +19,10 @@ import hero.flipper.kit.FlipperTransport
 import java.util.UUID
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeout
@@ -28,7 +32,7 @@ data class FoundFlipper(val name: String, val rssi: Int, val device: BluetoothDe
 /** Scan results that look like a Flipper, by advertised service or name. */
 class FlipperScanCallback(private val onFound: (FoundFlipper) -> Unit) : ScanCallback() {
     override fun onScanResult(callbackType: Int, result: ScanResult) {
-        val name = result.device.name ?: result.scanRecord?.deviceName ?: return
+        val name = result.scanRecord?.deviceName ?: try { result.device.name } catch (_: SecurityException) { null } ?: return
         val uuids = result.scanRecord?.serviceUuids?.map { it.uuid.toString() }.orEmpty()
         if (!FlipperSerial.isFlipperAdvertisement(uuids, name)) return
         onFound(FoundFlipper(name, result.rssi, result.device))
@@ -44,16 +48,16 @@ class BleSerialTransport(
     context: Context,
     device: BluetoothDevice,
 ) : FlipperTransport {
-    private val incomingFlow = MutableSharedFlow<ByteArray>(extraBufferCapacity = 64)
-    override val incoming: Flow<ByteArray> = incomingFlow
+    private val incomingChannel = Channel<ByteArray>(Channel.BUFFERED)
+    override val incoming: Flow<ByteArray> = incomingChannel.receiveAsFlow()
     private val credits = CreditWindow()
     private val writeMutex = Mutex()
     private val ready = CompletableDeferred<Unit>()
     private var mtu = 20
-    private var closed = false
+    @Volatile private var closed = false
     private var serialWrite: BluetoothGattCharacteristic? = null
     private var pendingWrite: CompletableDeferred<Unit>? = null
-    private var space: CompletableDeferred<Unit>? = null
+    private val creditUpdates = MutableStateFlow(0L)
     private var gatt: BluetoothGatt? = null
     private var pendingRead: BluetoothGattCharacteristic? = null
     private var readNotificationsEnabled = false
@@ -183,19 +187,25 @@ class BleSerialTransport(
         closed = true
         ready.completeExceptionally(IllegalStateException("closed"))
         pendingWrite?.completeExceptionally(IllegalStateException("closed"))
-        space?.complete(Unit)
+        creditUpdates.value++
+        incomingChannel.close()
+        runCatching { gatt?.disconnect() }
         gatt?.close()
         gatt = null
     }
 
     private fun onValue(characteristic: BluetoothGattCharacteristic, value: ByteArray) {
         when (characteristic.uuid.toString().lowercase()) {
-            FlipperSerial.serialRead -> incomingFlow.tryEmit(value)
+            FlipperSerial.serialRead -> if (incomingChannel.trySend(value.copyOf()).isFailure) {
+                fail(IllegalStateException("Bluetooth receive buffer overflow"))
+                onDisconnected?.invoke()
+            }
             FlipperSerial.flowControl -> {
-                synchronized(credits) { credits.onNotification(value) }
+                synchronized(credits) {
+                    credits.onNotification(value)
+                    creditUpdates.value++
+                }
                 flowCreditsSeen = true
-                space?.complete(Unit)
-                space = null
                 if (readNotificationsEnabled && !ready.isCompleted) ready.complete(Unit)
                 FlipperLog.log { "flow control free space = ${credits.free()}" }
             }
@@ -204,12 +214,12 @@ class BleSerialTransport(
 
     private suspend fun reserve(want: Int): Int {
         while (true) {
+            val observed = creditUpdates.value
             if (closed) throw IllegalStateException("closed")
             val granted = synchronized(credits) { credits.reserve(want, mtu) }
             if (granted > 0) return granted
-            val waiter = CompletableDeferred<Unit>()
-            space = waiter
-            waiter.await()
+            // An update between reserve and suspension is observed immediately.
+            creditUpdates.first { it != observed || closed }
         }
     }
 
@@ -219,7 +229,7 @@ class BleSerialTransport(
         val done = CompletableDeferred<Unit>()
         pendingWrite = done
         val started = if (Build.VERSION.SDK_INT >= 33) {
-            active.writeCharacteristic(characteristic, chunk, BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT) == BluetoothGatt.GATT_SUCCESS
+            active.writeCharacteristic(characteristic, chunk, BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT) == BluetoothStatusCodes.SUCCESS
         } else {
             characteristic.writeType = BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT
             characteristic.value = chunk
@@ -240,7 +250,7 @@ class BleSerialTransport(
         val descriptor = characteristic.getDescriptor(CLIENT_CONFIG)
             ?: run { fail(IllegalStateException("notification descriptor missing")); return }
         if (Build.VERSION.SDK_INT >= 33) {
-            if (gatt.writeDescriptor(descriptor, BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE) != BluetoothGatt.GATT_SUCCESS) {
+            if (gatt.writeDescriptor(descriptor, BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE) != BluetoothStatusCodes.SUCCESS) {
                 fail(IllegalStateException("notification request failed"))
             }
         } else {
@@ -250,9 +260,11 @@ class BleSerialTransport(
     }
 
     private fun fail(error: Exception) {
+        closed = true
         if (!ready.isCompleted) ready.completeExceptionally(error)
         pendingWrite?.completeExceptionally(error)
-        space?.complete(Unit)
+        creditUpdates.value++
+        incomingChannel.close(error)
     }
 
     companion object {

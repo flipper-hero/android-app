@@ -71,6 +71,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import org.json.JSONObject
 
 enum class HeroShortcut { Ask, Battery, Emulate, Send, Stop }
@@ -145,7 +147,7 @@ class HeroModel(private val context: Context) : AppControls {
     var shortcutStatus by mutableStateOf<String?>(null)
     var shortcutButton by mutableStateOf("")
 
-    var requestPermissions: (() -> Unit)? = null
+    var requestPermissions: ((Array<String>, () -> Unit) -> Unit)? = null
     var openCamera: (() -> Unit)? = null
     var voiceContext: Context? = null
 
@@ -172,15 +174,29 @@ class HeroModel(private val context: Context) : AppControls {
     }
     suspend fun auditRecords(limit: Int): List<AuditRecord> = audit.recent(limit)
     private var approvalWaiter: CompletableDeferred<Boolean>? = null
+    private val approvalMutex = Mutex()
     private val gate = ApprovalGate { request ->
-        val waiter = CompletableDeferred<Boolean>()
-        withContext(Dispatchers.Main.immediate) {
-            pending = request
-            nav.showApproval()
-            approvalWaiter = waiter
-            touch()
+        approvalMutex.withLock {
+            val waiter = CompletableDeferred<Boolean>()
+            withContext(Dispatchers.Main.immediate) {
+                pending = request
+                nav.showApproval()
+                approvalWaiter = waiter
+                touch()
+            }
+            try {
+                waiter.await()
+            } finally {
+                withContext(kotlinx.coroutines.NonCancellable + Dispatchers.Main.immediate) {
+                    if (approvalWaiter === waiter) {
+                        pending = null
+                        approvalWaiter = null
+                        nav.denyApproval()
+                        touch()
+                    }
+                }
+            }
         }
-        waiter.await()
     }
     private val llm = object : LlmClient {
         override suspend fun complete(messages: List<ChatMessage>, tools: List<ToolSpec>): ChatMessage {
@@ -196,6 +212,7 @@ class HeroModel(private val context: Context) : AppControls {
     private var scanner: BluetoothLeScanner? = null
     private var scanCallback: FlipperScanCallback? = null
     private var screenJob: Job? = null
+    private var chatJob: Job? = null
     private var firmwareJob: Job? = null
     @Volatile private var firmwareCancel = false
     private var lastDeviceAddress = ""
@@ -261,7 +278,7 @@ class HeroModel(private val context: Context) : AppControls {
     fun scan() {
         if (!permission(android.Manifest.permission.BLUETOOTH_SCAN) || !permission(android.Manifest.permission.BLUETOOTH_CONNECT)) {
             statusMessage = "Bluetooth permission is required"
-            requestPermissions?.invoke()
+            requestPermissions?.invoke(arrayOf(android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT)) { scan() }
             touch()
             return
         }
@@ -420,21 +437,21 @@ class HeroModel(private val context: Context) : AppControls {
 
     fun sendDraft() {
         val text = draft.trim()
-        if (text.isEmpty() || busy) return
+        if (text.isEmpty() || busy || !connected || !keyStored) return
         val images = pendingImage?.let { listOf(it) } ?: emptyList()
         draft = ""
         pendingImage = null
         photoAttached = false
         transcript.add(Transcript("user", text, photo = images.isNotEmpty()))
         busy = true
-        scope.launch {
+        chatJob = scope.launch {
             try {
                 val reply = agent().send(text, images) { event ->
                     when (event) {
                         is AgentEvent.ToolStarted -> transcript.add(Transcript("tool", event.summary, tool = event.name, status = "running"))
                         is AgentEvent.ToolFinished -> {
                             val status = event.result.kind.name
-                            val row = Transcript("tool", event.summary + "\n" + event.result.content.take(600), tool = event.name, status = status)
+                            val row = Transcript("tool", event.summary + "\n" + event.result.content, tool = event.name, status = status)
                             val index = transcript.indexOfLast { it.kind == "tool" && it.tool == event.name && it.status == "running" }
                             if (index >= 0) transcript[index] = row else transcript.add(row)
                             if (event.result.kind == ToolResultKind.ok) noteOperation(event.name, event.arguments)
@@ -539,11 +556,11 @@ class HeroModel(private val context: Context) : AppControls {
     fun listen() {
         val host = voiceContext ?: context
         if (!permission(android.Manifest.permission.RECORD_AUDIO, host)) {
-            requestPermissions?.invoke()
+            requestPermissions?.invoke(arrayOf(android.Manifest.permission.RECORD_AUDIO)) { listen() }
             return
         }
         val input = voice ?: try {
-            VoiceInput(host).also { voice = it }
+            VoiceInput(context).also { voice = it }
         } catch (error: Exception) {
             statusMessage = error.message ?: "Speech input is unavailable"
             touch()
@@ -555,7 +572,7 @@ class HeroModel(private val context: Context) : AppControls {
     fun capturePhoto() {
         val host = voiceContext ?: context
         if (!permission(android.Manifest.permission.CAMERA, host)) {
-            requestPermissions?.invoke()
+            requestPermissions?.invoke(arrayOf(android.Manifest.permission.CAMERA)) { capturePhoto() }
             return
         }
         openCamera?.invoke()
@@ -626,7 +643,7 @@ class HeroModel(private val context: Context) : AppControls {
     }
 
     fun saveKey() {
-        val value = keyDraft.trim()
+        val value = keyDraft.trim().ifEmpty { secrets?.read(provider).orEmpty() }
         val selectedProvider = provider
         val selectedModel = modelId
         val selectedURL = apiBaseURL
@@ -640,7 +657,7 @@ class HeroModel(private val context: Context) : AppControls {
         scope.launch {
             try {
                 val chosen = AIProvider.from(selectedProvider) ?: AIProvider.OpenRouter
-                val reply = CompletingClient(http, value, selectedModel, chosen, selectedURL)
+                val reply = CompletingClient(http, value, selectedModel, chosen, selectedURL, connectionTest = true)
                     .complete(listOf(ChatMessage(ChatRole.user, "Reply with the word ok.")), emptyList())
                 if (reply.content.isNullOrBlank() && reply.toolCalls.isEmpty()) throw ProviderError.EmptyReply()
                 box.store(selectedProvider, value)
@@ -669,7 +686,7 @@ class HeroModel(private val context: Context) : AppControls {
     }
 
     fun chooseProvider(id: String) {
-        if (AIProvider.from(id) == null || provider == id) return
+        if (AIProvider.from(id) == null || provider == id || busy || keySaving) return
         scope.launch {
             savePrefs()
             val (savedModel, savedURL) = prefs.providerSettings(id)
@@ -677,6 +694,7 @@ class HeroModel(private val context: Context) : AppControls {
             modelId = savedModel
             apiBaseURL = savedURL
             keyStored = secrets?.stored(id) == true
+            keyDraft = ""
             availableModels.clear()
             modelListStatus = null
             keyStatus = null
@@ -697,11 +715,13 @@ class HeroModel(private val context: Context) : AppControls {
 
     fun refreshModels() {
         val selectedProvider = provider
+        val selectedURL = apiBaseURL
+        val candidateKey = keyDraft.trim().ifEmpty { secrets?.read(selectedProvider).orEmpty() }
         modelListStatus = "Loading models…"
         availableModels.clear()
         scope.launch {
             try {
-                val models = listModels().sortedBy { it.name.lowercase() }
+                val models = fetchModels(selectedProvider, selectedURL, candidateKey).sortedBy { it.name.lowercase() }
                 if (provider != selectedProvider) return@launch
                 availableModels.addAll(models)
                 modelListStatus = if (availableModels.isEmpty()) "No matching models" else null
@@ -714,6 +734,16 @@ class HeroModel(private val context: Context) : AppControls {
     fun setAutoApprove(enabled: Boolean) {
         autoApproveMedium = enabled
         scope.launch { savePrefs() }
+    }
+
+    fun requestSettingChange(tool: String, enabled: Boolean) {
+        scope.launch {
+            val result = newExecutor(AuditDecision.approved).execute(
+                ToolCall("settings", tool, JSONObject().put("enabled", enabled).toString()),
+            )
+            if (result.kind == ToolResultKind.error || result.kind == ToolResultKind.blocked) statusMessage = result.content
+            touch()
+        }
     }
 
     fun setAutoConnectEnabled(enabled: Boolean) {
@@ -802,10 +832,13 @@ class HeroModel(private val context: Context) : AppControls {
         savePrefs()
     }
 
-    override suspend fun listModels(): List<AIModel> {
-        val key = secrets?.read(provider) ?: throw ProviderError.MissingKey()
-        val chosen = AIProvider.from(provider) ?: AIProvider.OpenRouter
-        val response = http.request(chosen.validatedBaseURL(apiBaseURL).trimEnd('/') + "/models", mapOf("Authorization" to "Bearer $key"))
+    override suspend fun listModels(): List<AIModel> =
+        fetchModels(provider, apiBaseURL, secrets?.read(provider).orEmpty())
+
+    private suspend fun fetchModels(providerID: String, baseURL: String, key: String): List<AIModel> {
+        if (key.isBlank()) throw ProviderError.MissingKey()
+        val chosen = AIProvider.from(providerID) ?: AIProvider.OpenRouter
+        val response = http.request(chosen.validatedBaseURL(baseURL).trimEnd('/') + "/models", mapOf("Authorization" to "Bearer $key"))
         if (response.status !in 200..299) throw ProviderError.ModelsUnavailable()
         val data = JSONObject(response.body.decodeToString()).optJSONArray("data") ?: throw ProviderError.ModelsUnavailable()
         val models = ArrayList<AIModel>()
@@ -819,7 +852,10 @@ class HeroModel(private val context: Context) : AppControls {
     }
 
     override suspend fun testConnection() {
-        val reply = llm.complete(listOf(ChatMessage(ChatRole.user, "Reply with the word ok.")), emptyList())
+        val chosen = AIProvider.from(provider) ?: AIProvider.OpenRouter
+        val key = secrets?.read(provider) ?: throw ProviderError.MissingKey()
+        val reply = CompletingClient(http, key, modelId, chosen, apiBaseURL, connectionTest = true)
+            .complete(listOf(ChatMessage(ChatRole.user, "Reply with the word ok.")), emptyList())
         if (reply.content.isNullOrBlank() && reply.toolCalls.isEmpty()) throw ProviderError.EmptyReply()
     }
 
@@ -897,7 +933,7 @@ class HeroModel(private val context: Context) : AppControls {
                 FlipperUpdateResult.Ok -> {
                     publishFirmwareStatus("Restarting the Flipper into the updater")
                     client.rebootIntoUpdater()
-                    drop(reconnect = false)
+                    drop(reconnect = false, firmwareCompleted = true)
                 }
             }
         } catch (error: kotlinx.coroutines.CancellationException) {
@@ -1020,8 +1056,17 @@ class HeroModel(private val context: Context) : AppControls {
         touch()
     }
 
-    private fun drop(reconnect: Boolean) {
+    private fun drop(reconnect: Boolean, firmwareCompleted: Boolean = false) {
         screenJob?.cancel()
+        chatJob?.cancel()
+        if (!firmwareCompleted) {
+            firmwareCancel = true
+            firmwareJob?.cancel()
+        }
+        approvalWaiter?.complete(false)
+        approvalWaiter = null
+        pending = null
+        nav.denyApproval()
         val closing = rpc
         val link = transport
         rpc = null
@@ -1067,7 +1112,7 @@ class HeroModel(private val context: Context) : AppControls {
 
     private fun startForeground() {
         if (Build.VERSION.SDK_INT >= 33 && !permission(android.Manifest.permission.POST_NOTIFICATIONS)) {
-            requestPermissions?.invoke()
+            requestPermissions?.invoke(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS)) { }
         }
         val intent = Intent(context, ConnectedDeviceService::class.java)
         ContextCompat.startForegroundService(context, intent)
@@ -1122,7 +1167,15 @@ class HeroModel(private val context: Context) : AppControls {
     }
 
     fun shutdown() {
-        scope.cancel()
+        stopScan()
+        val closing = rpc
+        val link = transport
+        scope.launch {
+            runCatching { closing?.stop() }
+            runCatching { link?.close() }
+        }.invokeOnCompletion { scope.cancel() }
+        voice?.destroy()
+        speaker.shutdown()
     }
 }
 

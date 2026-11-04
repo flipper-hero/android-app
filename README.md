@@ -19,28 +19,44 @@ build does not depend on a sibling checkout of the FlipperHero CLI.
 - **Full** includes the engagement tools, raw RPC, GPIO, Bad KB auto-run, and a
   bounded Marauder bridge. The Marauder tool requires the allowlisted
   `/ext/apps/GPIO/marauder_bridge.fap` on the Flipper.
-- **Play** compiles those capabilities out of the APK.
+- **Play** compiles those capabilities out of the APK and app bundle.
 
 Both editions include provider and model selection, chat, file browsing, remote
 control, firmware updates, launcher shortcuts, and a connected-device
 notification. Provider keys are stored in Android's encrypted preferences.
 
+Long conversations are compacted locally while preserving the latest request,
+tool-call batches, and the original transcript. Permission changes that loosen
+the approval policy require held confirmation and are recorded in the audit log.
+The interface supports 15 languages, right-to-left layouts, and tablet navigation.
+See the [privacy policy](PRIVACY.md) for provider data sharing and local storage.
+
 ## Build and test
 
-Use JDK 21 with Android SDK platform 35 and build tools 35.0.0. On Nix systems,
+Requires Android 12 or later. Use JDK 21 with Android SDK platform 36 and build tools 35.0.0. On Nix systems,
 `nix-shell` provides those dependencies. Then run:
 
 ```sh
-./gradlew :flipper-kit:test :agent-kit-full:test testFullDebugUnitTest testPlayDebugUnitTest assembleFullDebug assemblePlayDebug
+./gradlew :flipper-kit:test :agent-kit-full:test testFullDebugUnitTest testPlayDebugUnitTest assembleFullDebug assemblePlayDebug lintPlayRelease bundlePlayRelease
+bash scripts/verify-play.sh app/build/outputs/bundle/playRelease/app-play-release.aab
 ```
 
 Debug APKs are written to `app/build/outputs/apk/full/debug/` and
 `app/build/outputs/apk/play/debug/`. They are development builds, not signed
 release artifacts.
 
+For emulator UI checks, `nix-shell --arg withEmulator true` also supplies an
+Android 16 Google APIs image and the emulator. Create and start an AVD using that
+image, then run `./gradlew connectedPlayDebugAndroidTest`. These checks cover
+setup, approvals, and disconnected chat. They do not verify Bluetooth pairing,
+file transfers, remote control, or firmware updates on a physical Flipper.
+
+The committed translations can be refreshed from an iOS checkout with
+`python3 scripts/sync-localizations.py --ios /path/to/flipper-agent-ios`.
+
 Pushing a `vMAJOR.MINOR.PATCH` tag runs the same checks, signs both release
 variants with the stable project key, and publishes a GitHub prerelease with
-the two APKs and SHA-256 checksums. Release signing material lives in GitHub
+the two APKs, the Play app bundle, and SHA-256 checksums. Release signing material lives in GitHub
 Actions secrets, never in this repository.
 
 ## License
