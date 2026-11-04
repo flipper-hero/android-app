@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"Zgłoś odpowiedź"</string>
+    <string name="report_sent">"Zgłoszenie wysłane"</string>
+    <string name="report_thanks">"Dziękujemy. Sprawdzimy zgłoszoną treść, aby poprawić zabezpieczenia."</string>
+    <string name="report_done">"Gotowe"</string>
+    <string name="report_disclosure">"Wyślij ten fragment, opcjonalny komentarz, dostawcę, model i wersję aplikacji do 2342.ai do poufnej weryfikacji. Usuń wrażliwe dane przed wysłaniem. Zdjęcia, inne wiadomości i klucze API nie są dołączane. Zgłoszenia przechowujemy do 90 dni."</string>
+    <string name="report_excerpt">"Fragment odpowiedzi (edytowalny)"</string>
+    <string name="report_offensive">"Obraźliwa treść"</string>
+    <string name="report_harmful">"Szkodliwe instrukcje"</string>
+    <string name="report_incorrect">"Błąd lub wprowadzanie w błąd"</string>
+    <string name="report_other">"Inne"</string>
+    <string name="report_comment">"Komentarz (opcjonalny)"</string>
+    <string name="report_failed">"Nie udało się wysłać zgłoszenia. Sprawdź połączenie i spróbuj później."</string>
+    <string name="report_sending">"Wysyłanie…"</string>
+    <string name="report_send">"Wyślij zgłoszenie"</string>
+    <string name="usage_analytics">"Statystyki użytkowania"</string>
+    <string name="share_usage">"Udostępniaj statystyki użytkowania"</string>
+    <string name="usage_disclosure">"Opcjonalne statystyki Rybbit na stats.2342.dev pomagają ulepszać FlipperHero. Wysyłamy nazwy ekranów, podstawowe zdarzenia użytkowania, wersję i edycję aplikacji. Losowy ID sesji zmienia się przy każdym ponownym uruchomieniu. Rybbit otrzymuje też adres IP i wersję Androida. Czaty, zdjęcia, nazwy Flippera, pliki i klucze API są pomijane. Domyślnie wyłączone; ustawienie można zmienić w dowolnej chwili."</string>
+</resources>

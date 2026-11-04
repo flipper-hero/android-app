@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"जवाब की रिपोर्ट करें"</string>
+    <string name="report_sent">"रिपोर्ट भेजी गई"</string>
+    <string name="report_thanks">"धन्यवाद। हम रिपोर्ट की गई सामग्री की समीक्षा करके सुरक्षा उपाय बेहतर करेंगे।"</string>
+    <string name="report_done">"हो गया"</string>
+    <string name="report_disclosure">"यह अंश, आपकी वैकल्पिक टिप्पणी, प्रदाता, मॉडल और ऐप संस्करण निजी समीक्षा के लिए 2342.ai को भेजें। भेजने से पहले संवेदनशील जानकारी हटा दें। फ़ोटो, दूसरे संदेश और API कुंजियाँ संलग्न नहीं की जातीं। रिपोर्ट अधिकतम 90 दिनों तक रखी जाती हैं।"</string>
+    <string name="report_excerpt">"चुने गए जवाब का अंश (बदल सकते हैं)"</string>
+    <string name="report_offensive">"आपत्तिजनक सामग्री"</string>
+    <string name="report_harmful">"हानिकारक निर्देश"</string>
+    <string name="report_incorrect">"गलत या भ्रामक"</string>
+    <string name="report_other">"अन्य"</string>
+    <string name="report_comment">"टिप्पणी (वैकल्पिक)"</string>
+    <string name="report_failed">"रिपोर्ट नहीं भेजी जा सकी। कनेक्शन जाँचें और बाद में फिर कोशिश करें।"</string>
+    <string name="report_sending">"भेजा जा रहा है…"</string>
+    <string name="report_send">"रिपोर्ट भेजें"</string>
+    <string name="usage_analytics">"उपयोग के आँकड़े"</string>
+    <string name="share_usage">"उपयोग के आँकड़े साझा करें"</string>
+    <string name="usage_disclosure">"stats.2342.dev पर वैकल्पिक Rybbit आँकड़े FlipperHero को बेहतर बनाने में मदद करते हैं। हम स्क्रीन के नाम, बुनियादी उपयोग घटनाएँ, ऐप संस्करण और एडिशन भेजते हैं। ऐप दोबारा शुरू होने पर रैंडम सत्र ID बदल जाती है। Rybbit को आपका IP पता और Android संस्करण भी मिलता है। चैट, फ़ोटो, Flipper के नाम, फ़ाइलें और API कुंजियाँ नहीं भेजी जातीं। यह सुविधा डिफ़ॉल्ट रूप से बंद है; कभी भी बदल सकते हैं।"</string>
+</resources>

@@ -2,7 +2,7 @@
 
 FlipperHero is published by anycast.io UG (haftungsbeschränkt). Contact: franz@bett.ag.
 
-FlipperHero has no app account, advertising, analytics SDK, or publisher-operated chat backend.
+FlipperHero has no app account or advertising. AI requests go directly to your chosen provider.
 Its Bluetooth device, file browser and remote controls work without an AI provider key.
 
 ## Information stored on your phone
@@ -33,6 +33,34 @@ models and endpoint settings are kept separately for each provider.
 FlipperHero supports OpenRouter, 2342.ai, Blackbit, OrcaRouter, Z.ai, Kimi, Qwen Cloud and MiniMax.
 Provider documentation is linked in the app. Do not include information you are not allowed to
 share with the provider you select.
+
+## Optional usage analytics
+
+Usage analytics are off by default. If you enable “Share usage statistics” in Settings,
+the app sends screen names, basic usage events (app open, completed or failed agent request,
+and submitted content report), app version and edition to our Rybbit service at
+`https://stats.2342.dev`. A random session identifier exists only in app memory and changes
+when the process restarts or you change the setting. It is not an advertising or device ID.
+The service also receives your IP address and an app user agent containing the Android version;
+Rybbit may derive approximate location and device statistics from that request information.
+
+Analytics never include chat messages, photos, provider keys, model IDs, Flipper names,
+Bluetooth addresses, file paths, file contents, tool arguments or raw error messages. You can
+disable analytics at any time. Debug builds do not transmit analytics. This integration uses
+the Rybbit HTTP interface and does not load a third-party analytics SDK.
+
+## Content reports
+
+“Report reply” lets you send an AI reply for private review without leaving the app. The
+editable excerpt, optional comment, selected category, provider, model and app version are sent
+over HTTPS to `https://2342.ai/v1/content-reports`. Review the excerpt and remove sensitive
+information before sending it. Other chat messages, photos and your stored provider key are
+not attached. Reports do not require a 2342.ai account.
+
+Report text and comments are encrypted in backend storage. Only authenticated administrators
+can read reports or update their review status. Reports expire after 90 days and are removed
+by the backend cleanup job. We use reports to review offensive or harmful content and improve
+safeguards. Contact franz@bett.ag about privacy requests concerning a report.
 
 ## Device features and permissions
 

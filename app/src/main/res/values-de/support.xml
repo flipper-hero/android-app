@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">Antwort melden</string>
+    <string name="report_sent">Meldung gesendet</string>
+    <string name="report_thanks">Danke. Wir prüfen den gemeldeten Inhalt und nutzen ihn, um die Schutzmaßnahmen zu verbessern.</string>
+    <string name="report_done">Fertig</string>
+    <string name="report_disclosure">Der folgende Auszug, dein optionaler Kommentar, Anbieter, Modell und die App-Version werden zur vertraulichen Prüfung an 2342.ai gesendet. Entferne sensible Angaben vor dem Senden. Fotos, andere Nachrichten und API-Schlüssel werden nicht angehängt. Meldungen werden bis zu 90 Tage aufbewahrt.</string>
+    <string name="report_excerpt">Ausgewählter Antwortauszug (bearbeitbar)</string>
+    <string name="report_offensive">Anstößiger Inhalt</string>
+    <string name="report_harmful">Schädliche Anweisungen</string>
+    <string name="report_incorrect">Falsch oder irreführend</string>
+    <string name="report_other">Sonstiges</string>
+    <string name="report_comment">Kommentar (optional)</string>
+    <string name="report_failed">Die Meldung konnte nicht gesendet werden. Prüfe deine Verbindung und versuche es später erneut.</string>
+    <string name="report_sending">Wird gesendet…</string>
+    <string name="report_send">Meldung senden</string>
+    <string name="usage_analytics">Nutzungsstatistik</string>
+    <string name="share_usage">Nutzungsstatistik teilen</string>
+    <string name="usage_disclosure">Optionale Rybbit-Statistiken auf stats.2342.dev helfen uns, FlipperHero zu verbessern. Wir senden Bildschirmnamen, grundlegende Nutzungsereignisse, App-Version und Edition. Eine zufällige Sitzungs-ID wird bei jedem App-Neustart erneuert. Rybbit erhält auch deine IP-Adresse und Android-Version. Chat-Texte, Fotos, Flipper-Namen, Dateien und API-Schlüssel werden nicht erfasst. Standardmäßig ausgeschaltet; jederzeit änderbar.</string>
+</resources>

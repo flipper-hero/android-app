@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"Denunciar resposta"</string>
+    <string name="report_sent">"Denúncia enviada"</string>
+    <string name="report_thanks">"Obrigado. Analisaremos o conteúdo denunciado para melhorar as proteções."</string>
+    <string name="report_done">"Concluído"</string>
+    <string name="report_disclosure">"Envie este trecho, seu comentário opcional, o provedor, o modelo e a versão do app para uma análise privada na 2342.ai. Remova dados sensíveis antes de enviar. Fotos, outras mensagens e chaves de API não são anexadas. As denúncias são mantidas por até 90 dias."</string>
+    <string name="report_excerpt">"Trecho da resposta (editável)"</string>
+    <string name="report_offensive">"Conteúdo ofensivo"</string>
+    <string name="report_harmful">"Instruções prejudiciais"</string>
+    <string name="report_incorrect">"Incorreto ou enganoso"</string>
+    <string name="report_other">"Outro"</string>
+    <string name="report_comment">"Comentário (opcional)"</string>
+    <string name="report_failed">"Não foi possível enviar a denúncia. Verifique sua conexão e tente novamente mais tarde."</string>
+    <string name="report_sending">"Enviando…"</string>
+    <string name="report_send">"Enviar denúncia"</string>
+    <string name="usage_analytics">"Estatísticas de uso"</string>
+    <string name="share_usage">"Compartilhar estatísticas de uso"</string>
+    <string name="usage_disclosure">"As estatísticas opcionais do Rybbit em stats.2342.dev ajudam a melhorar o FlipperHero. Enviamos nomes de telas, eventos básicos de uso, versão e edição do app. Um ID aleatório de sessão muda ao reiniciar o app. O Rybbit também recebe seu endereço IP e versão do Android. Chats, fotos, nomes do Flipper, arquivos e chaves de API ficam de fora. Desativado por padrão; altere quando quiser."</string>
+</resources>

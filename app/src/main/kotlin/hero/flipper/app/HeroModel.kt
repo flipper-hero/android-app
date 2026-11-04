@@ -83,9 +83,25 @@ data class Transcript(
     val tool: String = "",
     val status: String = "",
     val photo: Boolean = false,
+    val provider: String = "",
+    val model: String = "",
 )
 
 class HeroModel(private val context: Context) : AppControls {
+    private val analytics = UsageAnalytics(context)
+    var usageAnalyticsEnabled by mutableStateOf(analytics.enabled)
+        private set
+    private val contentReports = ContentReports()
+    fun changeUsageAnalyticsEnabled(enabled: Boolean) {
+        analytics.setEnabled(enabled)
+        usageAnalyticsEnabled = enabled
+    }
+    fun trackScreen(section: HeroSection) { analytics.screen(section) }
+    internal suspend fun reportReply(reply: ReportedReply, category: ContentReports.Category, comment: String): String {
+        val receipt = contentReports.submit(reply, category, comment)
+        analytics.event(UsageAnalytics.Event.report_submitted)
+        return receipt
+    }
     val nav = HeroNav()
     private var revisionState by mutableIntStateOf(0)
     val revision: Int get() = revisionState
@@ -444,6 +460,8 @@ class HeroModel(private val context: Context) : AppControls {
         photoAttached = false
         transcript.add(Transcript("user", text, photo = images.isNotEmpty()))
         busy = true
+        val requestProvider = provider
+        val requestModel = modelId
         chatJob = scope.launch {
             try {
                 val reply = agent().send(text, images) { event ->
@@ -458,11 +476,13 @@ class HeroModel(private val context: Context) : AppControls {
                         }
                     }
                 }
-                transcript.add(Transcript("assistant", reply))
+                transcript.add(Transcript("assistant", reply, provider = requestProvider, model = requestModel))
+                analytics.event(UsageAnalytics.Event.agent_completed)
                 if (readAloud && reply.isNotBlank()) speaker.speak(reply)
             } catch (error: kotlinx.coroutines.CancellationException) {
                 throw error
             } catch (error: Exception) {
+                analytics.event(UsageAnalytics.Event.agent_failed)
                 transcript.add(Transcript("assistant", error.message ?: "The model did not reply."))
             } finally {
                 busy = false
@@ -812,11 +832,13 @@ class HeroModel(private val context: Context) : AppControls {
             apiBaseURL = apiBaseURL,
             engagementActive = engagement.active,
             engagementSummary = if (engagement.active) edition().engagementSummary(engagement.profile) else "off",
+            usageAnalytics = usageAnalyticsEnabled,
         )
     }
 
     override suspend fun setReadAloud(enabled: Boolean) = setReadAloudEnabled(enabled)
     override suspend fun setAutoConnect(enabled: Boolean) = setAutoConnectEnabled(enabled)
+    override suspend fun setUsageAnalytics(enabled: Boolean) = changeUsageAnalyticsEnabled(enabled)
     override suspend fun setYolo(enabled: Boolean) = setYoloEnabled(enabled)
     override suspend fun setYoloAsksAfterReading(enabled: Boolean) = setYoloAsks(enabled)
     override suspend fun setAutoApproveMedium(enabled: Boolean) = setAutoApprove(enabled)

@@ -55,6 +55,7 @@ fun HeroScaffold(model: HeroModel) {
         if (section == HeroSection.Files && model.connected) model.refreshFiles()
         model.watchScreen(section == HeroSection.Remote && model.connected)
     }
+    LaunchedEffect(section, model.usageAnalyticsEnabled) { model.trackScreen(section) }
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val expanded = maxWidth >= 600.dp
         Scaffold(

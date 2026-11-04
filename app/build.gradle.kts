@@ -80,6 +80,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
 
     testImplementation(kotlin("test"))
+    testImplementation("org.json:json:20240303")
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.10.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation("androidx.test:runner:1.6.2")

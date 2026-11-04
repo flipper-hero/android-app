@@ -137,6 +137,11 @@ data class SetAutoConnect(val enabled: Boolean) : CoreCall {
     override val toolName = "set_auto_connect"
     override val summary = if (enabled) L("Connect to the last Flipper on launch") else L("Stop connecting automatically on launch")
 }
+data class SetUsageAnalytics(val enabled: Boolean) : CoreCall {
+    override val toolName = "set_usage_analytics"
+    override val summary = if (enabled) L("Share usage statistics") else L("Stop sharing usage statistics")
+    override val requiresExplicitConsent = enabled
+}
 data class SetYoloMode(val enabled: Boolean) : CoreCall {
     override val toolName = "set_yolo_mode"
     override val summary = if (enabled) L("Turn on YOLO mode: changes, deletes and transmissions run without asking") else L("Turn off YOLO mode")
@@ -287,6 +292,7 @@ object ToolCatalog {
         spec("get_app_settings", "Read the app settings: YOLO mode, approval switches, read-aloud, auto-connect, model, and whether an API key is stored."),
         spec("set_read_aloud", "Turn reading replies aloud on or off.", mapOf("enabled" to ("boolean" to "true to read replies aloud")), listOf("enabled")),
         spec("set_auto_connect", "Turn connecting to the last Flipper on app launch on or off.", mapOf("enabled" to ("boolean" to "true to auto-connect")), listOf("enabled")),
+        spec("set_usage_analytics", "Enable or disable optional Rybbit usage statistics. Enabling always requires explicit user consent. No chat, photos, files or API keys are tracked.", mapOf("enabled" to ("boolean" to "true to share usage statistics")), listOf("enabled")),
         spec("set_yolo_mode", "Turn YOLO mode on or off. Turning it on always shows the user a permission dialog; you cannot enable it yourself.", mapOf("enabled" to ("boolean" to "true to request YOLO mode")), listOf("enabled")),
         spec("set_yolo_asks_after_reading", "Whether YOLO mode still asks after you read content from the Flipper. Turning this off always needs the user's permission.", mapOf("enabled" to ("boolean" to "true to keep asking after reading device content")), listOf("enabled")),
         spec("set_auto_approve_medium", "Skip prompts for medium-risk actions. Turning it on always needs the user's permission.", mapOf("enabled" to ("boolean" to "true to skip medium-risk prompts")), listOf("enabled")),
@@ -347,6 +353,7 @@ object RiskAssessor {
         is PressButtons -> RiskAssessment(RiskLevel.High, listOf(L("presses buttons in whatever app is open, which can start transmissions or delete data")))
         CheckFirmware, is GetAuditLog, GetAppSettings, ListModels -> low(L("read-only"))
         is SetReadAloud, is SetAutoConnect -> low(L("changes a harmless app preference"))
+        is SetUsageAnalytics -> if (call.enabled) RiskAssessment(RiskLevel.Medium, listOf(L("Send screen names and usage events to Rybbit. No chat, photos, files or API keys."))) else low(L("Stop sharing usage statistics"))
         RestartDevice -> RiskAssessment(RiskLevel.Medium, listOf(L("restarts the Flipper; whatever runs on it stops and the connection drops briefly")))
         is SetModel, is SetProvider -> RiskAssessment(RiskLevel.Medium, listOf(L("changes which model provider receives your conversation and file contents")))
         TestConnection -> RiskAssessment(RiskLevel.Medium, listOf(L("sends a paid test message to your model provider")))
@@ -487,6 +494,7 @@ private fun parseCore(name: String, args: JSONObject, edition: AgentEdition): Ag
         "get_app_settings" -> GetAppSettings
         "set_read_aloud" -> SetReadAloud(bool("enabled"))
         "set_auto_connect" -> SetAutoConnect(bool("enabled"))
+        "set_usage_analytics" -> SetUsageAnalytics(bool("enabled"))
         "set_yolo_mode" -> SetYoloMode(bool("enabled"))
         "set_yolo_asks_after_reading" -> SetYoloAsksAfterReading(bool("enabled"))
         "set_auto_approve_medium" -> SetAutoApproveMedium(bool("enabled"))

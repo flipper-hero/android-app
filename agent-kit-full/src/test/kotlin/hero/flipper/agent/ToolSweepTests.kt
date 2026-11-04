@@ -197,6 +197,7 @@ class ToolSweepTests {
             "get_app_settings" to "{}",
             "set_read_aloud" to """{"enabled":true}""",
             "set_auto_connect" to """{"enabled":false}""",
+            "set_usage_analytics" to """{"enabled":false}""",
             "set_yolo_mode" to """{"enabled":false}""",
             "set_yolo_asks_after_reading" to """{"enabled":true}""",
             "set_auto_approve_medium" to """{"enabled":false}""",

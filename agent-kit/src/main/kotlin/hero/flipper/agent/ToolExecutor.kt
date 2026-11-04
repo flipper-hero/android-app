@@ -384,6 +384,7 @@ class ToolExecutor(
             engagement_mode: $engagement
             read_replies_aloud: ${snapshot.readAloud}
             auto_connect_on_launch: ${snapshot.autoConnect}
+            usage_analytics: ${snapshot.usageAnalytics}
             model: ${snapshot.model}
             ai_provider: ${snapshot.provider}
             api_base_url: ${snapshot.apiBaseURL}
@@ -399,6 +400,11 @@ class ToolExecutor(
             val controls = appControls ?: throw CatalogError.Malformed()
             controls.setAutoConnect(call.enabled)
             if (call.enabled) "The app connects to the last Flipper on launch." else "Auto-connect is off."
+        }
+        is SetUsageAnalytics -> {
+            val controls = appControls ?: throw CatalogError.Malformed()
+            controls.setUsageAnalytics(call.enabled)
+            if (call.enabled) "Rybbit usage analytics are on." else "Rybbit usage analytics are off."
         }
         is SetYoloMode -> {
             val controls = appControls ?: throw CatalogError.Malformed()

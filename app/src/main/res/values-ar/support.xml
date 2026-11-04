@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"الإبلاغ عن الرد"</string>
+    <string name="report_sent">"تم إرسال البلاغ"</string>
+    <string name="report_thanks">"شكرًا. سنراجع المحتوى المبلّغ عنه لتحسين إجراءات الحماية."</string>
+    <string name="report_done">"تم"</string>
+    <string name="report_disclosure">"أرسل هذا المقتطف وتعليقك الاختياري والمزوّد والطراز وإصدار التطبيق إلى 2342.ai للمراجعة الخاصة. احذف المعلومات الحساسة قبل الإرسال. لا تُرفق الصور أو الرسائل الأخرى أو مفاتيح API. تُحفظ البلاغات لمدة تصل إلى 90 يومًا."</string>
+    <string name="report_excerpt">"مقتطف الرد المحدد (قابل للتعديل)"</string>
+    <string name="report_offensive">"محتوى مسيء"</string>
+    <string name="report_harmful">"تعليمات ضارة"</string>
+    <string name="report_incorrect">"غير صحيح أو مضلل"</string>
+    <string name="report_other">"أخرى"</string>
+    <string name="report_comment">"تعليق (اختياري)"</string>
+    <string name="report_failed">"تعذر إرسال البلاغ. تحقق من الاتصال وحاول لاحقًا."</string>
+    <string name="report_sending">"جارٍ الإرسال…"</string>
+    <string name="report_send">"إرسال البلاغ"</string>
+    <string name="usage_analytics">"إحصاءات الاستخدام"</string>
+    <string name="share_usage">"مشاركة إحصاءات الاستخدام"</string>
+    <string name="usage_disclosure">"تساعدنا إحصاءات Rybbit الاختيارية على stats.2342.dev في تحسين FlipperHero. نرسل أسماء الشاشات وأحداث الاستخدام الأساسية وإصدار التطبيق ونسخته. يتغير معرّف الجلسة العشوائي عند كل إعادة تشغيل. يتلقى Rybbit أيضًا عنوان IP وإصدار Android. لا تُرسل نصوص الدردشة أو الصور أو أسماء Flipper أو الملفات أو مفاتيح API. الميزة متوقفة افتراضيًا ويمكن تغييرها في أي وقت."</string>
+</resources>

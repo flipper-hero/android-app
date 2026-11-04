@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"Пожаловаться на ответ"</string>
+    <string name="report_sent">"Жалоба отправлена"</string>
+    <string name="report_thanks">"Спасибо. Мы рассмотрим этот материал, чтобы улучшить защитные меры."</string>
+    <string name="report_done">"Готово"</string>
+    <string name="report_disclosure">"Отправьте этот фрагмент, необязательный комментарий, название провайдера, модель и версию приложения в 2342.ai для конфиденциальной проверки. Перед отправкой удалите личные данные. Фотографии, другие сообщения и API-ключи не прикладываются. Жалобы хранятся до 90 дней."</string>
+    <string name="report_excerpt">"Фрагмент ответа (можно изменить)"</string>
+    <string name="report_offensive">"Оскорбительный материал"</string>
+    <string name="report_harmful">"Опасные инструкции"</string>
+    <string name="report_incorrect">"Ошибка или введение в заблуждение"</string>
+    <string name="report_other">"Другое"</string>
+    <string name="report_comment">"Комментарий (необязательно)"</string>
+    <string name="report_failed">"Не удалось отправить жалобу. Проверьте соединение и повторите попытку позже."</string>
+    <string name="report_sending">"Отправка…"</string>
+    <string name="report_send">"Отправить жалобу"</string>
+    <string name="usage_analytics">"Статистика использования"</string>
+    <string name="share_usage">"Делиться статистикой использования"</string>
+    <string name="usage_disclosure">"Необязательная аналитика Rybbit на stats.2342.dev помогает улучшать FlipperHero. Мы отправляем названия экранов, базовые события использования, версию и редакцию приложения. Случайный ID сеанса меняется при каждом перезапуске. Rybbit также получает IP-адрес и версию Android. Тексты чатов, фотографии, имена Flipper, файлы и API-ключи не передаются. По умолчанию выключено; настройку можно изменить в любое время."</string>
+</resources>

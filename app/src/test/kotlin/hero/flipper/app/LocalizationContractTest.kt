@@ -31,6 +31,8 @@ class LocalizationContractTest {
             if (reference == null) reference = keys else assertEquals(reference, keys, folder.name)
             val android = parser.parse(File(folder, "android.xml")).getElementsByTagName("string")
             assertEquals(10, android.length, folder.name)
+            val support = parser.parse(File(folder, "support.xml")).getElementsByTagName("string")
+            assertEquals(17, support.length, folder.name)
         }
     }
 }

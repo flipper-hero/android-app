@@ -62,12 +62,14 @@ data class AppSettingsSnapshot(
     var apiBaseURL: String = "https://openrouter.ai/api/v1",
     var engagementActive: Boolean = false,
     var engagementSummary: String = "off",
+    var usageAnalytics: Boolean = false,
 )
 
 interface AppControls {
     suspend fun settings(): AppSettingsSnapshot
     suspend fun setReadAloud(enabled: Boolean)
     suspend fun setAutoConnect(enabled: Boolean)
+    suspend fun setUsageAnalytics(enabled: Boolean)
     suspend fun setYolo(enabled: Boolean)
     suspend fun setYoloAsksAfterReading(enabled: Boolean)
     suspend fun setAutoApproveMedium(enabled: Boolean)

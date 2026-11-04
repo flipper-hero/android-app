@@ -331,6 +331,7 @@ fun FilesScreen(model: HeroModel, nav: HeroNav) {
 @Composable
 fun AgentScreen(model: HeroModel) {
     val context = LocalContext.current
+    var reportedReply by remember { mutableStateOf<ReportedReply?>(null) }
     val listState = rememberLazyListState()
     LaunchedEffect(model.transcript.size, model.busy) {
         if (model.transcript.isNotEmpty()) listState.animateScrollToItem(model.transcript.lastIndex)
@@ -367,7 +368,9 @@ fun AgentScreen(model: HeroModel) {
                 }
             }
             items(model.transcript.size) { index ->
-                Bubble(model.transcript[index])
+                Bubble(model.transcript[index]) { entry ->
+                    reportedReply = ReportedReply(entry.text, entry.provider, entry.model)
+                }
             }
         }
         if (model.photoAttached) {
@@ -394,10 +397,11 @@ fun AgentScreen(model: HeroModel) {
             }
         }
     }
+    reportedReply?.let { reply -> ReportReplySheet(model, reply) { reportedReply = null } }
 }
 
 @Composable
-private fun Bubble(entry: Transcript) {
+private fun Bubble(entry: Transcript, onReport: (Transcript) -> Unit) {
     val context = LocalContext.current
     SelectionContainer {
     when (entry.kind) {
@@ -417,7 +421,12 @@ private fun Bubble(entry: Transcript) {
             Text(entry.text, color = Ink, fontSize = 13.sp)
         }
         else -> Row(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
-            Text(entry.text, color = Ink, modifier = Modifier.widthIn(max = 320.dp).background(Card, RoundedCornerShape(16.dp)).padding(12.dp))
+            Column {
+                Text(entry.text, color = Ink, modifier = Modifier.widthIn(max = 320.dp).background(Card, RoundedCornerShape(16.dp)).padding(12.dp))
+                if (entry.provider.isNotBlank()) TextButton(onClick = { onReport(entry) }) {
+                    Text(context.getString(R.string.report_reply))
+                }
+            }
         }
     }
     }
@@ -498,6 +507,9 @@ fun SettingsScreen(model: HeroModel) {
             }
         }
         EditionSettings(model)
+        Text(context.getString(R.string.usage_analytics), color = Accent, fontSize = 16.sp)
+        ToggleRow(context.getString(R.string.share_usage), model.usageAnalyticsEnabled) { model.changeUsageAnalyticsEnabled(it) }
+        Text(context.getString(R.string.usage_disclosure), fontSize = 14.sp, color = Ink.copy(alpha = 0.75f))
         TextButton(onClick = { links.openUri("https://github.com/flipper-hero/android-app/blob/main/PRIVACY.md") }) { Text(t(context, "Privacy Policy")) }
         TextButton(onClick = { links.openUri("https://github.com/flipper-hero/android-app/issues") }) { Text(t(context, "Support on GitHub")) }
         TextButton(onClick = {

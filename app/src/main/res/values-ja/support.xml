@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"返信を報告"</string>
+    <string name="report_sent">"報告を送信しました"</string>
+    <string name="report_thanks">"ありがとうございます。報告された内容を確認し、安全対策の改善に役立てます。"</string>
+    <string name="report_done">"完了"</string>
+    <string name="report_disclosure">"以下の抜粋、任意のコメント、プロバイダー、モデル、アプリのバージョンを非公開の確認用に2342.aiへ送信します。送信前に機密情報を削除してください。写真、他のメッセージ、APIキーは添付されません。報告の保存期間は最長90日です。"</string>
+    <string name="report_excerpt">"選択した返信の抜粋（編集可能）"</string>
+    <string name="report_offensive">"不適切な内容"</string>
+    <string name="report_harmful">"有害な指示"</string>
+    <string name="report_incorrect">"誤りや誤解を招く内容"</string>
+    <string name="report_other">"その他"</string>
+    <string name="report_comment">"コメント（任意）"</string>
+    <string name="report_failed">"報告を送信できませんでした。接続を確認し、後でもう一度お試しください。"</string>
+    <string name="report_sending">"送信中…"</string>
+    <string name="report_send">"報告を送信"</string>
+    <string name="usage_analytics">"利用統計"</string>
+    <string name="share_usage">"利用統計を共有"</string>
+    <string name="usage_disclosure">"stats.2342.devの任意のRybbit統計は、FlipperHeroの改善に役立ちます。画面名、基本的な利用イベント、アプリのバージョンとエディションを送信します。ランダムなセッションIDはアプリの再起動ごとに変更されます。RybbitはIPアドレスとAndroidのバージョンも受信します。チャット、写真、Flipper名、ファイル、APIキーは収集しません。初期設定はオフで、いつでも変更できます。"</string>
+</resources>

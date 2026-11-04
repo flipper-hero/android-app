@@ -211,6 +211,7 @@ class FakeAppControls : AppControls {
     override suspend fun settings(): AppSettingsSnapshot = state
     override suspend fun setReadAloud(enabled: Boolean) { state.readAloud = enabled }
     override suspend fun setAutoConnect(enabled: Boolean) { state.autoConnect = enabled }
+    override suspend fun setUsageAnalytics(enabled: Boolean) { state.usageAnalytics = enabled }
     override suspend fun setYolo(enabled: Boolean) { state.yolo = enabled }
     override suspend fun setYoloAsksAfterReading(enabled: Boolean) { state.yoloAsksAfterReading = enabled }
     override suspend fun setAutoApproveMedium(enabled: Boolean) { state.autoApproveMedium = enabled }

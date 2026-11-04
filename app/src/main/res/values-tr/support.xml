@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"Yanıtı bildir"</string>
+    <string name="report_sent">"Bildirim gönderildi"</string>
+    <string name="report_thanks">"Teşekkürler. Bildirilen içeriği inceleyerek koruyucu önlemleri iyileştireceğiz."</string>
+    <string name="report_done">"Bitti"</string>
+    <string name="report_disclosure">"Bu alıntıyı, isteğe bağlı yorumunuzu, sağlayıcıyı, modeli ve uygulama sürümünü özel inceleme için 2342.ai hizmetine gönderin. Göndermeden önce hassas bilgileri kaldırın. Fotoğraflar, diğer mesajlar ve API anahtarları eklenmez. Bildirimler en fazla 90 gün saklanır."</string>
+    <string name="report_excerpt">"Seçilen yanıt alıntısı (düzenlenebilir)"</string>
+    <string name="report_offensive">"Saldırgan içerik"</string>
+    <string name="report_harmful">"Zararlı talimatlar"</string>
+    <string name="report_incorrect">"Yanlış veya yanıltıcı"</string>
+    <string name="report_other">"Diğer"</string>
+    <string name="report_comment">"Yorum (isteğe bağlı)"</string>
+    <string name="report_failed">"Bildirim gönderilemedi. Bağlantınızı kontrol edip daha sonra tekrar deneyin."</string>
+    <string name="report_sending">"Gönderiliyor…"</string>
+    <string name="report_send">"Bildirim gönder"</string>
+    <string name="usage_analytics">"Kullanım istatistikleri"</string>
+    <string name="share_usage">"Kullanım istatistiklerini paylaş"</string>
+    <string name="usage_disclosure">"stats.2342.dev üzerindeki isteğe bağlı Rybbit istatistikleri FlipperHero uygulamasını geliştirmemize yardımcı olur. Ekran adları, temel kullanım olayları, uygulama sürümü ve edisyonu gönderilir. Rastgele oturum kimliği her yeniden başlatmada değişir. Rybbit ayrıca IP adresinizi ve Android sürümünüzü alır. Sohbetler, fotoğraflar, Flipper adları, dosyalar ve API anahtarları gönderilmez. Varsayılan olarak kapalıdır; istediğiniz zaman değiştirebilirsiniz."</string>
+</resources>

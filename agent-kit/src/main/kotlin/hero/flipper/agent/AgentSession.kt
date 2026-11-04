@@ -83,7 +83,8 @@ class AgentSession(
 
     private fun systemMessage(): ChatMessage {
         val inventory = profile?.promptSummary(nonce) ?: ""
-        return ChatMessage(ChatRole.system, edition.systemPrompt(nonce, inventory, engagement))
+        return ChatMessage(ChatRole.system, edition.systemPrompt(nonce, inventory, engagement) +
+            "\nKeep assistance focused on authorized use of the user's device. Do not generate child sexual abuse material, sexual exploitation, sexually explicit content, nudity, graphic violence, hateful abuse, instructions facilitating violence or self-harm, fraud, impersonation, or deceptive behavior. Refuse those requests and offer a safe alternative.")
     }
 
     private fun pruneOldCaptures(archive: List<ChatMessage>): List<ChatMessage> {

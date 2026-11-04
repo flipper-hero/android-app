@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"Signaler la réponse"</string>
+    <string name="report_sent">"Signalement envoyé"</string>
+    <string name="report_thanks">"Merci. Nous examinerons le contenu signalé pour améliorer les protections."</string>
+    <string name="report_done">"Terminé"</string>
+    <string name="report_disclosure">"Envoyez cet extrait, votre commentaire facultatif, le fournisseur, le modèle et la version de l’application à 2342.ai pour un examen privé. Retirez les informations sensibles avant l’envoi. Les photos, autres messages et clés API ne sont pas joints. Les signalements sont conservés jusqu’à 90 jours."</string>
+    <string name="report_excerpt">"Extrait de la réponse (modifiable)"</string>
+    <string name="report_offensive">"Contenu offensant"</string>
+    <string name="report_harmful">"Instructions dangereuses"</string>
+    <string name="report_incorrect">"Incorrect ou trompeur"</string>
+    <string name="report_other">"Autre"</string>
+    <string name="report_comment">"Commentaire (facultatif)"</string>
+    <string name="report_failed">"Impossible d’envoyer le signalement. Vérifiez votre connexion et réessayez plus tard."</string>
+    <string name="report_sending">"Envoi…"</string>
+    <string name="report_send">"Envoyer le signalement"</string>
+    <string name="usage_analytics">"Statistiques d’utilisation"</string>
+    <string name="share_usage">"Partager les statistiques d’utilisation"</string>
+    <string name="usage_disclosure">"Les statistiques Rybbit facultatives sur stats.2342.dev nous aident à améliorer FlipperHero. Nous envoyons les noms des écrans, les événements d’utilisation de base, la version et l’édition de l’application. Un identifiant de session aléatoire change à chaque redémarrage. Rybbit reçoit aussi votre adresse IP et votre version Android. Les conversations, photos, noms du Flipper, fichiers et clés API sont exclus. Désactivé par défaut ; modifiable à tout moment."</string>
+</resources>

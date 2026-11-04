@@ -30,6 +30,9 @@ tool-call batches, and the original transcript. Permission changes that loosen
 the approval policy require held confirmation and are recorded in the audit log.
 The interface supports 15 languages, right-to-left layouts, and tablet navigation.
 See the [privacy policy](PRIVACY.md) for provider data sharing and local storage.
+Replies can be reported from inside the app through the 2342.ai reporting endpoint.
+Rybbit usage statistics are optional and off by default; they exclude chat, photos,
+device identifiers, file contents and provider keys.
 
 ## Build and test
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">"举报回复"</string>
+    <string name="report_sent">"举报已发送"</string>
+    <string name="report_thanks">"谢谢。我们会审核举报内容并改进防护措施。"</string>
+    <string name="report_done">"完成"</string>
+    <string name="report_disclosure">"将以下摘录、可选评论、服务商、模型及应用版本发送至 2342.ai 进行私密审核。发送前请删除敏感信息。不会附加照片、其他消息或 API 密钥。举报最多保留 90 天。"</string>
+    <string name="report_excerpt">"选定回复摘录（可编辑）"</string>
+    <string name="report_offensive">"冒犯性内容"</string>
+    <string name="report_harmful">"有害指令"</string>
+    <string name="report_incorrect">"错误或误导"</string>
+    <string name="report_other">"其他"</string>
+    <string name="report_comment">"评论（可选）"</string>
+    <string name="report_failed">"无法发送举报。请检查网络连接，稍后重试。"</string>
+    <string name="report_sending">"正在发送…"</string>
+    <string name="report_send">"发送举报"</string>
+    <string name="usage_analytics">"使用统计"</string>
+    <string name="share_usage">"分享使用统计"</string>
+    <string name="usage_disclosure">"stats.2342.dev 上的可选 Rybbit 统计帮助我们改进 FlipperHero。我们发送页面名称、基本使用事件、应用版本及版本类型。随机会话 ID 在每次应用重启时更换。Rybbit 还会收到您的 IP 地址和 Android 版本。不会收集聊天文字、照片、Flipper 名称、文件或 API 密钥。默认关闭，可随时更改。"</string>
+</resources>

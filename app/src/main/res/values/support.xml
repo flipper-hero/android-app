@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_reply">Report reply</string>
+    <string name="report_sent">Report sent</string>
+    <string name="report_thanks">Thank you. We will review the reported content and use it to improve safeguards.</string>
+    <string name="report_done">Done</string>
+    <string name="report_disclosure">Send the excerpt below, your optional comment, provider, model and app version to 2342.ai for private review. Remove sensitive details before sending. Photos, other messages and API keys are not attached. Reports are retained for up to 90 days.</string>
+    <string name="report_excerpt">Selected reply excerpt (editable)</string>
+    <string name="report_offensive">Offensive content</string>
+    <string name="report_harmful">Harmful instructions</string>
+    <string name="report_incorrect">Incorrect or misleading</string>
+    <string name="report_other">Other</string>
+    <string name="report_comment">Comment (optional)</string>
+    <string name="report_failed">The report could not be sent. Check your connection and try again later.</string>
+    <string name="report_sending">Sending…</string>
+    <string name="report_send">Send report</string>
+    <string name="usage_analytics">Usage analytics</string>
+    <string name="share_usage">Share usage statistics</string>
+    <string name="usage_disclosure">Optional Rybbit analytics at stats.2342.dev help us improve FlipperHero. We send screen names, basic usage events, app version and edition. A random session ID resets when the app restarts. Rybbit also receives your IP address and Android version. Chat text, photos, Flipper names, files and API keys stay out of analytics. Off by default; change this anytime.</string>
+</resources>
