@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Flipper स्क्रीन"</string>
     <string name="permission_denied">"अनुमति नहीं मिली। आप इसे Android सेटिंग में चालू कर सकते हैं।"</string>
     <string name="ai_data_disclosure">"API कुंजियाँ इस फ़ोन के एन्क्रिप्टेड स्टोरेज में रहती हैं। आपके संदेश, फ़ोटो और एजेंट द्वारा पढ़ी गई फ़ाइलों की सामग्री सीधे आपकी चुनी हुई AI सेवा और उसके मॉडल प्रदाता को भेजी जाती है।"</string>
+    <string name="bluetooth_location_permission">"ब्लूटूथ डिवाइस खोजने के लिए Android 11 को स्थान की अनुमति चाहिए। FlipperHero आपके स्थान का उपयोग नहीं करता।"</string>
+    <string name="bluetooth_location_disabled">"Android में स्थान चालू करें और ब्लूटूथ डिवाइस फिर से खोजें। FlipperHero आपका स्थान नहीं पढ़ता।"</string>
+    <string name="bluetooth_pairing">"Android में पेयरिंग की पुष्टि करें। यदि कोई डायलॉग न दिखे, तो ब्लूटूथ पेयरिंग सूचना खोलें और Flipper पर दिए निर्देशों का पालन करें।"</string>
 </resources>

@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Екран Flipper"</string>
     <string name="permission_denied">"У дозволі відмовлено. Його можна ввімкнути в налаштуваннях Android."</string>
     <string name="ai_data_disclosure">"Ключі API зберігаються в зашифрованому сховищі цього телефона. Ваші повідомлення, фотографії та вміст файлів, прочитаних агентом, надсилаються безпосередньо вибраному ШІ-сервісу та його постачальнику моделей."</string>
+    <string name="bluetooth_location_permission">"Android 11 потребує дозволу на доступ до місцезнаходження для пошуку пристроїв Bluetooth. FlipperHero не використовує ваше місцезнаходження."</string>
+    <string name="bluetooth_location_disabled">"Увімкніть геолокацію Android і повторіть пошук пристроїв Bluetooth. FlipperHero не зчитує ваше місцезнаходження."</string>
+    <string name="bluetooth_pairing">"Підтвердьте сполучення в Android. Якщо діалог не з’явився, відкрийте сповіщення про сполучення Bluetooth і виконайте вказівки на Flipper."</string>
 </resources>

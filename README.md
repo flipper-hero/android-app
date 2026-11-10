@@ -36,7 +36,10 @@ device identifiers, file contents and provider keys.
 
 ## Build and test
 
-Requires Android 12 or later. Use JDK 21 with Android SDK platform 36 and build tools 35.0.0. On Nix systems,
+Requires Android 11 or later. Android 11 requires location permission and Android's
+Location setting for Bluetooth discovery; FlipperHero does not read your location.
+Android 12 and later use Nearby devices permission instead.
+Use JDK 21 with Android SDK platform 36 and build tools 35.0.0. On Nix systems,
 `nix-shell` provides those dependencies. Then run:
 
 ```sh

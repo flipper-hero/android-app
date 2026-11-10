@@ -1,12 +1,17 @@
 package hero.flipper.app
 
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.BluetoothLeScanner
+import android.bluetooth.le.ScanSettings
 import android.content.Context
+import android.content.BroadcastReceiver
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.location.LocationManager
 import android.os.Build
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -14,6 +19,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.core.content.ContextCompat
+import androidx.core.content.IntentCompat
 import hero.flipper.agent.AIModel
 import hero.flipper.agent.AIProvider
 import hero.flipper.agent.AgentEvent
@@ -71,6 +77,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import org.json.JSONObject
@@ -292,9 +299,20 @@ class HeroModel(private val context: Context) : AppControls {
 
     @SuppressLint("MissingPermission")
     fun scan() {
-        if (!permission(android.Manifest.permission.BLUETOOTH_SCAN) || !permission(android.Manifest.permission.BLUETOOTH_CONNECT)) {
-            statusMessage = "Bluetooth permission is required"
-            requestPermissions?.invoke(arrayOf(android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT)) { scan() }
+        val required = if (Build.VERSION.SDK_INT >= 31) {
+            arrayOf(android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT)
+        } else {
+            arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+        if (required.any { !permission(it) }) {
+            statusMessage = if (Build.VERSION.SDK_INT >= 31) "Bluetooth permission is required"
+                else context.getString(R.string.bluetooth_location_permission)
+            requestPermissions?.invoke(required) { scan() }
+            touch()
+            return
+        }
+        if (Build.VERSION.SDK_INT < 31 && context.getSystemService(LocationManager::class.java)?.isLocationEnabled != true) {
+            statusMessage = context.getString(R.string.bluetooth_location_disabled)
             touch()
             return
         }
@@ -318,7 +336,7 @@ class HeroModel(private val context: Context) : AppControls {
         }
         scanCallback = callback
         scanner = adapter.bluetoothLeScanner
-        scanner?.startScan(callback)
+        scanner?.startScan(null, ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY).build(), callback)
         scope.launch {
             delay(15_000)
             stopScan()
@@ -331,12 +349,13 @@ class HeroModel(private val context: Context) : AppControls {
         if (connecting || connected) return
         connecting = true
         connection = "Connecting to ${device.name}"
-        statusMessage = "First time with this Flipper: confirm the same PIN on the phone and on the device."
+        statusMessage = context.getString(R.string.bluetooth_pairing)
         touch()
         scope.launch {
             var opened: BleSerialTransport? = null
             try {
                 stopScan()
+                awaitBond(device.device)
                 val link = BleSerialTransport(context, device.device)
                 opened = link
                 link.awaitReady()
@@ -373,6 +392,36 @@ class HeroModel(private val context: Context) : AppControls {
                 throw error
             } catch (error: Exception) {
                 failConnect(opened, error.message ?: "Connection failed")
+            }
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private suspend fun awaitBond(device: BluetoothDevice) {
+        if (device.bondState == BluetoothDevice.BOND_BONDED) return
+        withTimeout(60_000) {
+            val bonded = CompletableDeferred<Unit>()
+            val receiver = object : BroadcastReceiver() {
+                override fun onReceive(context: Context, intent: Intent) {
+                    val changed = IntentCompat.getParcelableExtra(intent, BluetoothDevice.EXTRA_DEVICE, BluetoothDevice::class.java)
+                    if (changed != device) return
+                    when (intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, BluetoothDevice.BOND_NONE)) {
+                        BluetoothDevice.BOND_BONDED -> bonded.complete(Unit)
+                        BluetoothDevice.BOND_NONE -> if (intent.getIntExtra(BluetoothDevice.EXTRA_PREVIOUS_BOND_STATE, BluetoothDevice.BOND_NONE) == BluetoothDevice.BOND_BONDING) {
+                            bonded.completeExceptionally(IllegalStateException("Pairing failed. Confirm the PIN shown on the Flipper."))
+                        }
+                    }
+                }
+            }
+            ContextCompat.registerReceiver(context, receiver, IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED), ContextCompat.RECEIVER_EXPORTED)
+            try {
+                when (device.bondState) {
+                    BluetoothDevice.BOND_BONDED -> return@withTimeout
+                    BluetoothDevice.BOND_NONE -> check(device.createBond()) { "Pairing failed. Confirm the PIN shown on the Flipper." }
+                }
+                bonded.await()
+            } finally {
+                context.unregisterReceiver(receiver)
             }
         }
     }

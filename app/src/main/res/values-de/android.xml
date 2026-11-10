@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Flipper-Bildschirm"</string>
     <string name="permission_denied">"Berechtigung verweigert. Du kannst sie in den Android-Einstellungen aktivieren."</string>
     <string name="ai_data_disclosure">"API-Schlüssel bleiben im verschlüsselten Speicher dieses Telefons. Deine Nachrichten, Fotos und vom Agenten gelesenen Dateiinhalte werden direkt an deinen ausgewählten KI-Dienst und dessen Modellanbieter gesendet."</string>
+    <string name="bluetooth_location_permission">"Android 11 benötigt die Standortberechtigung, um Bluetooth-Geräte zu finden. FlipperHero verwendet deinen Standort nicht."</string>
+    <string name="bluetooth_location_disabled">"Aktiviere den Android-Standort und suche erneut nach Bluetooth-Geräten. FlipperHero liest deinen Standort nicht aus."</string>
+    <string name="bluetooth_pairing">"Bestätige die Kopplung in Android. Falls kein Dialog erscheint, öffne die Bluetooth-Kopplungsanfrage in den Benachrichtigungen und folge den Anweisungen am Flipper."</string>
 </resources>

@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Écran du Flipper"</string>
     <string name="permission_denied">"Autorisation refusée. Vous pouvez l’activer dans les paramètres Android."</string>
     <string name="ai_data_disclosure">"Les clés API restent dans le stockage chiffré de ce téléphone. Vos messages, photos et contenus de fichiers lus par l’agent sont envoyés directement au service d’IA choisi et à son fournisseur de modèle."</string>
+    <string name="bluetooth_location_permission">"Android 11 exige l’autorisation de localisation pour trouver les appareils Bluetooth. FlipperHero n’utilise pas votre position."</string>
+    <string name="bluetooth_location_disabled">"Activez la localisation Android, puis relancez la recherche Bluetooth. FlipperHero ne lit pas votre position."</string>
+    <string name="bluetooth_pairing">"Confirmez l’association dans Android. Si aucune boîte de dialogue ne s’affiche, ouvrez la notification d’association Bluetooth et suivez les instructions sur le Flipper."</string>
 </resources>

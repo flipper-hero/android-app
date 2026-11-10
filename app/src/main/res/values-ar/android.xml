@@ -10,4 +10,7 @@
     <string name="flipper_screen">"شاشة Flipper"</string>
     <string name="permission_denied">"تم رفض الإذن. يمكنك تفعيله في إعدادات Android."</string>
     <string name="ai_data_disclosure">"تبقى مفاتيح API في مساحة التخزين المشفرة على هذا الهاتف. تُرسل رسائلك وصورك ومحتويات الملفات التي يقرأها المساعد مباشرةً إلى خدمة الذكاء الاصطناعي التي تختارها ومزوّد النماذج الخاص بها."</string>
+    <string name="bluetooth_location_permission">"يتطلب Android 11 إذن الموقع للعثور على أجهزة Bluetooth. لا يستخدم FlipperHero موقعك."</string>
+    <string name="bluetooth_location_disabled">"فعّل الموقع في Android ثم ابحث مجددًا عن أجهزة Bluetooth. لا يقرأ FlipperHero موقعك."</string>
+    <string name="bluetooth_pairing">"أكّد الاقتران في Android. إذا لم يظهر مربع حوار، افتح إشعار اقتران Bluetooth واتبع التعليمات على Flipper."</string>
 </resources>

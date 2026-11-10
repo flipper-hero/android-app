@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Tela do Flipper"</string>
     <string name="permission_denied">"Permissão negada. Você pode ativá-la nas configurações do Android."</string>
     <string name="ai_data_disclosure">"As chaves de API ficam no armazenamento criptografado deste telefone. Suas mensagens, fotos e o conteúdo dos arquivos lidos pelo agente são enviados diretamente ao serviço de IA escolhido e ao provedor do modelo."</string>
+    <string name="bluetooth_location_permission">"O Android 11 exige permissão de localização para encontrar dispositivos Bluetooth. O FlipperHero não usa sua localização."</string>
+    <string name="bluetooth_location_disabled">"Ative a localização do Android e procure dispositivos Bluetooth novamente. O FlipperHero não lê sua localização."</string>
+    <string name="bluetooth_pairing">"Confirme o pareamento no Android. Se nenhuma caixa de diálogo aparecer, abra a notificação de pareamento Bluetooth e siga as instruções no Flipper."</string>
 </resources>

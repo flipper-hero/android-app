@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Flipper の画面"</string>
     <string name="permission_denied">"権限が拒否されました。Android の設定で有効にできます。"</string>
     <string name="ai_data_disclosure">"API キーはこのスマートフォンの暗号化ストレージに保存されます。メッセージ、写真、エージェントが読み取ったファイルの内容は、選択した AI サービスとそのモデルプロバイダーに直接送信されます。"</string>
+    <string name="bluetooth_location_permission">"Android 11 では Bluetooth デバイスの検索に位置情報の権限が必要です。FlipperHero は位置情報を使用しません。"</string>
+    <string name="bluetooth_location_disabled">"Android の位置情報をオンにして、Bluetooth デバイスを再検索してください。FlipperHero は位置情報を取得しません。"</string>
+    <string name="bluetooth_pairing">"Android でペアリングを確認してください。ダイアログが表示されない場合は、Bluetooth のペアリング通知を開き、Flipper の指示に従ってください。"</string>
 </resources>

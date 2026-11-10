@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Flipper screen"</string>
     <string name="permission_denied">"Permission denied. You can enable it in Android Settings."</string>
     <string name="ai_data_disclosure">"API keys stay in encrypted storage on this phone. Your messages, photos and file contents read by the agent are sent directly to your selected AI service and its model provider."</string>
+    <string name="bluetooth_location_permission">"Android 11 requires location permission to find Bluetooth devices. FlipperHero does not use your location."</string>
+    <string name="bluetooth_location_disabled">"Turn on Android Location to find Bluetooth devices, then scan again. FlipperHero does not read your location."</string>
+    <string name="bluetooth_pairing">"Confirm pairing in Android. If no dialog appears, open the Bluetooth pairing notification and follow the instructions on the Flipper."</string>
 </resources>

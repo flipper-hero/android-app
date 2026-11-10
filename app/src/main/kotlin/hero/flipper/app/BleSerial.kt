@@ -32,10 +32,10 @@ data class FoundFlipper(val name: String, val rssi: Int, val device: BluetoothDe
 /** Scan results that look like a Flipper, by advertised service or name. */
 class FlipperScanCallback(private val onFound: (FoundFlipper) -> Unit) : ScanCallback() {
     override fun onScanResult(callbackType: Int, result: ScanResult) {
-        val name = result.scanRecord?.deviceName ?: try { result.device.name } catch (_: SecurityException) { null } ?: return
+        val name = result.scanRecord?.deviceName ?: try { result.device.name } catch (_: SecurityException) { null } ?: ""
         val uuids = result.scanRecord?.serviceUuids?.map { it.uuid.toString() }.orEmpty()
         if (!FlipperSerial.isFlipperAdvertisement(uuids, name)) return
-        onFound(FoundFlipper(name, result.rssi, result.device))
+        onFound(FoundFlipper(name.ifBlank { "Flipper Zero" }, result.rssi, result.device))
     }
 }
 
@@ -66,6 +66,7 @@ class BleSerialTransport(
 
     private val callback = object : BluetoothGattCallback() {
         override fun onConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int) {
+            trace("connection status=$status state=$newState")
             if (status != BluetoothGatt.GATT_SUCCESS) {
                 fail(IllegalStateException("connection failed $status"))
                 onDisconnected?.invoke()
@@ -85,6 +86,7 @@ class BleSerialTransport(
         }
 
         override fun onServicesDiscovered(gatt: BluetoothGatt, status: Int) {
+            trace("services status=$status")
             if (status != BluetoothGatt.GATT_SUCCESS) {
                 fail(IllegalStateException("service discovery failed $status"))
                 return
@@ -104,6 +106,7 @@ class BleSerialTransport(
         }
 
         override fun onDescriptorWrite(gatt: BluetoothGatt, descriptor: BluetoothGattDescriptor, status: Int) {
+            trace("subscription characteristic=${descriptor.characteristic.uuid} status=$status")
             if (status != BluetoothGatt.GATT_SUCCESS) {
                 fail(IllegalStateException("notification setup failed $status"))
                 return
@@ -137,12 +140,14 @@ class BleSerialTransport(
         }
 
         override fun onCharacteristicRead(gatt: BluetoothGatt, characteristic: BluetoothGattCharacteristic, value: ByteArray, status: Int) {
+            trace("read characteristic=${characteristic.uuid} status=$status bytes=${value.size}")
             if (status == BluetoothGatt.GATT_SUCCESS) onValue(characteristic, value)
             else fail(IllegalStateException("flow control read failed $status"))
         }
 
         @Deprecated("legacy callback")
         override fun onCharacteristicRead(gatt: BluetoothGatt, characteristic: BluetoothGattCharacteristic, status: Int) {
+            trace("legacy read characteristic=${characteristic.uuid} status=$status bytes=${characteristic.value?.size ?: 0}")
             if (status == BluetoothGatt.GATT_SUCCESS) onValue(characteristic, characteristic.value ?: return)
             else fail(IllegalStateException("flow control read failed $status"))
         }
@@ -160,7 +165,7 @@ class BleSerialTransport(
     }
 
     suspend fun awaitReady() {
-        withTimeout(20_000) { ready.await() }
+        withTimeout(60_000) { ready.await() }
     }
 
     override suspend fun send(data: ByteArray) {
@@ -249,14 +254,23 @@ class BleSerialTransport(
         }
         val descriptor = characteristic.getDescriptor(CLIENT_CONFIG)
             ?: run { fail(IllegalStateException("notification descriptor missing")); return }
+        val subscription = when {
+            characteristic.properties and BluetoothGattCharacteristic.PROPERTY_NOTIFY != 0 -> BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE
+            characteristic.properties and BluetoothGattCharacteristic.PROPERTY_INDICATE != 0 -> BluetoothGattDescriptor.ENABLE_INDICATION_VALUE
+            else -> { fail(IllegalStateException("characteristic does not support subscriptions")); return }
+        }
         if (Build.VERSION.SDK_INT >= 33) {
-            if (gatt.writeDescriptor(descriptor, BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE) != BluetoothStatusCodes.SUCCESS) {
+            if (gatt.writeDescriptor(descriptor, subscription) != BluetoothStatusCodes.SUCCESS) {
                 fail(IllegalStateException("notification request failed"))
             }
         } else {
-            descriptor.value = BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE
+            descriptor.value = subscription
             if (!gatt.writeDescriptor(descriptor)) fail(IllegalStateException("notification request failed"))
         }
+    }
+
+    private fun trace(message: String) {
+        if (BuildConfig.DEBUG) android.util.Log.d("FlipperBLE", message)
     }
 
     private fun fail(error: Exception) {

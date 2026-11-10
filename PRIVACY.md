@@ -76,6 +76,9 @@ stored by your chosen provider must also be made to that provider under its priv
 
 - Bluetooth permission discovers and connects to your Flipper Zero. Scan results are not used
   to derive your location or sent to the publisher.
+- Android 11 also requires location permission and the system Location setting to discover
+  nearby Bluetooth devices. The app does not request location coordinates or use this
+  permission for tracking. Android 12 and later do not request location permission.
 - Camera permission is requested when you choose to attach a photo to chat. An attached photo
   is sent to the selected AI provider only when you send the message.
 - Microphone permission is requested when you choose voice input. Recognition uses the speech

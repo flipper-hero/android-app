@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Ekran Flippera"</string>
     <string name="permission_denied">"Odmowa uprawnienia. Możesz je włączyć w ustawieniach Androida."</string>
     <string name="ai_data_disclosure">"Klucze API pozostają w zaszyfrowanej pamięci tego telefonu. Twoje wiadomości, zdjęcia i zawartość plików odczytanych przez agenta są wysyłane bezpośrednio do wybranej usługi AI i jej dostawcy modeli."</string>
+    <string name="bluetooth_location_permission">"Android 11 wymaga uprawnienia do lokalizacji, aby znaleźć urządzenia Bluetooth. FlipperHero nie używa Twojej lokalizacji."</string>
+    <string name="bluetooth_location_disabled">"Włącz lokalizację w Androidzie i ponownie wyszukaj urządzenia Bluetooth. FlipperHero nie odczytuje Twojej lokalizacji."</string>
+    <string name="bluetooth_pairing">"Potwierdź parowanie w Androidzie. Jeśli okno się nie pojawi, otwórz powiadomienie o parowaniu Bluetooth i postępuj zgodnie z instrukcjami na Flipperze."</string>
 </resources>

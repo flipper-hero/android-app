@@ -10,4 +10,7 @@
     <string name="flipper_screen">"Flipper ekranı"</string>
     <string name="permission_denied">"İzin reddedildi. Android ayarlarından etkinleştirebilirsiniz."</string>
     <string name="ai_data_disclosure">"API anahtarları bu telefonun şifreli depolamasında kalır. Mesajlarınız, fotoğraflarınız ve aracının okuduğu dosya içerikleri doğrudan seçtiğiniz yapay zekâ hizmetine ve model sağlayıcısına gönderilir."</string>
+    <string name="bluetooth_location_permission">"Android 11, Bluetooth cihazlarını bulmak için konum izni gerektirir. FlipperHero konumunuzu kullanmaz."</string>
+    <string name="bluetooth_location_disabled">"Android konumunu açıp Bluetooth cihazlarını yeniden tarayın. FlipperHero konumunuzu okumaz."</string>
+    <string name="bluetooth_pairing">"Android’de eşleştirmeyi onaylayın. İletişim kutusu görünmezse Bluetooth eşleştirme bildirimini açıp Flipper üzerindeki talimatları izleyin."</string>
 </resources>

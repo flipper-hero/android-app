@@ -226,7 +226,7 @@ fun RemoteScreen(model: HeroModel) {
         }
         return
     }
-    Column(Modifier.fillMaxSize().padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Text(t(context, if (model.screenLive) "LIVE" else "WAITING FOR SCREEN"), color = if (model.screenLive) Ok else Ink.copy(alpha = 0.7f))
         val bitmap = model.screenBitmap
         if (bitmap != null) {
