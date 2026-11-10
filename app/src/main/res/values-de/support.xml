@@ -4,7 +4,7 @@
     <string name="report_sent">Meldung gesendet</string>
     <string name="report_thanks">Danke. Wir prüfen den gemeldeten Inhalt und nutzen ihn, um die Schutzmaßnahmen zu verbessern.</string>
     <string name="report_done">Fertig</string>
-    <string name="report_disclosure">Der folgende Auszug, dein optionaler Kommentar, Anbieter, Modell und die App-Version werden zur vertraulichen Prüfung an 2342.ai gesendet. Entferne sensible Angaben vor dem Senden. Fotos, andere Nachrichten und API-Schlüssel werden nicht angehängt. Meldungen werden bis zu 90 Tage aufbewahrt.</string>
+    <string name="report_disclosure">Der folgende Auszug, dein optionaler Kommentar, Anbieter, Modell und die App-Version werden zur vertraulichen Prüfung an FlipperHero gesendet. Entferne sensible Angaben vor dem Senden. Fotos, andere Nachrichten und API-Schlüssel werden nicht angehängt. Meldungen werden bis zu 90 Tage aufbewahrt.</string>
     <string name="report_excerpt">Ausgewählter Antwortauszug (bearbeitbar)</string>
     <string name="report_offensive">Anstößiger Inhalt</string>
     <string name="report_harmful">Schädliche Anweisungen</string>

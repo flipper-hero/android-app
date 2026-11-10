@@ -6,10 +6,11 @@ screen, and update firmware. Device actions pass through the app's risk checks,
 approval flow, and audit log.
 
 This is the Android counterpart to [FlipperHero for iOS](https://github.com/flipper-hero/ios-app).
-The iOS app is the functional reference. The Android port builds and its unit
-tests pass, but Bluetooth and device operations still need testing on an Android
-phone. A Flipper connected to a development computer by USB is not available to
-this app; the Android transport uses Bluetooth LE.
+The iOS app is the functional reference. Bluetooth pairing, device information,
+SD-card browsing, remote screen and buttons, and the background connection have
+been tested on a Nexus 4 running Android 11. Firmware updates and signal operations
+still need separate hardware tests. A Flipper connected to a development computer by USB
+is not available to this app; the Android transport uses Bluetooth LE.
 
 The RPC protobuf schema is included in `flipper-proto/src/main/proto`, so the
 build does not depend on a sibling checkout of the FlipperHero CLI.
@@ -30,7 +31,7 @@ tool-call batches, and the original transcript. Permission changes that loosen
 the approval policy require held confirmation and are recorded in the audit log.
 The interface supports 15 languages, right-to-left layouts, and tablet navigation.
 See the [privacy policy](PRIVACY.md) for provider data sharing and local storage.
-Replies can be reported from inside the app through the 2342.ai reporting endpoint.
+Replies can be reported from inside the app through the dedicated FlipperHero reporting service.
 Rybbit usage statistics are optional and off by default; they exclude chat, photos,
 device identifiers, file contents and provider keys.
 

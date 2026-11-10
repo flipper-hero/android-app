@@ -11,7 +11,7 @@ internal class ContentReports(private val http: HttpClient = UrlHttp()) {
     enum class Category { offensive, harmful, incorrect, other }
 
     suspend fun submit(reply: ReportedReply, category: Category, comment: String): String {
-        val response = http.request("https://2342.ai/v1/content-reports",
+        val response = http.request("https://flipper-hero.net/api/content-reports",
             mapOf("Content-Type" to "application/json"), payload(reply, category, comment).toString().encodeToByteArray())
         check(response.status in 200..299) { "HTTP ${response.status}" }
         return JSONObject(response.body.decodeToString()).getString("id")

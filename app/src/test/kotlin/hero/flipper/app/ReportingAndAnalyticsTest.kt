@@ -5,8 +5,28 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertFailsWith
 import org.json.JSONObject
+import hero.flipper.agent.HttpClient
+import hero.flipper.agent.HttpResponse
+import kotlinx.coroutines.runBlocking
 
 class ReportingAndAnalyticsTest {
+    @Test fun submitsToFlipperHeroWithoutProviderCredentialsAndRejectsFailedDelivery() = runBlocking<Unit> {
+        var response = HttpResponse(201, "{\"id\":\"receipt\"}".encodeToByteArray())
+        val http = object : HttpClient {
+            override suspend fun request(url: String, headers: Map<String, String>, body: ByteArray?): HttpResponse {
+                assertEquals("https://flipper-hero.net/api/content-reports", url)
+                assertEquals(mapOf("Content-Type" to "application/json"), headers)
+                assertEquals("explicit excerpt", JSONObject(body!!.decodeToString()).getString("content"))
+                return response
+            }
+        }
+        val service = ContentReports(http)
+        val reply = ReportedReply("explicit excerpt", "ai2342", "review-model")
+        assertEquals("receipt", service.submit(reply, ContentReports.Category.other, ""))
+        response = HttpResponse(503, "{}".encodeToByteArray())
+        assertFailsWith<IllegalStateException> { service.submit(reply, ContentReports.Category.other, "") }
+    }
+
     @Test fun reportContainsOnlyExplicitContentAndNoAuthenticationOrArchive() {
         val payload = ContentReports.payload(ReportedReply("selected reply", "ai2342", "review-model"),
             ContentReports.Category.offensive, "review this")

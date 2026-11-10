@@ -53,12 +53,13 @@ the Rybbit HTTP interface and does not load a third-party analytics SDK.
 
 “Report reply” lets you send an AI reply for private review without leaving the app. The
 editable excerpt, optional comment, selected category, provider, model and app version are sent
-over HTTPS to `https://2342.ai/v1/content-reports`. Review the excerpt and remove sensitive
+over HTTPS to `https://flipper-hero.net/api/content-reports`. Review the excerpt and remove sensitive
 information before sending it. Other chat messages, photos and your stored provider key are
-not attached. Reports do not require a 2342.ai account.
+not attached. Reports do not require an account. The service uses the requesting IP address
+temporarily to limit abusive submissions; it is not saved with your report.
 
 Report text and comments are encrypted in backend storage. Only authenticated administrators
-can read reports or update their review status. Reports expire after 90 days and are removed
+can read or delete reports. Reports expire after 90 days and are removed
 by the backend cleanup job. We use reports to review offensive or harmful content and improve
 safeguards. Contact franz@bett.ag about privacy requests concerning a report.
 

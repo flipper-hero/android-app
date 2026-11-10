@@ -4,7 +4,7 @@
     <string name="report_sent">"举报已发送"</string>
     <string name="report_thanks">"谢谢。我们会审核举报内容并改进防护措施。"</string>
     <string name="report_done">"完成"</string>
-    <string name="report_disclosure">"将以下摘录、可选评论、服务商、模型及应用版本发送至 2342.ai 进行私密审核。发送前请删除敏感信息。不会附加照片、其他消息或 API 密钥。举报最多保留 90 天。"</string>
+    <string name="report_disclosure">"将以下摘录、可选评论、服务商、模型及应用版本发送至 FlipperHero 进行私密审核。发送前请删除敏感信息。不会附加照片、其他消息或 API 密钥。举报最多保留 90 天。"</string>
     <string name="report_excerpt">"选定回复摘录（可编辑）"</string>
     <string name="report_offensive">"冒犯性内容"</string>
     <string name="report_harmful">"有害指令"</string>

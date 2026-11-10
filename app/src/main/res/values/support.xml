@@ -4,7 +4,7 @@
     <string name="report_sent">Report sent</string>
     <string name="report_thanks">Thank you. We will review the reported content and use it to improve safeguards.</string>
     <string name="report_done">Done</string>
-    <string name="report_disclosure">Send the excerpt below, your optional comment, provider, model and app version to 2342.ai for private review. Remove sensitive details before sending. Photos, other messages and API keys are not attached. Reports are retained for up to 90 days.</string>
+    <string name="report_disclosure">Send the excerpt below, your optional comment, provider, model and app version to FlipperHero for private review. Remove sensitive details before sending. Photos, other messages and API keys are not attached. Reports are retained for up to 90 days.</string>
     <string name="report_excerpt">Selected reply excerpt (editable)</string>
     <string name="report_offensive">Offensive content</string>
     <string name="report_harmful">Harmful instructions</string>

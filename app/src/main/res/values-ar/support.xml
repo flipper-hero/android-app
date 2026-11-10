@@ -4,7 +4,7 @@
     <string name="report_sent">"تم إرسال البلاغ"</string>
     <string name="report_thanks">"شكرًا. سنراجع المحتوى المبلّغ عنه لتحسين إجراءات الحماية."</string>
     <string name="report_done">"تم"</string>
-    <string name="report_disclosure">"أرسل هذا المقتطف وتعليقك الاختياري والمزوّد والطراز وإصدار التطبيق إلى 2342.ai للمراجعة الخاصة. احذف المعلومات الحساسة قبل الإرسال. لا تُرفق الصور أو الرسائل الأخرى أو مفاتيح API. تُحفظ البلاغات لمدة تصل إلى 90 يومًا."</string>
+    <string name="report_disclosure">"أرسل هذا المقتطف وتعليقك الاختياري والمزوّد والطراز وإصدار التطبيق إلى FlipperHero للمراجعة الخاصة. احذف المعلومات الحساسة قبل الإرسال. لا تُرفق الصور أو الرسائل الأخرى أو مفاتيح API. تُحفظ البلاغات لمدة تصل إلى 90 يومًا."</string>
     <string name="report_excerpt">"مقتطف الرد المحدد (قابل للتعديل)"</string>
     <string name="report_offensive">"محتوى مسيء"</string>
     <string name="report_harmful">"تعليمات ضارة"</string>

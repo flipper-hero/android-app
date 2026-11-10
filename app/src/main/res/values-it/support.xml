@@ -4,7 +4,7 @@
     <string name="report_sent">"Segnalazione inviata"</string>
     <string name="report_thanks">"Grazie. Esamineremo il contenuto segnalato per migliorare le protezioni."</string>
     <string name="report_done">"Fine"</string>
-    <string name="report_disclosure">"Invia questo estratto, il commento facoltativo, il fornitore, il modello e la versione dell’app a 2342.ai per una verifica privata. Rimuovi i dati sensibili prima dell’invio. Foto, altri messaggi e chiavi API non vengono allegati. Le segnalazioni vengono conservate fino a 90 giorni."</string>
+    <string name="report_disclosure">"Invia questo estratto, il commento facoltativo, il fornitore, il modello e la versione dell’app a FlipperHero per una verifica privata. Rimuovi i dati sensibili prima dell’invio. Foto, altri messaggi e chiavi API non vengono allegati. Le segnalazioni vengono conservate fino a 90 giorni."</string>
     <string name="report_excerpt">"Estratto della risposta (modificabile)"</string>
     <string name="report_offensive">"Contenuto offensivo"</string>
     <string name="report_harmful">"Istruzioni dannose"</string>

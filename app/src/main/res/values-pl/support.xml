@@ -4,7 +4,7 @@
     <string name="report_sent">"Zgłoszenie wysłane"</string>
     <string name="report_thanks">"Dziękujemy. Sprawdzimy zgłoszoną treść, aby poprawić zabezpieczenia."</string>
     <string name="report_done">"Gotowe"</string>
-    <string name="report_disclosure">"Wyślij ten fragment, opcjonalny komentarz, dostawcę, model i wersję aplikacji do 2342.ai do poufnej weryfikacji. Usuń wrażliwe dane przed wysłaniem. Zdjęcia, inne wiadomości i klucze API nie są dołączane. Zgłoszenia przechowujemy do 90 dni."</string>
+    <string name="report_disclosure">"Wyślij ten fragment, opcjonalny komentarz, dostawcę, model i wersję aplikacji do FlipperHero do poufnej weryfikacji. Usuń wrażliwe dane przed wysłaniem. Zdjęcia, inne wiadomości i klucze API nie są dołączane. Zgłoszenia przechowujemy do 90 dni."</string>
     <string name="report_excerpt">"Fragment odpowiedzi (edytowalny)"</string>
     <string name="report_offensive">"Obraźliwa treść"</string>
     <string name="report_harmful">"Szkodliwe instrukcje"</string>

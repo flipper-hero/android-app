@@ -4,7 +4,7 @@
     <string name="report_sent">"신고를 보냈습니다"</string>
     <string name="report_thanks">"감사합니다. 신고된 내용을 검토하여 보호 조치를 개선하겠습니다."</string>
     <string name="report_done">"완료"</string>
-    <string name="report_disclosure">"아래 발췌문, 선택 사항인 댓글, 제공업체, 모델 및 앱 버전을 비공개 검토를 위해 2342.ai로 보냅니다. 보내기 전에 민감한 정보를 삭제하세요. 사진, 다른 메시지 및 API 키는 첨부되지 않습니다. 신고는 최대 90일 동안 보관됩니다."</string>
+    <string name="report_disclosure">"아래 발췌문, 선택 사항인 댓글, 제공업체, 모델 및 앱 버전을 비공개 검토를 위해 FlipperHero로 보냅니다. 보내기 전에 민감한 정보를 삭제하세요. 사진, 다른 메시지 및 API 키는 첨부되지 않습니다. 신고는 최대 90일 동안 보관됩니다."</string>
     <string name="report_excerpt">"선택한 답변 발췌문 (수정 가능)"</string>
     <string name="report_offensive">"불쾌한 콘텐츠"</string>
     <string name="report_harmful">"유해한 지침"</string>

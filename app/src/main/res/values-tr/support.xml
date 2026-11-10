@@ -4,7 +4,7 @@
     <string name="report_sent">"Bildirim gönderildi"</string>
     <string name="report_thanks">"Teşekkürler. Bildirilen içeriği inceleyerek koruyucu önlemleri iyileştireceğiz."</string>
     <string name="report_done">"Bitti"</string>
-    <string name="report_disclosure">"Bu alıntıyı, isteğe bağlı yorumunuzu, sağlayıcıyı, modeli ve uygulama sürümünü özel inceleme için 2342.ai hizmetine gönderin. Göndermeden önce hassas bilgileri kaldırın. Fotoğraflar, diğer mesajlar ve API anahtarları eklenmez. Bildirimler en fazla 90 gün saklanır."</string>
+    <string name="report_disclosure">"Bu alıntıyı, isteğe bağlı yorumunuzu, sağlayıcıyı, modeli ve uygulama sürümünü özel inceleme için FlipperHero hizmetine gönderin. Göndermeden önce hassas bilgileri kaldırın. Fotoğraflar, diğer mesajlar ve API anahtarları eklenmez. Bildirimler en fazla 90 gün saklanır."</string>
     <string name="report_excerpt">"Seçilen yanıt alıntısı (düzenlenebilir)"</string>
     <string name="report_offensive">"Saldırgan içerik"</string>
     <string name="report_harmful">"Zararlı talimatlar"</string>

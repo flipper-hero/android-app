@@ -4,7 +4,7 @@
     <string name="report_sent">"報告を送信しました"</string>
     <string name="report_thanks">"ありがとうございます。報告された内容を確認し、安全対策の改善に役立てます。"</string>
     <string name="report_done">"完了"</string>
-    <string name="report_disclosure">"以下の抜粋、任意のコメント、プロバイダー、モデル、アプリのバージョンを非公開の確認用に2342.aiへ送信します。送信前に機密情報を削除してください。写真、他のメッセージ、APIキーは添付されません。報告の保存期間は最長90日です。"</string>
+    <string name="report_disclosure">"以下の抜粋、任意のコメント、プロバイダー、モデル、アプリのバージョンを非公開の確認用にFlipperHeroへ送信します。送信前に機密情報を削除してください。写真、他のメッセージ、APIキーは添付されません。報告の保存期間は最長90日です。"</string>
     <string name="report_excerpt">"選択した返信の抜粋（編集可能）"</string>
     <string name="report_offensive">"不適切な内容"</string>
     <string name="report_harmful">"有害な指示"</string>
