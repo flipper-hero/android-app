@@ -9,6 +9,18 @@ import kotlinx.coroutines.test.runTest
 
 class ParityPersistenceTests {
     @Test
+    fun ai2342ChatBoundsOutputInsteadOfUsingTheGatewayDefault() {
+        val wire = ChatCompletionsClient("test", "gpt-4.1-mini", AIProvider.Ai2342)
+        val messages = listOf(ChatMessage(ChatRole.user, "Read battery"))
+        val chat = org.json.JSONObject(wire.makeRequestBody(messages, ToolCatalog.specs(StoreEdition)).decodeToString())
+        assertEquals(8192, chat.getInt("max_tokens"))
+        assertTrue(chat.getJSONArray("tools").length() > 0)
+        wire.connectionTest = true
+        val probe = org.json.JSONObject(wire.makeRequestBody(messages, emptyList()).decodeToString())
+        assertEquals(1024, probe.getInt("max_tokens"))
+    }
+
+    @Test
     fun providerCredentialsAreNotForwardedThroughRedirects() = runTest {
         val forwarded = java.util.concurrent.atomic.AtomicBoolean(false)
         val server = com.sun.net.httpserver.HttpServer.create(java.net.InetSocketAddress("127.0.0.1", 0), 0)

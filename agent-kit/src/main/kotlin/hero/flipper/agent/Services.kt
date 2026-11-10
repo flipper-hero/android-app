@@ -210,6 +210,7 @@ class ChatCompletionsClient(
             wire.put(item)
         }
         val body = JSONObject().put("model", model).put("messages", wire)
+        if (provider == AIProvider.Ai2342) body.put("max_tokens", 8192)
         if (provider == AIProvider.OpenRouter) body.put("temperature", 0.2)
         if (provider == AIProvider.Minimax) body.put("reasoning_split", true)
         if (connectionTest) {
